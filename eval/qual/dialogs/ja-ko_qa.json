@@ -1,0 +1,16 @@
+{"pair": "ja-ko", "domain": "qa", "turns": [
+  {"spk": "A", "lang": "ja", "text": "ご発表ありがとうございました。大変興味深く拝聴しました。一点お伺いしたいんですが、シリコン負極の表面に塗ったコーティング層の厚さはどのくらいでしょうか？", "ref": "발표 감사합니다. 매우 흥미롭게 들었습니다. 한 가지 여쭤보고 싶은데요, 실리콘 음극 표면에 입힌 코팅층의 두께는 어느 정도인가요?", "kind": "long", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "약 20나노미터 정도입니다.", "ref": "約20ナノメートルほどです。", "kind": "short", "ctx": true, "ctx_note": "The 20 nm is the coating layer thickness asked about in the previous question."},
+  {"spk": "B", "lang": "ko", "text": "처음에는 50나노미터로 시작했는데, 너무 두꺼우면 리튬 이온이 잘 통과하지 못해서 용량이 떨어졌습니다. 그래서 여러 번 조정해서 지금 두께로 정했습니다.", "ref": "最初は50ナノメートルで始めたんですが、厚すぎるとリチウムイオンがうまく通過できず、容量が落ちてしまいました。それで何度も調整して、今の厚さに決めました。", "kind": "long", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "なるほど。", "ref": "그렇군요.", "kind": "short", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "では、その厚さで何サイクルまで評価されましたか？", "ref": "그럼 그 두께로 몇 사이클까지 평가하셨나요?", "kind": "mid", "ctx": true, "ctx_note": "'その厚さ' is the 20 nm coating thickness chosen by the presenter."},
+  {"spk": "B", "lang": "ko", "text": "500사이클까지 했고, 용량 유지율은 85퍼센트였습니다.", "ref": "500サイクルまで行いまして、容量維持率は85パーセントでした。", "kind": "mid", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "ありがとうございます。もう一つ質問なんですが、比較対象のコーティングなしのサンプルは、同じ条件で何パーセントだったんでしょうか？", "ref": "감사합니다. 질문이 하나 더 있는데요, 비교 대상인 코팅 없는 샘플은 같은 조건에서 용량 유지율이 몇 퍼센트였나요?", "kind": "long", "ctx": true, "ctx_note": "'何パーセント' means capacity retention after 500 cycles from the previous answer."},
+  {"spk": "B", "lang": "ko", "text": "60퍼센트 정도였습니다.", "ref": "60パーセントくらいでした。", "kind": "short", "ctx": true, "ctx_note": "60% is the uncoated sample's capacity retention under the same conditions."},
+  {"spk": "A", "lang": "ja", "text": "かなり差がありますね。", "ref": "차이가 꽤 크네요.", "kind": "short", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "네, 저희도 그 부분이 가장 중요한 결과라고 보고 있습니다. 다만 아직 실험실 규모의 셀이라서, 실제 크기의 셀에서도 같은 효과가 나올지는 앞으로 확인해야 합니다.", "ref": "はい、私たちもその点が最も重要な結果だと考えています。ただ、まだ実験室規模のセルなので、実サイズのセルでも同じ効果が出るかは今後確認する必要があります。", "kind": "long", "ctx": true, "ctx_note": "'그 부분' is the 85% vs 60% retention gap A just remarked on."},
+  {"spk": "A", "lang": "ja", "text": "コーティングを入れることで、材料費はどのくらい上がりますか？", "ref": "코팅을 넣으면 재료비는 어느 정도 올라가나요?", "kind": "mid", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "전체 셀 비용으로 보면 3퍼센트 정도 늘어나는 수준입니다.", "ref": "セル全体のコストで見ると、3パーセントほど増える程度です。", "kind": "mid", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "それなら十分実用的ですね。最初にお伺いした厚さの件ですが、量産で20ナノメートルを均一に塗るのは難しくないでしょうか？", "ref": "그 정도면 충분히 실용적이네요. 처음에 여쭤본 두께 말인데요, 양산에서 20나노미터를 균일하게 입히는 건 어렵지 않을까요?", "kind": "long", "ctx": true, "ctx_note": "Returns to the coating-thickness topic from the first question after the cost digression."},
+  {"spk": "B", "lang": "ko", "text": "네, 그게 바로 다음 과제입니다.", "ref": "はい、それがまさに次の課題です。", "kind": "mid", "ctx": true, "ctx_note": "'그게' is uniform 20 nm coating in mass production."}
+]}

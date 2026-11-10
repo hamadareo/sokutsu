@@ -1,0 +1,20 @@
+{
+  "pair": "ja-en",
+  "domain": "chat",
+  "turns": [
+    {"spk": "A", "lang": "ja", "text": "週末、何してたんですか？", "ref": "What did you do over the weekend?", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "Well, my older sister came to visit with her two kids, so we took them to the aquarium on Saturday. It was packed, but the kids absolutely loved the penguin feeding. On Sunday we just stayed home and ordered pizza.", "ref": "えーと、姉が子ども二人を連れて遊びに来たので、土曜日はみんなで水族館に行きました。すごく混んでいましたが、子どもたちはペンギンのエサやりが大好きでした。日曜日は家でゆっくりして、ピザを頼みました。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "へえ、いいですね。", "ref": "Oh, that sounds nice.", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "お姉さんは近くに住んでるんですか？", "ref": "Does your sister live nearby?", "kind": "mid", "ctx": true, "ctx_note": "お姉さん refers to B's older sister mentioned earlier, so it must become 'your sister'."},
+    {"spk": "B", "lang": "en", "text": "No, she lives about three hours away by train, so they only come a couple of times a year.", "ref": "いえ、電車で3時間くらいかかるところに住んでいるので、年に2回くらいしか来ないんです。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "そうなんですね。私は土曜に友達と、新しくできたラーメン屋に行ったんですけど、一時間も並びました。でも、並ぶ価値はありましたよ。", "ref": "I see. On Saturday I went with a friend to a ramen place that just opened, and we waited in line for a whole hour. But it was worth the wait.", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "Which one?", "ref": "どこのお店ですか？", "kind": "short", "ctx": true, "ctx_note": "'Which one' asks which ramen shop, so Japanese needs お店 or ラーメン屋."},
+    {"spk": "A", "lang": "ja", "text": "駅の北口の、本屋の隣にできたところです。", "ref": "It's the one that opened next to the bookstore by the north exit of the station.", "kind": "mid", "ctx": true, "ctx_note": "Zero subject is the new ramen shop; English needs 'It's the one that opened...'."},
+    {"spk": "B", "lang": "en", "text": "Oh, I've walked past it, but the line was always way too long.", "ref": "ああ、あのお店の前は通ったことがあるんですけど、いつも行列が長すぎて。", "kind": "mid", "ctx": true, "ctx_note": "'it' is the ramen shop by the north exit; Japanese should say あのお店."},
+    {"spk": "A", "lang": "ja", "text": "平日の開店直後なら、そんなに混んでないらしいですよ。よかったら、今度一緒に行きませんか？", "ref": "Apparently it's not that crowded right after it opens on weekdays. If you like, why don't we go together sometime?", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "Sure, I'd love to.", "ref": "いいですね、ぜひ行きたいです。", "kind": "short", "ctx": true, "ctx_note": "Ellipsis of 'go to the ramen shop together'; Japanese needs the verb 行きたい."},
+    {"spk": "B", "lang": "en", "text": "By the way, are you still planning that trip to Hokkaido next month? I remember you mentioned you were a bit worried about the weather up there.", "ref": "ところで、来月の北海道旅行はまだ行く予定ですか？向こうの天気が少し心配だと言っていたのを覚えていて。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "はい、行きます。でも雪が心配なので、レンタカーはやめて、電車で回ることにしました。", "ref": "Yes, I'm still going. But since I'm worried about the snow, I decided to skip the rental car and get around by train instead.", "kind": "long", "ctx": true, "ctx_note": "行きます answers whether A is still taking the Hokkaido trip: 'Yes, I'm still going.'"},
+    {"spk": "B", "lang": "en", "text": "Good call.", "ref": "それが賢明ですね。", "kind": "short", "ctx": false, "ctx_note": ""}
+  ]
+}

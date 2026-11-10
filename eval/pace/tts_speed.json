@@ -1,0 +1,331 @@
+[
+ {
+  "lang": "ja",
+  "voice": "voicevox:13",
+  "speed": 1.0,
+  "units_per_s": 6.55,
+  "err": 8.1
+ },
+ {
+  "lang": "ja",
+  "voice": "voicevox:13",
+  "speed": 1.25,
+  "units_per_s": 8.16,
+  "err": 10.8
+ },
+ {
+  "lang": "ja",
+  "voice": "voicevox:13",
+  "speed": 1.5,
+  "units_per_s": 9.85,
+  "err": 16.5
+ },
+ {
+  "lang": "ja",
+  "voice": "voicevox:13",
+  "speed": 1.75,
+  "units_per_s": 11.43,
+  "err": 23.5
+ },
+ {
+  "lang": "ja",
+  "voice": "voicevox:13",
+  "speed": 2.0,
+  "units_per_s": 13.0,
+  "err": 37.3
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 1.0,
+  "units_per_s": 5.61,
+  "err": 6.5
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 1.25,
+  "units_per_s": 6.93,
+  "err": 7.3
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 1.5,
+  "units_per_s": 8.0,
+  "err": 6.9
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 1.75,
+  "units_per_s": 9.61,
+  "err": 9.2
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 2.0,
+  "units_per_s": 10.97,
+  "err": 11.5
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 2.5,
+  "units_per_s": 12.79,
+  "err": 15.0
+ },
+ {
+  "lang": "ja",
+  "voice": "say:Kyoko",
+  "speed": 3.0,
+  "units_per_s": 13.93,
+  "err": 21.9
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 1.0,
+  "units_per_s": 4.3,
+  "err": 7.7
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 1.25,
+  "units_per_s": 5.11,
+  "err": 6.6
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 1.5,
+  "units_per_s": 7.21,
+  "err": 22.0
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 1.75,
+  "units_per_s": 8.06,
+  "err": 33.5
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 2.0,
+  "units_per_s": 9.05,
+  "err": 46.7
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 2.5,
+  "units_per_s": 10.62,
+  "err": 63.7
+ },
+ {
+  "lang": "zh",
+  "voice": "kokoro:45",
+  "speed": 3.0,
+  "units_per_s": 11.61,
+  "err": 63.2
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 1.0,
+  "units_per_s": 4.63,
+  "err": 1.6
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 1.25,
+  "units_per_s": 5.71,
+  "err": 1.6
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 1.5,
+  "units_per_s": 6.6,
+  "err": 1.6
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 1.75,
+  "units_per_s": 7.93,
+  "err": 1.6
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 2.0,
+  "units_per_s": 9.06,
+  "err": 1.6
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 2.5,
+  "units_per_s": 10.55,
+  "err": 4.4
+ },
+ {
+  "lang": "zh",
+  "voice": "say:Tingting",
+  "speed": 3.0,
+  "units_per_s": 11.5,
+  "err": 4.4
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 1.0,
+  "units_per_s": 2.86,
+  "err": 5.6
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 1.25,
+  "units_per_s": 3.33,
+  "err": 7.3
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 1.5,
+  "units_per_s": 4.58,
+  "err": 23.4
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 1.75,
+  "units_per_s": 4.86,
+  "err": 27.4
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 2.0,
+  "units_per_s": 5.17,
+  "err": 41.1
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 2.5,
+  "units_per_s": 5.79,
+  "err": 55.6
+ },
+ {
+  "lang": "en",
+  "voice": "kokoro:21",
+  "speed": 3.0,
+  "units_per_s": 6.15,
+  "err": 60.5
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 1.0,
+  "units_per_s": 2.66,
+  "err": 5.6
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 1.25,
+  "units_per_s": 3.28,
+  "err": 7.3
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 1.5,
+  "units_per_s": 3.79,
+  "err": 6.5
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 1.75,
+  "units_per_s": 4.56,
+  "err": 8.1
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 2.0,
+  "units_per_s": 5.2,
+  "err": 9.7
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 2.5,
+  "units_per_s": 6.06,
+  "err": 16.1
+ },
+ {
+  "lang": "en",
+  "voice": "say:Samantha",
+  "speed": 3.0,
+  "units_per_s": 6.6,
+  "err": 22.6
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 1.0,
+  "units_per_s": 5.75,
+  "err": 9.3
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 1.25,
+  "units_per_s": 7.09,
+  "err": 11.0
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 1.5,
+  "units_per_s": 8.2,
+  "err": 8.8
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 1.75,
+  "units_per_s": 9.85,
+  "err": 12.8
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 2.0,
+  "units_per_s": 11.25,
+  "err": 15.4
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 2.5,
+  "units_per_s": 13.1,
+  "err": 26.0
+ },
+ {
+  "lang": "ko",
+  "voice": "say:Yuna",
+  "speed": 3.0,
+  "units_per_s": 14.28,
+  "err": 43.2
+ }
+]

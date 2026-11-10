@@ -1,0 +1,20 @@
+{
+  "pair": "ja-en",
+  "domain": "qa",
+  "turns": [
+    {"spk": "B", "lang": "en", "text": "Thank you for the interesting talk. I have a question about your dataset.", "ref": "興味深いご発表をありがとうございました。データセットについて質問があります。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "You mentioned that you recorded about 40 hours of speech from older adults. How many speakers were included, and were they all recorded in the same environment, or did you also collect data in their homes?", "ref": "高齢者の音声を約40時間収録したとおっしゃっていましたが、話者は何名だったのでしょうか。また、全員同じ環境で収録したのですか、それとも自宅でもデータを集めたのですか？", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "えーと、話者は全部で62名です。収録はほとんど施設の静かな部屋で行いましたが、そのうち12名は自宅でも録音しました。", "ref": "Well, there were 62 speakers in total. Most of the recording was done in a quiet room at the facility, but 12 of them were also recorded at home.", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "I see.", "ref": "なるほど。", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "And did the home recordings perform worse?", "ref": "それで、自宅で録音したデータの方が認識精度は低かったのでしょうか？", "kind": "mid", "ctx": true, "ctx_note": "'home recordings' are the 12 speakers' at-home data and 'perform' means ASR accuracy."},
+    {"spk": "A", "lang": "ja", "text": "はい、そうです。文字誤り率で見ると、だいたい3ポイントほど悪くなりました。主な原因は、テレビの音などの背景雑音だと考えています。", "ref": "Yes, they did. In terms of character error rate, they were about 3 points worse. We think the main cause is background noise, such as the sound of a TV.", "kind": "long", "ctx": true, "ctx_note": "Zero subject is the home recordings; English needs 'they did' / 'they were worse'."},
+    {"spk": "B", "lang": "en", "text": "Have you tried any kind of noise suppression as a preprocessing step?", "ref": "前処理として、何らかの雑音抑圧は試されましたか？", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "いえ、まだです。", "ref": "No, we haven't tried that yet.", "kind": "short", "ctx": true, "ctx_note": "Answers whether noise suppression was tried; needs 'we haven't tried that yet'."},
+    {"spk": "A", "lang": "ja", "text": "次の実験でそれを入れる予定です。ただ、高齢者の声は弱いので、雑音と一緒に声まで消してしまわないか心配しています。", "ref": "We plan to add it in our next experiment. But since older people's voices are weak, we're worried it might remove the speech along with the noise.", "kind": "long", "ctx": true, "ctx_note": "それ refers to noise suppression; the zero subject of 消してしまう is the noise suppression."},
+    {"spk": "B", "lang": "en", "text": "That makes sense, since older speakers often have lower volume and more breathiness.", "ref": "確かにそうですね。高齢の話者は声量が小さく、息漏れも多いことがよくありますから。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "One more question: why did the fine-tuned model improve so much for speakers over 80 but hardly at all for the 65 to 70 group?", "ref": "もう一つ質問です。ファインチューニングしたモデルは、80歳以上の話者では大きく改善したのに、65歳から70歳のグループではほとんど改善しなかったのはなぜでしょうか？", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "その年代は、もともとベースラインのモデルでも誤りが少なかったんです。なので、改善の余地があまりなかったのだと思います。", "ref": "For that age group, the baseline model already made few errors to begin with. So I think there just wasn't much room for improvement.", "kind": "long", "ctx": true, "ctx_note": "その年代 refers to the 65 to 70 group from the question."},
+    {"spk": "B", "lang": "en", "text": "Right, a ceiling effect.", "ref": "なるほど、天井効果ですね。", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "はい、まさにそれです。", "ref": "Yes, that's exactly it.", "kind": "short", "ctx": true, "ctx_note": "それ points to the ceiling effect B just named."}
+  ]
+}

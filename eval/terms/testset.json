@@ -1,0 +1,2437 @@
+[
+ {
+  "id": "ai-01",
+  "domain": "ai",
+  "texts": {
+   "ja": "このモデルは深層学習を使って画像を分類します。",
+   "en": "This model uses deep learning to classify images.",
+   "zh": "这个模型使用深度学习对图像进行分类。",
+   "ko": "이 모델은 딥러닝을 사용해서 이미지를 분류합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "深層学習|ディープラーニング",
+    "en": "deep learning",
+    "zh": "深度学习",
+    "ko": "딥러닝|심층 학습|심층학습"
+   },
+   {
+    "kind": "term",
+    "ja": "分類",
+    "en": "classify|classification|classifies",
+    "zh": "分类",
+    "ko": "분류"
+   }
+  ]
+ },
+ {
+  "id": "ai-02",
+  "domain": "ai",
+  "texts": {
+   "ja": "LLMのファインチューニングにはGPUが8枚必要です。",
+   "en": "We need eight GPUs to fine-tune the LLM.",
+   "zh": "微调这个LLM需要八块GPU。",
+   "ko": "LLM을 파인튜닝하려면 GPU 8개가 필요합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "LLM|大規模言語モデル",
+    "en": "LLM|large language model",
+    "zh": "LLM|大语言模型|大型语言模型",
+    "ko": "LLM|대규모 언어 모델|거대 언어 모델"
+   },
+   {
+    "kind": "term",
+    "ja": "ファインチューニング|微調整",
+    "en": "fine-tun|finetun",
+    "zh": "微调",
+    "ko": "파인튜닝|미세 조정|미세조정"
+   },
+   {
+    "kind": "acronym",
+    "ja": "GPU",
+    "en": "GPU",
+    "zh": "GPU|显卡",
+    "ko": "GPU"
+   }
+  ]
+ },
+ {
+  "id": "ai-03",
+  "domain": "ai",
+  "texts": {
+   "ja": "ニューラルネットワークの過学習を防ぐために、ドロップアウトを入れました。",
+   "en": "We added dropout to prevent the neural network from overfitting.",
+   "zh": "我们加入了Dropout来防止神经网络过拟合。",
+   "ko": "신경망의 과적합을 막기 위해 드롭아웃을 넣었습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "ニューラルネットワーク|神経回路網",
+    "en": "neural network",
+    "zh": "神经网络",
+    "ko": "신경망|뉴럴 네트워크|뉴럴네트워크"
+   },
+   {
+    "kind": "term",
+    "ja": "過学習|過剰適合",
+    "en": "overfit",
+    "zh": "过拟合",
+    "ko": "과적합|오버피팅"
+   },
+   {
+    "kind": "term",
+    "ja": "ドロップアウト",
+    "en": "dropout",
+    "zh": "Dropout|随机失活|丢弃法",
+    "ko": "드롭아웃|dropout"
+   }
+  ]
+ },
+ {
+  "id": "ai-04",
+  "domain": "ai",
+  "texts": {
+   "ja": "NLPの研究では、今はTransformerが主流になっています。",
+   "en": "In NLP research, the Transformer architecture has now become the mainstream.",
+   "zh": "在NLP研究中，Transformer现在已经成为主流。",
+   "ko": "NLP 연구에서는 지금 트랜스포머가 주류가 되었습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "NLP|自然言語処理",
+    "en": "NLP|natural language processing",
+    "zh": "NLP|自然语言处理",
+    "ko": "NLP|자연어 처리|자연어처리"
+   },
+   {
+    "kind": "name",
+    "ja": "Transformer|トランスフォーマー",
+    "en": "Transformer",
+    "zh": "Transformer",
+    "ko": "트랜스포머|Transformer"
+   }
+  ]
+ },
+ {
+  "id": "ai-05",
+  "domain": "ai",
+  "texts": {
+   "ja": "推論のレイテンシを下げるために、モデルを量子化しました。",
+   "en": "We quantized the model to reduce inference latency.",
+   "zh": "为了降低推理延迟，我们对模型进行了量化。",
+   "ko": "추론 지연 시간을 줄이기 위해 모델을 양자화했습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "推論",
+    "en": "inference",
+    "zh": "推理",
+    "ko": "추론"
+   },
+   {
+    "kind": "term",
+    "ja": "遅延|レイテンシ",
+    "en": "latency|delay",
+    "zh": "延迟|时延",
+    "ko": "지연 시간|지연|레이턴시"
+   },
+   {
+    "kind": "term",
+    "ja": "量子化",
+    "en": "quantiz",
+    "zh": "量化",
+    "ko": "양자화"
+   }
+  ]
+ },
+ {
+  "id": "ai-06",
+  "domain": "ai",
+  "texts": {
+   "ja": "CNNは画像認識に、RNNは時系列データに向いています。",
+   "en": "CNNs are suited to image recognition, and RNNs to time-series data.",
+   "zh": "CNN适合图像识别，RNN适合时间序列数据。",
+   "ko": "CNN은 이미지 인식에, RNN은 시계열 데이터에 적합합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "CNN|畳み込みニューラルネットワーク",
+    "en": "CNN|convolutional neural network",
+    "zh": "CNN|卷积神经网络",
+    "ko": "CNN|합성곱 신경망"
+   },
+   {
+    "kind": "acronym",
+    "ja": "RNN|再帰型ニューラルネットワーク",
+    "en": "RNN|recurrent neural network",
+    "zh": "RNN|循环神经网络",
+    "ko": "RNN|순환 신경망"
+   },
+   {
+    "kind": "term",
+    "ja": "画像認識",
+    "en": "image recognition",
+    "zh": "图像识别",
+    "ko": "이미지 인식|영상 인식|이미지인식"
+   },
+   {
+    "kind": "term",
+    "ja": "時系列",
+    "en": "time-series|time series",
+    "zh": "时间序列|时序",
+    "ko": "시계열"
+   }
+  ]
+ },
+ {
+  "id": "ai-07",
+  "domain": "ai",
+  "texts": {
+   "ja": "学習データにラベルを付けるアノテーション作業に、すごく時間がかかっています。",
+   "en": "Annotating the training data with labels is taking a lot of time.",
+   "zh": "给训练数据打标签的标注工作非常花时间。",
+   "ko": "학습 데이터에 라벨을 붙이는 어노테이션 작업에 시간이 많이 걸리고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "学習データ|訓練データ|トレーニングデータ",
+    "en": "training data",
+    "zh": "训练数据",
+    "ko": "학습 데이터|훈련 데이터|트레이닝 데이터"
+   },
+   {
+    "kind": "term",
+    "ja": "アノテーション|注釈",
+    "en": "annotat",
+    "zh": "标注",
+    "ko": "어노테이션|주석|라벨링"
+   },
+   {
+    "kind": "term",
+    "ja": "ラベル",
+    "en": "label",
+    "zh": "标签",
+    "ko": "라벨|레이블"
+   }
+  ]
+ },
+ {
+  "id": "ai-08",
+  "domain": "ai",
+  "texts": {
+   "ja": "強化学習では、報酬関数の設計がいちばん難しいところです。",
+   "en": "In reinforcement learning, designing the reward function is the hardest part.",
+   "zh": "在强化学习中，奖励函数的设计是最难的部分。",
+   "ko": "강화 학습에서는 보상 함수 설계가 가장 어려운 부분입니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "強化学習",
+    "en": "reinforcement learning",
+    "zh": "强化学习",
+    "ko": "강화 학습|강화학습"
+   },
+   {
+    "kind": "term",
+    "ja": "報酬関数",
+    "en": "reward function",
+    "zh": "奖励函数|回报函数",
+    "ko": "보상 함수|보상함수"
+   }
+  ]
+ },
+ {
+  "id": "iot-01",
+  "domain": "iot",
+  "texts": {
+   "ja": "工場の機械に温度センサーを取り付けて、データをクラウドに送っています。",
+   "en": "We attached temperature sensors to the factory machines and send the data to the cloud.",
+   "zh": "我们在工厂的机器上安装了温度传感器，把数据发送到云端。",
+   "ko": "공장 기계에 온도 센서를 달아서 데이터를 클라우드로 보내고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "温度センサー|温度センサ",
+    "en": "temperature sensor",
+    "zh": "温度传感器",
+    "ko": "온도 센서|온도센서"
+   },
+   {
+    "kind": "term",
+    "ja": "クラウド",
+    "en": "cloud",
+    "zh": "云端|云",
+    "ko": "클라우드"
+   }
+  ]
+ },
+ {
+  "id": "iot-02",
+  "domain": "iot",
+  "texts": {
+   "ja": "AIoTとは、AIとIoTを組み合わせた技術のことです。",
+   "en": "AIoT refers to technology that combines AI and IoT.",
+   "zh": "AIoT是指将AI与IoT相结合的技术。",
+   "ko": "AIoT는 AI와 IoT를 결합한 기술을 말합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "AIoT",
+    "en": "AIoT",
+    "zh": "AIoT",
+    "ko": "AIoT"
+   },
+   {
+    "kind": "acronym",
+    "ja": "AI|人工知能",
+    "en": "AI|artificial intelligence",
+    "zh": "AI|人工智能",
+    "ko": "AI|인공지능"
+   },
+   {
+    "kind": "acronym",
+    "ja": "IoT|モノのインターネット",
+    "en": "IoT|Internet of Things",
+    "zh": "IoT|物联网",
+    "ko": "IoT|사물인터넷|사물 인터넷"
+   }
+  ]
+ },
+ {
+  "id": "iot-03",
+  "domain": "iot",
+  "texts": {
+   "ja": "エッジコンピューティングを使えば、通信の遅延を減らせます。",
+   "en": "With edge computing, we can reduce communication latency.",
+   "zh": "使用边缘计算可以减少通信延迟。",
+   "ko": "엣지 컴퓨팅을 사용하면 통신 지연을 줄일 수 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "エッジコンピューティング|エッジ・コンピューティング",
+    "en": "edge computing",
+    "zh": "边缘计算",
+    "ko": "엣지 컴퓨팅|에지 컴퓨팅|엣지컴퓨팅"
+   },
+   {
+    "kind": "term",
+    "ja": "遅延|レイテンシ",
+    "en": "latency|delay",
+    "zh": "延迟|时延",
+    "ko": "지연 시간|지연|레이턴시"
+   }
+  ]
+ },
+ {
+  "id": "iot-04",
+  "domain": "iot",
+  "texts": {
+   "ja": "このマイコンは組み込み向けで、消費電力がとても小さいです。",
+   "en": "This microcontroller is designed for embedded use and has very low power consumption.",
+   "zh": "这款单片机面向嵌入式应用，功耗非常低。",
+   "ko": "이 마이크로컨트롤러는 임베디드용이라서 소비 전력이 매우 낮습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "マイコン|マイクロコントローラ",
+    "en": "microcontroller|MCU",
+    "zh": "单片机|微控制器|MCU",
+    "ko": "마이크로컨트롤러|마이컴|MCU"
+   },
+   {
+    "kind": "term",
+    "ja": "組み込み|組込み",
+    "en": "embedded",
+    "zh": "嵌入式",
+    "ko": "임베디드|내장형"
+   },
+   {
+    "kind": "term",
+    "ja": "消費電力",
+    "en": "power consumption",
+    "zh": "功耗|耗电",
+    "ko": "소비 전력|소비전력|전력 소비"
+   }
+  ]
+ },
+ {
+  "id": "iot-05",
+  "domain": "iot",
+  "texts": {
+   "ja": "センサーデータは、MQTTでゲートウェイに送信されます。",
+   "en": "The sensor data is sent to the gateway over MQTT.",
+   "zh": "传感器数据通过MQTT发送到网关。",
+   "ko": "센서 데이터는 MQTT로 게이트웨이에 전송됩니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "センサーデータ|センサデータ",
+    "en": "sensor data",
+    "zh": "传感器数据",
+    "ko": "센서 데이터"
+   },
+   {
+    "kind": "acronym",
+    "ja": "MQTT",
+    "en": "MQTT",
+    "zh": "MQTT",
+    "ko": "MQTT"
+   },
+   {
+    "kind": "term",
+    "ja": "ゲートウェイ",
+    "en": "gateway",
+    "zh": "网关",
+    "ko": "게이트웨이"
+   }
+  ]
+ },
+ {
+  "id": "iot-06",
+  "domain": "iot",
+  "texts": {
+   "ja": "バッテリー駆動なので、BLEで通信して、普段はスリープモードにしています。",
+   "en": "Since it runs on batteries, it communicates over BLE and usually stays in sleep mode.",
+   "zh": "因为是电池供电，它通过BLE通信，平时处于休眠模式。",
+   "ko": "배터리로 동작하기 때문에 BLE로 통신하고 평소에는 슬립 모드로 둡니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "バッテリー|電池",
+    "en": "batter",
+    "zh": "电池",
+    "ko": "배터리|전지"
+   },
+   {
+    "kind": "acronym",
+    "ja": "BLE|Bluetooth Low Energy",
+    "en": "BLE|Bluetooth Low Energy",
+    "zh": "BLE|低功耗蓝牙",
+    "ko": "BLE|저전력 블루투스"
+   },
+   {
+    "kind": "term",
+    "ja": "スリープモード",
+    "en": "sleep mode",
+    "zh": "休眠模式|睡眠模式",
+    "ko": "슬립 모드|절전 모드|수면 모드"
+   }
+  ]
+ },
+ {
+  "id": "iot-07",
+  "domain": "iot",
+  "texts": {
+   "ja": "スマートホームでは、照明やエアコンをスマホから遠隔操作できます。",
+   "en": "In a smart home, you can control the lights and the air conditioner remotely from your smartphone.",
+   "zh": "在智能家居中，可以用手机远程控制灯和空调。",
+   "ko": "스마트 홈에서는 조명이나 에어컨을 스마트폰으로 원격 제어할 수 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "スマートホーム",
+    "en": "smart home",
+    "zh": "智能家居",
+    "ko": "스마트 홈|스마트홈"
+   },
+   {
+    "kind": "term",
+    "ja": "遠隔操作|リモート操作|遠隔制御",
+    "en": "remotely|remote control",
+    "zh": "远程控制|远程操控",
+    "ko": "원격 제어|원격 조작|원격으로"
+   }
+  ]
+ },
+ {
+  "id": "cs-01",
+  "domain": "cs",
+  "texts": {
+   "ja": "このAPIはHTTPで結果をJSONで返すので、簡単に呼び出せます。",
+   "en": "This API returns its results as JSON over HTTP, so it's easy to call.",
+   "zh": "这个API通过HTTP以JSON格式返回结果，所以调用起来很方便。",
+   "ko": "이 API는 HTTP로 결과를 JSON 형식으로 반환하기 때문에 호출하기 쉽습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "API",
+    "en": "API",
+    "zh": "API|接口",
+    "ko": "API"
+   },
+   {
+    "kind": "acronym",
+    "ja": "HTTP",
+    "en": "HTTP",
+    "zh": "HTTP",
+    "ko": "HTTP"
+   },
+   {
+    "kind": "acronym",
+    "ja": "JSON",
+    "en": "JSON",
+    "zh": "JSON",
+    "ko": "JSON"
+   }
+  ]
+ },
+ {
+  "id": "cs-02",
+  "domain": "cs",
+  "texts": {
+   "ja": "SQLのクエリが遅いので、データベースにインデックスを追加しました。",
+   "en": "The SQL query was slow, so we added an index to the database.",
+   "zh": "SQL查询太慢了，所以我们给数据库加了索引。",
+   "ko": "SQL 쿼리가 느려서 데이터베이스에 인덱스를 추가했습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "SQL",
+    "en": "SQL",
+    "zh": "SQL",
+    "ko": "SQL"
+   },
+   {
+    "kind": "term",
+    "ja": "クエリ",
+    "en": "query",
+    "zh": "查询",
+    "ko": "쿼리|질의"
+   },
+   {
+    "kind": "term",
+    "ja": "データベース|DB",
+    "en": "database",
+    "zh": "数据库",
+    "ko": "데이터베이스|DB"
+   },
+   {
+    "kind": "term",
+    "ja": "インデックス|索引",
+    "en": "index",
+    "zh": "索引",
+    "ko": "인덱스|색인"
+   }
+  ]
+ },
+ {
+  "id": "cs-03",
+  "domain": "cs",
+  "texts": {
+   "ja": "サーバーの負荷が高いときは、ロードバランサーでリクエストを分散させます。",
+   "en": "When the server load is high, we distribute requests with a load balancer.",
+   "zh": "服务器负载高的时候，我们用负载均衡器来分散请求。",
+   "ko": "서버 부하가 높을 때는 로드 밸런서로 요청을 분산시킵니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "サーバー|サーバ",
+    "en": "server",
+    "zh": "服务器",
+    "ko": "서버"
+   },
+   {
+    "kind": "term",
+    "ja": "ロードバランサー|ロードバランサ|負荷分散装置",
+    "en": "load balancer",
+    "zh": "负载均衡器|负载均衡",
+    "ko": "로드 밸런서|로드밸런서|부하 분산"
+   },
+   {
+    "kind": "term",
+    "ja": "リクエスト|要求",
+    "en": "request",
+    "zh": "请求",
+    "ko": "요청|리퀘스트"
+   }
+  ]
+ },
+ {
+  "id": "cs-04",
+  "domain": "cs",
+  "texts": {
+   "ja": "TCP/IPでは、パケットが届かないと再送されます。",
+   "en": "In TCP/IP, a packet is retransmitted if it doesn't arrive.",
+   "zh": "在TCP/IP中，如果数据包没有送达，就会被重传。",
+   "ko": "TCP/IP에서는 패킷이 도착하지 않으면 재전송됩니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "TCP/IP",
+    "en": "TCP/IP",
+    "zh": "TCP/IP",
+    "ko": "TCP/IP"
+   },
+   {
+    "kind": "term",
+    "ja": "パケット",
+    "en": "packet",
+    "zh": "数据包|分组|包",
+    "ko": "패킷"
+   },
+   {
+    "kind": "term",
+    "ja": "再送",
+    "en": "retransmit|resen",
+    "zh": "重传|重发",
+    "ko": "재전송"
+   }
+  ]
+ },
+ {
+  "id": "cs-05",
+  "domain": "cs",
+  "texts": {
+   "ja": "このバグは、マルチスレッドの競合状態が原因でした。",
+   "en": "This bug was caused by a race condition in the multithreaded code.",
+   "zh": "这个bug是由多线程的竞态条件引起的。",
+   "ko": "이 버그는 멀티스레드의 경쟁 상태 때문에 발생했습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "バグ",
+    "en": "bug",
+    "zh": "bug|错误|缺陷",
+    "ko": "버그"
+   },
+   {
+    "kind": "term",
+    "ja": "マルチスレッド",
+    "en": "multithread|multi-thread",
+    "zh": "多线程",
+    "ko": "멀티스레드|멀티 스레드|다중 스레드"
+   },
+   {
+    "kind": "term",
+    "ja": "競合状態|レースコンディション",
+    "en": "race condition",
+    "zh": "竞态条件|竞争条件",
+    "ko": "경쟁 상태|경쟁 조건|레이스 컨디션"
+   }
+  ]
+ },
+ {
+  "id": "cs-06",
+  "domain": "cs",
+  "texts": {
+   "ja": "パスワードはハッシュ化して、TLSで暗号化した通信で送ってください。",
+   "en": "Please hash the passwords and send them over a TLS-encrypted connection.",
+   "zh": "请对密码进行哈希处理，并通过TLS加密的通信发送。",
+   "ko": "비밀번호는 해시 처리해서 TLS로 암호화된 통신으로 보내 주세요."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "パスワード",
+    "en": "password",
+    "zh": "密码",
+    "ko": "비밀번호|패스워드"
+   },
+   {
+    "kind": "term",
+    "ja": "ハッシュ",
+    "en": "hash",
+    "zh": "哈希|散列",
+    "ko": "해시"
+   },
+   {
+    "kind": "acronym",
+    "ja": "TLS",
+    "en": "TLS",
+    "zh": "TLS",
+    "ko": "TLS"
+   },
+   {
+    "kind": "term",
+    "ja": "暗号化",
+    "en": "encrypt",
+    "zh": "加密",
+    "ko": "암호화"
+   }
+  ]
+ },
+ {
+  "id": "cs-07",
+  "domain": "cs",
+  "texts": {
+   "ja": "本番環境はAWSにあって、Dockerコンテナでデプロイしています。",
+   "en": "Our production environment is on AWS, and we deploy it with Docker containers.",
+   "zh": "我们的生产环境在AWS上，用Docker容器进行部署。",
+   "ko": "운영 환경은 AWS에 있고, Docker 컨테이너로 배포하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "AWS",
+    "en": "AWS",
+    "zh": "AWS|亚马逊云",
+    "ko": "AWS"
+   },
+   {
+    "kind": "term",
+    "ja": "本番環境",
+    "en": "production",
+    "zh": "生产环境|正式环境|线上环境",
+    "ko": "운영 환경|프로덕션 환경|상용 환경"
+   },
+   {
+    "kind": "term",
+    "ja": "コンテナ",
+    "en": "container",
+    "zh": "容器",
+    "ko": "컨테이너"
+   },
+   {
+    "kind": "term",
+    "ja": "デプロイ",
+    "en": "deploy",
+    "zh": "部署",
+    "ko": "배포|디플로이"
+   }
+  ]
+ },
+ {
+  "id": "cs-08",
+  "domain": "cs",
+  "texts": {
+   "ja": "OSのカーネルが、メモリ管理とプロセスのスケジューリングを担当します。",
+   "en": "The OS kernel handles memory management and process scheduling.",
+   "zh": "操作系统内核负责内存管理和进程调度。",
+   "ko": "OS 커널이 메모리 관리와 프로세스 스케줄링을 담당합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "OS|オペレーティングシステム",
+    "en": "OS|operating system",
+    "zh": "操作系统|OS",
+    "ko": "OS|운영체제|운영 체제"
+   },
+   {
+    "kind": "term",
+    "ja": "カーネル",
+    "en": "kernel",
+    "zh": "内核",
+    "ko": "커널"
+   },
+   {
+    "kind": "term",
+    "ja": "メモリ管理",
+    "en": "memory management",
+    "zh": "内存管理",
+    "ko": "메모리 관리"
+   },
+   {
+    "kind": "term",
+    "ja": "スケジューリング",
+    "en": "scheduling",
+    "zh": "调度",
+    "ko": "스케줄링"
+   }
+  ]
+ },
+ {
+  "id": "robotics-01",
+  "domain": "robotics",
+  "texts": {
+   "ja": "このロボットは、LiDARとSLAMで自分の位置を推定しています。",
+   "en": "This robot estimates its own position using LiDAR and SLAM.",
+   "zh": "这个机器人利用LiDAR和SLAM来估计自身的位置。",
+   "ko": "이 로봇은 LiDAR와 SLAM으로 자기 위치를 추정합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "LiDAR|ライダー",
+    "en": "LiDAR",
+    "zh": "LiDAR|激光雷达",
+    "ko": "LiDAR|라이다"
+   },
+   {
+    "kind": "acronym",
+    "ja": "SLAM",
+    "en": "SLAM",
+    "zh": "SLAM",
+    "ko": "SLAM"
+   },
+   {
+    "kind": "term",
+    "ja": "推定",
+    "en": "estimat",
+    "zh": "估计|估算",
+    "ko": "추정"
+   }
+  ]
+ },
+ {
+  "id": "robotics-02",
+  "domain": "robotics",
+  "texts": {
+   "ja": "ROSを使うと、センサーとモーターの制御を簡単に統合できます。",
+   "en": "With ROS, you can easily integrate sensor and motor control.",
+   "zh": "使用ROS可以轻松整合传感器和电机的控制。",
+   "ko": "ROS를 사용하면 센서와 모터 제어를 쉽게 통합할 수 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "ROS",
+    "en": "ROS|Robot Operating System",
+    "zh": "ROS",
+    "ko": "ROS"
+   },
+   {
+    "kind": "term",
+    "ja": "モーター|モータ",
+    "en": "motor",
+    "zh": "电机|马达",
+    "ko": "모터"
+   },
+   {
+    "kind": "term",
+    "ja": "制御",
+    "en": "control",
+    "zh": "控制",
+    "ko": "제어"
+   }
+  ]
+ },
+ {
+  "id": "robotics-03",
+  "domain": "robotics",
+  "texts": {
+   "ja": "ロボットアームの逆運動学を解いて、関節の角度を求めます。",
+   "en": "We solve the inverse kinematics of the robot arm to find the joint angles.",
+   "zh": "求解机械臂的逆运动学，得到各个关节的角度。",
+   "ko": "로봇 팔의 역기구학을 풀어서 관절 각도를 구합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "ロボットアーム",
+    "en": "robot arm|robotic arm",
+    "zh": "机械臂|机器人手臂",
+    "ko": "로봇 팔|로봇팔|로봇 암"
+   },
+   {
+    "kind": "term",
+    "ja": "逆運動学",
+    "en": "inverse kinematics",
+    "zh": "逆运动学",
+    "ko": "역기구학|역운동학|역 기구학"
+   },
+   {
+    "kind": "term",
+    "ja": "関節の角度|関節角度|関節角",
+    "en": "joint angle",
+    "zh": "关节的角度|关节角度|关节角",
+    "ko": "관절 각도|관절각"
+   }
+  ]
+ },
+ {
+  "id": "robotics-04",
+  "domain": "robotics",
+  "texts": {
+   "ja": "PID制御のゲインを調整したら、振動が収まりました。",
+   "en": "After we tuned the PID control gains, the oscillation stopped.",
+   "zh": "调整了PID控制的增益之后，振荡就消失了。",
+   "ko": "PID 제어 게인을 조정했더니 진동이 멈췄습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "PID",
+    "en": "PID",
+    "zh": "PID",
+    "ko": "PID"
+   },
+   {
+    "kind": "term",
+    "ja": "ゲイン",
+    "en": "gain",
+    "zh": "增益",
+    "ko": "게인|이득"
+   },
+   {
+    "kind": "term",
+    "ja": "振動|発振",
+    "en": "oscillation|vibration",
+    "zh": "振荡|振动",
+    "ko": "진동|발진"
+   }
+  ]
+ },
+ {
+  "id": "robotics-05",
+  "domain": "robotics",
+  "texts": {
+   "ja": "自律移動ロボットは、障害物を回避しながら目的地まで走行します。",
+   "en": "The autonomous mobile robot travels to its destination while avoiding obstacles.",
+   "zh": "自主移动机器人会一边避开障碍物，一边行驶到目的地。",
+   "ko": "자율 이동 로봇은 장애물을 회피하면서 목적지까지 주행합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "自律移動ロボット",
+    "en": "autonomous mobile robot",
+    "zh": "自主移动机器人|自动移动机器人",
+    "ko": "자율 이동 로봇|자율주행 로봇|자율 주행 로봇"
+   },
+   {
+    "kind": "term",
+    "ja": "障害物",
+    "en": "obstacle",
+    "zh": "障碍物",
+    "ko": "장애물"
+   }
+  ]
+ },
+ {
+  "id": "robotics-06",
+  "domain": "robotics",
+  "texts": {
+   "ja": "グリッパーで物体をつかむ前に、カメラで物体の姿勢を推定します。",
+   "en": "Before grasping the object with the gripper, we estimate its pose with the camera.",
+   "zh": "在用夹爪抓取物体之前，先用摄像头估计它的位姿。",
+   "ko": "그리퍼로 물체를 잡기 전에 카메라로 물체의 자세를 추정합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "グリッパー|グリッパ",
+    "en": "gripper",
+    "zh": "夹爪|夹持器|抓手",
+    "ko": "그리퍼"
+   },
+   {
+    "kind": "term",
+    "ja": "姿勢",
+    "en": "pose",
+    "zh": "位姿|姿态",
+    "ko": "자세|포즈"
+   },
+   {
+    "kind": "term",
+    "ja": "カメラ",
+    "en": "camera",
+    "zh": "摄像头|相机",
+    "ko": "카메라"
+   }
+  ]
+ },
+ {
+  "id": "robotics-07",
+  "domain": "robotics",
+  "texts": {
+   "ja": "サーボモーターにPWM信号を送って、角度を制御しています。",
+   "en": "We control the angle by sending a PWM signal to the servo motor.",
+   "zh": "我们向舵机发送PWM信号来控制角度。",
+   "ko": "서보 모터에 PWM 신호를 보내서 각도를 제어하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "サーボモーター|サーボモータ|サーボ",
+    "en": "servo",
+    "zh": "舵机|伺服电机",
+    "ko": "서보 모터|서보모터|서보"
+   },
+   {
+    "kind": "acronym",
+    "ja": "PWM",
+    "en": "PWM",
+    "zh": "PWM",
+    "ko": "PWM"
+   },
+   {
+    "kind": "term",
+    "ja": "信号",
+    "en": "signal",
+    "zh": "信号",
+    "ko": "신호"
+   }
+  ]
+ },
+ {
+  "id": "electronics-01",
+  "domain": "electronics",
+  "texts": {
+   "ja": "この回路では、抵抗とコンデンサでローパスフィルタを作っています。",
+   "en": "In this circuit, we build a low-pass filter with a resistor and a capacitor.",
+   "zh": "这个电路用电阻和电容构成了一个低通滤波器。",
+   "ko": "이 회로에서는 저항과 커패시터로 로우패스 필터를 만들고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "抵抗",
+    "en": "resistor",
+    "zh": "电阻",
+    "ko": "저항"
+   },
+   {
+    "kind": "term",
+    "ja": "コンデンサ|キャパシタ",
+    "en": "capacitor",
+    "zh": "电容|电容器",
+    "ko": "커패시터|콘덴서|축전기"
+   },
+   {
+    "kind": "term",
+    "ja": "ローパスフィルタ|ローパスフィルター|低域通過フィルタ",
+    "en": "low-pass filter|lowpass filter|low pass filter",
+    "zh": "低通滤波器",
+    "ko": "로우패스 필터|저역 통과 필터|로우 패스 필터"
+   }
+  ]
+ },
+ {
+  "id": "electronics-02",
+  "domain": "electronics",
+  "texts": {
+   "ja": "FPGAで画像処理を実装すると、CPUよりずっと高速に動きます。",
+   "en": "If you implement image processing on an FPGA, it runs much faster than on a CPU.",
+   "zh": "在FPGA上实现图像处理，运行速度比CPU快得多。",
+   "ko": "FPGA로 영상 처리를 구현하면 CPU보다 훨씬 빠르게 동작합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "FPGA",
+    "en": "FPGA",
+    "zh": "FPGA",
+    "ko": "FPGA"
+   },
+   {
+    "kind": "acronym",
+    "ja": "CPU",
+    "en": "CPU",
+    "zh": "CPU",
+    "ko": "CPU"
+   },
+   {
+    "kind": "term",
+    "ja": "画像処理",
+    "en": "image processing",
+    "zh": "图像处理",
+    "ko": "영상 처리|이미지 처리|화상 처리"
+   }
+  ]
+ },
+ {
+  "id": "electronics-03",
+  "domain": "electronics",
+  "texts": {
+   "ja": "半導体の微細化が進んで、トランジスタの数が増え続けています。",
+   "en": "As semiconductor miniaturization advances, the number of transistors keeps increasing.",
+   "zh": "随着半导体工艺不断微缩，晶体管的数量持续增加。",
+   "ko": "반도체 미세화가 진행되면서 트랜지스터 수가 계속 늘어나고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "半導体",
+    "en": "semiconductor",
+    "zh": "半导体",
+    "ko": "반도체"
+   },
+   {
+    "kind": "term",
+    "ja": "微細化",
+    "en": "miniaturiz|scaling",
+    "zh": "微缩|微细化|微型化",
+    "ko": "미세화|미세 공정"
+   },
+   {
+    "kind": "term",
+    "ja": "トランジスタ",
+    "en": "transistor",
+    "zh": "晶体管",
+    "ko": "트랜지스터"
+   }
+  ]
+ },
+ {
+  "id": "electronics-04",
+  "domain": "electronics",
+  "texts": {
+   "ja": "LEDに流れる電流を制限するために、直列に抵抗を入れてください。",
+   "en": "Please put a resistor in series to limit the current through the LED.",
+   "zh": "为了限制流过LED的电流，请串联一个电阻。",
+   "ko": "LED에 흐르는 전류를 제한하기 위해 저항을 직렬로 넣어 주세요."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "LED",
+    "en": "LED",
+    "zh": "LED|发光二极管",
+    "ko": "LED"
+   },
+   {
+    "kind": "term",
+    "ja": "電流",
+    "en": "current",
+    "zh": "电流",
+    "ko": "전류"
+   },
+   {
+    "kind": "term",
+    "ja": "直列",
+    "en": "series",
+    "zh": "串联",
+    "ko": "직렬"
+   },
+   {
+    "kind": "term",
+    "ja": "抵抗",
+    "en": "resistor",
+    "zh": "电阻",
+    "ko": "저항"
+   }
+  ]
+ },
+ {
+  "id": "electronics-05",
+  "domain": "electronics",
+  "texts": {
+   "ja": "オシロスコープで波形を見ると、ノイズが乗っているのが分かります。",
+   "en": "If you look at the waveform on the oscilloscope, you can see there is noise on it.",
+   "zh": "用示波器看一下波形，就能发现上面有噪声。",
+   "ko": "오실로스코프로 파형을 보면 노이즈가 섞여 있는 것을 알 수 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "オシロスコープ|オシロ",
+    "en": "oscilloscope|scope",
+    "zh": "示波器",
+    "ko": "오실로스코프"
+   },
+   {
+    "kind": "term",
+    "ja": "波形",
+    "en": "waveform",
+    "zh": "波形",
+    "ko": "파형"
+   },
+   {
+    "kind": "term",
+    "ja": "ノイズ|雑音",
+    "en": "noise",
+    "zh": "噪声|噪音|干扰",
+    "ko": "노이즈|잡음"
+   }
+  ]
+ },
+ {
+  "id": "electronics-06",
+  "domain": "electronics",
+  "texts": {
+   "ja": "USBの電源は5ボルトなので、3.3ボルトに降圧する必要があります。",
+   "en": "USB power is 5 volts, so we need to step it down to 3.3 volts.",
+   "zh": "USB电源是5伏，所以需要降压到3.3伏。",
+   "ko": "USB 전원은 5볼트라서 3.3볼트로 강압해야 합니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "USB",
+    "en": "USB",
+    "zh": "USB",
+    "ko": "USB"
+   },
+   {
+    "kind": "term",
+    "ja": "電源",
+    "en": "power",
+    "zh": "电源|供电",
+    "ko": "전원"
+   },
+   {
+    "kind": "term",
+    "ja": "降圧",
+    "en": "step it down|step down|step-down|lower",
+    "zh": "降压",
+    "ko": "강압|감압|낮춰"
+   }
+  ]
+ },
+ {
+  "id": "electronics-07",
+  "domain": "electronics",
+  "texts": {
+   "ja": "基板のパターン設計はCADで行い、ICの配置を最適化しました。",
+   "en": "We did the circuit board layout in CAD and optimized the placement of the ICs.",
+   "zh": "我们用CAD做了电路板的布线设计，并优化了IC的布局。",
+   "ko": "기판 패턴 설계는 CAD로 하고, IC 배치를 최적화했습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "CAD",
+    "en": "CAD",
+    "zh": "CAD",
+    "ko": "CAD"
+   },
+   {
+    "kind": "acronym",
+    "ja": "IC|集積回路",
+    "en": "IC|integrated circuit",
+    "zh": "IC|集成电路|芯片",
+    "ko": "IC|집적 회로|칩"
+   },
+   {
+    "kind": "term",
+    "ja": "基板",
+    "en": "circuit board|PCB|board",
+    "zh": "电路板|PCB",
+    "ko": "기판|PCB"
+   },
+   {
+    "kind": "term",
+    "ja": "最適化",
+    "en": "optimiz",
+    "zh": "优化",
+    "ko": "최적화"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-01",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "この式では、x=3のときにyが最大になります。",
+   "en": "In this equation, y reaches its maximum when x equals 3.",
+   "zh": "在这个式子里，当x等于3时，y取最大值。",
+   "ko": "이 식에서는 x가 3일 때 y가 최대가 됩니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "x=3|xイコール3|x＝3|xが3",
+    "en": "x equals 3|x = 3|x=3|x is 3",
+    "zh": "x等于3|x=3|x＝3|x为3",
+    "ko": "x가 3|x=3|x = 3|x는 3"
+   },
+   {
+    "kind": "term",
+    "ja": "最大",
+    "en": "maximum|max",
+    "zh": "最大值|最大",
+    "ko": "최대|최댓값"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-02",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "E=mc²という式は、エネルギーと質量が等価であることを示しています。",
+   "en": "The equation E = mc² shows that energy and mass are equivalent.",
+   "zh": "E=mc²这个公式表明，能量和质量是等价的。",
+   "ko": "E=mc²라는 식은 에너지와 질량이 등가라는 것을 보여 줍니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "E=mc²|E=mc2|E＝mc²|Eイコールmc二乗|E=mc^2",
+    "en": "E = mc²|E=mc²|E equals mc squared|E=mc2|E = mc2|E = mc^2|E=mc^2",
+    "zh": "E=mc²|E=mc2|E等于mc平方|E=mc^2|E = mc²",
+    "ko": "E=mc²|E=mc2|E는 mc 제곱|E=mc^2|E = mc²"
+   },
+   {
+    "kind": "term",
+    "ja": "エネルギー",
+    "en": "energy",
+    "zh": "能量",
+    "ko": "에너지"
+   },
+   {
+    "kind": "term",
+    "ja": "質量",
+    "en": "mass",
+    "zh": "质量",
+    "ko": "질량"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-03",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "この回帰分析では、決定係数R²が0.9でした。",
+   "en": "In this regression analysis, the coefficient of determination, R squared, was 0.9.",
+   "zh": "在这次回归分析中，决定系数R²为0.9。",
+   "ko": "이 회귀 분석에서 결정 계수 R²는 0.9였습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "回帰分析",
+    "en": "regression",
+    "zh": "回归分析",
+    "ko": "회귀 분석|회귀분석"
+   },
+   {
+    "kind": "term",
+    "ja": "決定係数",
+    "en": "coefficient of determination",
+    "zh": "决定系数|判定系数",
+    "ko": "결정 계수|결정계수"
+   },
+   {
+    "kind": "term",
+    "ja": "R²|R2|Rの二乗|R二乗|R^2",
+    "en": "R squared|R²|R2|R-squared|R^2",
+    "zh": "R²|R2|R方|R^2",
+    "ko": "R²|R2|R 제곱|R^2"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-04",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "行列Aの固有値を求めると、すべて正の値になります。",
+   "en": "If you compute the eigenvalues of matrix A, they all turn out to be positive.",
+   "zh": "求出矩阵A的特征值，会发现它们全都是正数。",
+   "ko": "행렬 A의 고유값을 구하면 모두 양수가 됩니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "行列",
+    "en": "matrix",
+    "zh": "矩阵",
+    "ko": "행렬"
+   },
+   {
+    "kind": "term",
+    "ja": "固有値",
+    "en": "eigenvalue",
+    "zh": "特征值|本征值",
+    "ko": "고유값|고윳값"
+   },
+   {
+    "kind": "term",
+    "ja": "正の値|正",
+    "en": "positive",
+    "zh": "正数|正值|正的",
+    "ko": "양수|양의 값"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-05",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "このグラフの横軸は時間、縦軸は確率を表しています。",
+   "en": "In this graph, the horizontal axis is time and the vertical axis is probability.",
+   "zh": "这张图的横轴表示时间，纵轴表示概率。",
+   "ko": "이 그래프의 가로축은 시간, 세로축은 확률을 나타냅니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "グラフ|図",
+    "en": "graph|chart|plot|figure",
+    "zh": "图|图表",
+    "ko": "그래프|도표"
+   },
+   {
+    "kind": "term",
+    "ja": "横軸",
+    "en": "horizontal axis|x-axis",
+    "zh": "横轴|x轴",
+    "ko": "가로축|x축"
+   },
+   {
+    "kind": "term",
+    "ja": "縦軸",
+    "en": "vertical axis|y-axis",
+    "zh": "纵轴|y轴",
+    "ko": "세로축|y축"
+   },
+   {
+    "kind": "term",
+    "ja": "確率",
+    "en": "probability",
+    "zh": "概率",
+    "ko": "확률"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-06",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "グラフ理論では、頂点と辺でネットワークの構造を表します。",
+   "en": "In graph theory, we represent the structure of a network with vertices and edges.",
+   "zh": "在图论中，用顶点和边来表示网络的结构。",
+   "ko": "그래프 이론에서는 정점과 간선으로 네트워크의 구조를 표현합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "グラフ理論",
+    "en": "graph theory",
+    "zh": "图论",
+    "ko": "그래프 이론|그래프이론"
+   },
+   {
+    "kind": "term",
+    "ja": "頂点|ノード",
+    "en": "vert|node",
+    "zh": "顶点|节点",
+    "ko": "정점|노드|꼭짓점"
+   },
+   {
+    "kind": "term",
+    "ja": "辺|エッジ",
+    "en": "edge",
+    "zh": "边",
+    "ko": "간선|엣지|변"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-07",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "サンプルサイズが小さいので、p値が0.05未満でも慎重に解釈すべきです。",
+   "en": "Since the sample size is small, we should interpret it carefully even if the p-value is below 0.05.",
+   "zh": "由于样本量很小，即使p值小于0.05，也应该谨慎解读。",
+   "ko": "표본 크기가 작기 때문에 p값이 0.05 미만이더라도 신중하게 해석해야 합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "サンプルサイズ|標本サイズ|サンプル数",
+    "en": "sample size",
+    "zh": "样本量|样本大小|样本容量",
+    "ko": "표본 크기|샘플 크기|샘플 사이즈|표본 수"
+   },
+   {
+    "kind": "term",
+    "ja": "p値|P値",
+    "en": "p-value|p value",
+    "zh": "p值|P值",
+    "ko": "p값|p-값|p 값|유의확률"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-08",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "標準偏差が大きいほど、正規分布の曲線は低く広がります。",
+   "en": "The larger the standard deviation, the flatter and wider the normal distribution curve becomes.",
+   "zh": "标准差越大，正态分布曲线就越低、越宽。",
+   "ko": "표준 편차가 클수록 정규 분포 곡선은 낮고 넓게 퍼집니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "標準偏差",
+    "en": "standard deviation",
+    "zh": "标准差",
+    "ko": "표준 편차|표준편차"
+   },
+   {
+    "kind": "term",
+    "ja": "正規分布",
+    "en": "normal distribution|Gaussian distribution",
+    "zh": "正态分布|常态分布|高斯分布",
+    "ko": "정규 분포|정규분포"
+   }
+  ]
+ },
+ {
+  "id": "math_stats-09",
+  "domain": "math_stats",
+  "texts": {
+   "ja": "回帰直線は、y=ax+bの形で表されます。",
+   "en": "The regression line is expressed in the form y equals ax plus b.",
+   "zh": "回归直线可以表示为y=ax+b的形式。",
+   "ko": "회귀 직선은 y=ax+b 형태로 나타냅니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "回帰直線",
+    "en": "regression line",
+    "zh": "回归直线|回归线",
+    "ko": "회귀 직선|회귀선|회귀직선"
+   },
+   {
+    "kind": "term",
+    "ja": "y=ax+b|yイコールax+b|y＝ax＋b",
+    "en": "y equals ax plus b|y=ax+b|y = ax + b",
+    "zh": "y=ax+b|y等于ax加b|y = ax + b",
+    "ko": "y=ax+b|y = ax + b|y는 ax 더하기 b"
+   }
+  ]
+ },
+ {
+  "id": "business-01",
+  "domain": "business",
+  "texts": {
+   "ja": "この四半期のKPIは、月間アクティブユーザー数に設定しました。",
+   "en": "We set this quarter's KPI as the number of monthly active users.",
+   "zh": "本季度的KPI设定为月活跃用户数。",
+   "ko": "이번 분기 KPI는 월간 활성 사용자 수로 정했습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "KPI|重要業績評価指標",
+    "en": "KPI",
+    "zh": "KPI|关键绩效指标",
+    "ko": "KPI|핵심 성과 지표"
+   },
+   {
+    "kind": "term",
+    "ja": "四半期",
+    "en": "quarter",
+    "zh": "季度",
+    "ko": "분기"
+   },
+   {
+    "kind": "term",
+    "ja": "月間アクティブユーザー|MAU",
+    "en": "monthly active users|MAU",
+    "zh": "月活跃用户|月活|MAU",
+    "ko": "월간 활성 사용자|월간 활성 이용자|MAU"
+   }
+  ]
+ },
+ {
+  "id": "business-02",
+  "domain": "business",
+  "texts": {
+   "ja": "この投資はROIが高く、2年で回収できる見込みです。",
+   "en": "This investment has a high ROI, and we expect to recoup it within two years.",
+   "zh": "这项投资的ROI很高，预计两年内就能收回成本。",
+   "ko": "이 투자는 ROI가 높아서 2년 안에 회수할 수 있을 것으로 예상됩니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "ROI|投資利益率|投資収益率",
+    "en": "ROI|return on investment",
+    "zh": "ROI|投资回报率",
+    "ko": "ROI|투자 수익률|투자수익률"
+   },
+   {
+    "kind": "term",
+    "ja": "投資",
+    "en": "investment",
+    "zh": "投资",
+    "ko": "투자"
+   },
+   {
+    "kind": "term",
+    "ja": "回収",
+    "en": "recoup|recover|pay back|pay for itself",
+    "zh": "收回|回本",
+    "ko": "회수"
+   }
+  ]
+ },
+ {
+  "id": "business-03",
+  "domain": "business",
+  "texts": {
+   "ja": "当社は、B2B向けのSaaSを提供しているスタートアップです。",
+   "en": "We are a startup that provides SaaS for B2B customers.",
+   "zh": "我们是一家提供B2B SaaS服务的初创公司。",
+   "ko": "저희는 B2B용 SaaS를 제공하는 스타트업입니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "B2B|企業間取引",
+    "en": "B2B",
+    "zh": "B2B",
+    "ko": "B2B"
+   },
+   {
+    "kind": "acronym",
+    "ja": "SaaS",
+    "en": "SaaS",
+    "zh": "SaaS",
+    "ko": "SaaS"
+   },
+   {
+    "kind": "term",
+    "ja": "スタートアップ",
+    "en": "startup|start-up",
+    "zh": "初创公司|初创企业|创业公司",
+    "ko": "스타트업"
+   }
+  ]
+ },
+ {
+  "id": "business-04",
+  "domain": "business",
+  "texts": {
+   "ja": "来年のIPOに向けて、ベンチャーキャピタルから資金を調達しました。",
+   "en": "We raised funds from venture capital in preparation for next year's IPO.",
+   "zh": "为了明年的IPO，我们从风险投资机构筹集了资金。",
+   "ko": "내년 IPO를 위해 벤처캐피털로부터 자금을 조달했습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "IPO|新規株式公開|上場",
+    "en": "IPO|initial public offering",
+    "zh": "IPO|首次公开募股|上市",
+    "ko": "IPO|기업공개|기업 공개|상장"
+   },
+   {
+    "kind": "term",
+    "ja": "ベンチャーキャピタル|VC",
+    "en": "venture capital|VC",
+    "zh": "风险投资|风投|VC",
+    "ko": "벤처캐피털|벤처 캐피털|벤처캐피탈|VC"
+   },
+   {
+    "kind": "term",
+    "ja": "資金を調達|資金調達",
+    "en": "raised funds|raised money|raise funds|funding",
+    "zh": "筹集了资金|筹集资金|融资|募资",
+    "ko": "자금을 조달|자금 조달|투자를 유치"
+   }
+  ]
+ },
+ {
+  "id": "business-05",
+  "domain": "business",
+  "texts": {
+   "ja": "売上高は前年比で15パーセント増えましたが、利益率は下がりました。",
+   "en": "Revenue grew 15 percent year over year, but the profit margin went down.",
+   "zh": "销售额同比增长了15%，但利润率下降了。",
+   "ko": "매출은 전년 대비 15퍼센트 늘었지만 이익률은 떨어졌습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "売上高|売上",
+    "en": "revenue|sales",
+    "zh": "销售额|营收|收入",
+    "ko": "매출|매출액"
+   },
+   {
+    "kind": "term",
+    "ja": "前年比",
+    "en": "year over year|year-on-year|year-over-year",
+    "zh": "同比|比去年",
+    "ko": "전년 대비"
+   },
+   {
+    "kind": "term",
+    "ja": "利益率",
+    "en": "profit margin|margin",
+    "zh": "利润率",
+    "ko": "이익률|수익률|이윤율"
+   }
+  ]
+ },
+ {
+  "id": "business-06",
+  "domain": "business",
+  "texts": {
+   "ja": "顧客獲得コストを下げるために、マーケティング施策を見直しています。",
+   "en": "We are reviewing our marketing initiatives to lower our customer acquisition cost.",
+   "zh": "为了降低获客成本，我们正在重新审视营销策略。",
+   "ko": "고객 획득 비용을 낮추기 위해 마케팅 전략을 재검토하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "顧客獲得コスト|CAC",
+    "en": "customer acquisition cost|CAC",
+    "zh": "获客成本|客户获取成本|CAC",
+    "ko": "고객 획득 비용|고객 확보 비용|CAC"
+   },
+   {
+    "kind": "term",
+    "ja": "マーケティング",
+    "en": "marketing",
+    "zh": "营销|市场营销",
+    "ko": "마케팅"
+   }
+  ]
+ },
+ {
+  "id": "business-07",
+  "domain": "business",
+  "texts": {
+   "ja": "サブスクリプションの解約率が上がっているので、原因を分析しましょう。",
+   "en": "The subscription churn rate is going up, so let's analyze the cause.",
+   "zh": "订阅的流失率在上升，我们来分析一下原因吧。",
+   "ko": "구독 해지율이 올라가고 있으니 원인을 분석해 봅시다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "サブスクリプション|サブスク",
+    "en": "subscription",
+    "zh": "订阅",
+    "ko": "구독|서브스크립션"
+   },
+   {
+    "kind": "term",
+    "ja": "解約率|チャーンレート",
+    "en": "churn rate|churn|cancellation rate",
+    "zh": "流失率|退订率|解约率|取消率",
+    "ko": "해지율|이탈률|해약률"
+   },
+   {
+    "kind": "term",
+    "ja": "分析",
+    "en": "analy",
+    "zh": "分析",
+    "ko": "분석"
+   }
+  ]
+ },
+ {
+  "id": "medical-01",
+  "domain": "medical",
+  "texts": {
+   "ja": "MRIはCTと違って放射線を使わないので、被ばくがありません。",
+   "en": "Unlike CT, MRI doesn't use radiation, so there is no radiation exposure.",
+   "zh": "与CT不同，MRI不使用放射线，因此不会受到辐射。",
+   "ko": "MRI는 CT와 달리 방사선을 사용하지 않기 때문에 피폭이 없습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "MRI|磁気共鳴画像",
+    "en": "MRI",
+    "zh": "MRI|磁共振|核磁共振",
+    "ko": "MRI|자기공명영상"
+   },
+   {
+    "kind": "acronym",
+    "ja": "CT",
+    "en": "CT",
+    "zh": "CT",
+    "ko": "CT"
+   },
+   {
+    "kind": "term",
+    "ja": "放射線",
+    "en": "radiation",
+    "zh": "放射线|辐射",
+    "ko": "방사선"
+   },
+   {
+    "kind": "term",
+    "ja": "被ばく|被曝",
+    "en": "exposure",
+    "zh": "受到辐射|辐射暴露|照射|辐射",
+    "ko": "피폭"
+   }
+  ]
+ },
+ {
+  "id": "medical-02",
+  "domain": "medical",
+  "texts": {
+   "ja": "PCRは、DNAの特定の領域を増幅する技術です。",
+   "en": "PCR is a technique that amplifies a specific region of DNA.",
+   "zh": "PCR是一种扩增DNA特定区域的技术。",
+   "ko": "PCR은 DNA의 특정 영역을 증폭하는 기술입니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "PCR|ポリメラーゼ連鎖反応",
+    "en": "PCR|polymerase chain reaction",
+    "zh": "PCR|聚合酶链式反应",
+    "ko": "PCR|중합효소 연쇄 반응"
+   },
+   {
+    "kind": "acronym",
+    "ja": "DNA",
+    "en": "DNA",
+    "zh": "DNA",
+    "ko": "DNA"
+   },
+   {
+    "kind": "term",
+    "ja": "増幅",
+    "en": "amplif",
+    "zh": "扩增",
+    "ko": "증폭"
+   }
+  ]
+ },
+ {
+  "id": "medical-03",
+  "domain": "medical",
+  "texts": {
+   "ja": "新薬の臨床試験は第3相に入り、プラセボ群と比較しています。",
+   "en": "The clinical trial of the new drug has entered Phase 3, and we are comparing it with the placebo group.",
+   "zh": "新药的临床试验已进入III期，正在与安慰剂组进行比较。",
+   "ko": "신약 임상시험은 3상에 들어갔고, 위약군과 비교하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "臨床試験|治験",
+    "en": "clinical trial",
+    "zh": "临床试验",
+    "ko": "임상시험|임상 시험"
+   },
+   {
+    "kind": "term",
+    "ja": "新薬",
+    "en": "new drug",
+    "zh": "新药",
+    "ko": "신약"
+   },
+   {
+    "kind": "term",
+    "ja": "第3相|第III相|フェーズ3",
+    "en": "Phase 3|Phase III",
+    "zh": "III期|3期|三期",
+    "ko": "3상|임상 3상"
+   },
+   {
+    "kind": "term",
+    "ja": "プラセボ|偽薬",
+    "en": "placebo",
+    "zh": "安慰剂",
+    "ko": "위약|플라시보|플라세보"
+   }
+  ]
+ },
+ {
+  "id": "medical-04",
+  "domain": "medical",
+  "texts": {
+   "ja": "この患者さんは血圧が高いので、降圧薬を処方しました。",
+   "en": "This patient has high blood pressure, so I prescribed an antihypertensive drug.",
+   "zh": "这位患者血压偏高，所以给他开了降压药。",
+   "ko": "이 환자분은 혈압이 높아서 혈압약을 처방했습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "血圧",
+    "en": "blood pressure",
+    "zh": "血压",
+    "ko": "혈압"
+   },
+   {
+    "kind": "term",
+    "ja": "降圧薬|降圧剤",
+    "en": "antihypertensive|blood pressure medication",
+    "zh": "降压药",
+    "ko": "혈압약|강압제|고혈압약|항고혈압제"
+   },
+   {
+    "kind": "term",
+    "ja": "処方",
+    "en": "prescrib",
+    "zh": "开了|开药|处方",
+    "ko": "처방"
+   }
+  ]
+ },
+ {
+  "id": "medical-05",
+  "domain": "medical",
+  "texts": {
+   "ja": "AIによる画像診断で、肺がんの早期発見の精度が上がりました。",
+   "en": "AI-based image diagnosis has improved the accuracy of early lung cancer detection.",
+   "zh": "基于AI的影像诊断提高了肺癌早期发现的准确率。",
+   "ko": "AI 기반 영상 진단으로 폐암 조기 발견의 정확도가 높아졌습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "AI|人工知能",
+    "en": "AI|artificial intelligence",
+    "zh": "AI|人工智能",
+    "ko": "AI|인공지능"
+   },
+   {
+    "kind": "term",
+    "ja": "画像診断",
+    "en": "image diagnosis|imaging diagnosis|diagnostic imaging",
+    "zh": "影像诊断|图像诊断",
+    "ko": "영상 진단|영상진단|이미지 진단"
+   },
+   {
+    "kind": "term",
+    "ja": "肺がん|肺癌",
+    "en": "lung cancer",
+    "zh": "肺癌",
+    "ko": "폐암"
+   },
+   {
+    "kind": "term",
+    "ja": "早期発見",
+    "en": "early detection|early lung cancer detection|early diagnosis",
+    "zh": "早期发现|早期诊断|早期筛查",
+    "ko": "조기 발견|조기 진단"
+   }
+  ]
+ },
+ {
+  "id": "medical-06",
+  "domain": "medical",
+  "texts": {
+   "ja": "心電図で不整脈が見つかったので、詳しい検査をします。",
+   "en": "An arrhythmia was found on the ECG, so we'll run more detailed tests.",
+   "zh": "心电图上发现了心律失常，所以要做进一步的检查。",
+   "ko": "심전도에서 부정맥이 발견되어 정밀 검사를 하겠습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "心電図",
+    "en": "ECG|electrocardiogram|EKG",
+    "zh": "心电图|ECG",
+    "ko": "심전도|ECG"
+   },
+   {
+    "kind": "term",
+    "ja": "不整脈",
+    "en": "arrhythmia",
+    "zh": "心律失常|心律不齐",
+    "ko": "부정맥"
+   }
+  ]
+ },
+ {
+  "id": "medical-07",
+  "domain": "medical",
+  "texts": {
+   "ja": "ゲノム解析で、薬の副作用が出やすい体質かどうかが分かります。",
+   "en": "Genome analysis can tell whether a person is prone to drug side effects.",
+   "zh": "通过基因组分析，可以知道一个人是否容易出现药物副作用。",
+   "ko": "유전체 분석으로 약의 부작용이 잘 나타나는 체질인지 알 수 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "ゲノム解析",
+    "en": "genome analysis|genomic analysis",
+    "zh": "基因组分析",
+    "ko": "유전체 분석|게놈 분석|유전체분석"
+   },
+   {
+    "kind": "term",
+    "ja": "副作用",
+    "en": "side effect",
+    "zh": "副作用",
+    "ko": "부작용"
+   }
+  ]
+ },
+ {
+  "id": "academic-01",
+  "domain": "academic",
+  "texts": {
+   "ja": "私の専攻は情報工学で、チームでは音声認識を研究しています。",
+   "en": "My major is information engineering, and in my lab I research speech recognition.",
+   "zh": "我的专业是信息工程，在实验室里做语音识别方面的研究。",
+   "ko": "제 전공은 정보공학이고, 연구실에서는 음성 인식을 연구하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "専攻",
+    "en": "major",
+    "zh": "专业|主修",
+    "ko": "전공"
+   },
+   {
+    "kind": "term",
+    "ja": "情報工学",
+    "en": "information engineering",
+    "zh": "信息工程",
+    "ko": "정보공학|정보 공학"
+   },
+   {
+    "kind": "term",
+    "ja": "チーム|ラボ",
+    "en": "lab|laboratory",
+    "zh": "实验室|チーム|课题组",
+    "ko": "연구실|랩"
+   },
+   {
+    "kind": "term",
+    "ja": "音声認識",
+    "en": "speech recognition|voice recognition",
+    "zh": "语音识别",
+    "ko": "음성 인식|음성인식"
+   }
+  ]
+ },
+ {
+  "id": "academic-02",
+  "domain": "academic",
+  "texts": {
+   "ja": "この論文は国際学会の査読を通ったので、来月発表します。",
+   "en": "This paper passed peer review at an international conference, so I will present it next month.",
+   "zh": "这篇论文通过了国际学术会议的同行评审，下个月我会去做报告。",
+   "ko": "이 논문은 국제 학회 심사를 통과해서 다음 달에 발표합니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "論文",
+    "en": "paper",
+    "zh": "论文",
+    "ko": "논문"
+   },
+   {
+    "kind": "term",
+    "ja": "査読",
+    "en": "peer review|review",
+    "zh": "同行评审|评审|审稿",
+    "ko": "심사|피어 리뷰|동료 평가|동료 심사"
+   },
+   {
+    "kind": "term",
+    "ja": "学会",
+    "en": "conference",
+    "zh": "学术会议|会议|学会",
+    "ko": "학회"
+   },
+   {
+    "kind": "term",
+    "ja": "発表",
+    "en": "present",
+    "zh": "报告|发表|演讲",
+    "ko": "발표"
+   }
+  ]
+ },
+ {
+  "id": "academic-03",
+  "domain": "academic",
+  "texts": {
+   "ja": "先行研究と比べて、私たちの手法は精度が5ポイント高いです。",
+   "en": "Compared with previous studies, our method achieves 5 points higher accuracy.",
+   "zh": "与先前的研究相比，我们的方法准确率高出5个百分点。",
+   "ko": "선행 연구와 비교해서 저희 방법은 정확도가 5포인트 높습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "先行研究",
+    "en": "previous stud|prior work|prior stud|related work|existing stud",
+    "zh": "先前的研究|先前研究|已有研究|前人研究|现有研究|相关研究",
+    "ko": "선행 연구|선행연구|기존 연구"
+   },
+   {
+    "kind": "term",
+    "ja": "手法",
+    "en": "method|approach",
+    "zh": "方法",
+    "ko": "방법|기법"
+   },
+   {
+    "kind": "term",
+    "ja": "精度",
+    "en": "accuracy|precision",
+    "zh": "准确率|精度|准确度",
+    "ko": "정확도|정밀도"
+   }
+  ]
+ },
+ {
+  "id": "academic-04",
+  "domain": "academic",
+  "texts": {
+   "ja": "図3のグラフと表2の数値を見比べてください。",
+   "en": "Please compare the graph in Figure 3 with the numbers in Table 2.",
+   "zh": "请对比一下图3的曲线图和表2里的数值。",
+   "ko": "그림 3의 그래프와 표 2의 수치를 비교해 보세요."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "図",
+    "en": "Figure|Fig.",
+    "zh": "图",
+    "ko": "그림|도"
+   },
+   {
+    "kind": "term",
+    "ja": "グラフ",
+    "en": "graph|chart|plot",
+    "zh": "曲线图|图表|曲线|图",
+    "ko": "그래프|도표"
+   },
+   {
+    "kind": "term",
+    "ja": "表",
+    "en": "Table",
+    "zh": "表",
+    "ko": "표"
+   }
+  ]
+ },
+ {
+  "id": "academic-05",
+  "domain": "academic",
+  "texts": {
+   "ja": "仮説を検証するために、追加の実験を三つ行いました。",
+   "en": "To verify the hypothesis, we ran three additional experiments.",
+   "zh": "为了验证这个假设，我们额外做了三个实验。",
+   "ko": "가설을 검증하기 위해 추가 실험을 세 가지 진행했습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "仮説",
+    "en": "hypothes",
+    "zh": "假设|假说",
+    "ko": "가설"
+   },
+   {
+    "kind": "term",
+    "ja": "検証",
+    "en": "verif|test|validat",
+    "zh": "验证|检验",
+    "ko": "검증"
+   },
+   {
+    "kind": "term",
+    "ja": "実験",
+    "en": "experiment",
+    "zh": "实验",
+    "ko": "실험"
+   }
+  ]
+ },
+ {
+  "id": "academic-06",
+  "domain": "academic",
+  "texts": {
+   "ja": "博士課程に進むかどうか、指導教員と相談しています。",
+   "en": "I'm discussing with my advisor whether to go on to a doctoral program.",
+   "zh": "我正在和导师商量要不要读博士。",
+   "ko": "박사 과정에 진학할지 지도 교수님과 상담하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "博士課程|博士",
+    "en": "doctoral|PhD|Ph.D.",
+    "zh": "博士|读博",
+    "ko": "박사 과정|박사과정|박사"
+   },
+   {
+    "kind": "term",
+    "ja": "指導教員|指導教官|指導教授",
+    "en": "advisor|adviser|supervisor",
+    "zh": "导师|指导老师|指导教师",
+    "ko": "지도 교수|지도교수|지도 교원"
+   }
+  ]
+ },
+ {
+  "id": "academic-07",
+  "domain": "academic",
+  "texts": {
+   "ja": "私の修士論文のテーマは、深層学習を使った異常検知です。",
+   "en": "The topic of my master's thesis is anomaly detection using deep learning.",
+   "zh": "我的硕士论文题目是基于深度学习的异常检测。",
+   "ko": "제 석사 논문 주제는 딥러닝을 이용한 이상 탐지입니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "修士論文|修論",
+    "en": "master's thesis|master thesis|master’s thesis",
+    "zh": "硕士论文",
+    "ko": "석사 논문|석사논문|석사 학위 논문"
+   },
+   {
+    "kind": "term",
+    "ja": "異常検知|異常検出",
+    "en": "anomaly detection",
+    "zh": "异常检测",
+    "ko": "이상 탐지|이상 감지|이상 검출|이상탐지"
+   },
+   {
+    "kind": "term",
+    "ja": "深層学習|ディープラーニング",
+    "en": "deep learning",
+    "zh": "深度学习",
+    "ko": "딥러닝|심층 학습|심층학습"
+   }
+  ]
+ },
+ {
+  "id": "academic-08",
+  "domain": "academic",
+  "texts": {
+   "ja": "理論的には正しいのですが、実験結果とは少し合いません。",
+   "en": "It's correct in theory, but it doesn't quite match the experimental results.",
+   "zh": "理论上是正确的，但和实验结果有点对不上。",
+   "ko": "이론적으로는 맞지만 실험 결과와는 조금 맞지 않습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "理論",
+    "en": "theor",
+    "zh": "理论",
+    "ko": "이론"
+   },
+   {
+    "kind": "term",
+    "ja": "実験結果",
+    "en": "experimental result|results of the experiment",
+    "zh": "实验结果",
+    "ko": "실험 결과|실험결과"
+   }
+  ]
+ },
+ {
+  "id": "academic-09",
+  "domain": "academic",
+  "texts": {
+   "ja": "発表のあとの質疑応答で、統計的な有意性について質問されました。",
+   "en": "In the Q&A after my talk, I was asked about statistical significance.",
+   "zh": "在报告后的问答环节，有人问了我关于统计显著性的问题。",
+   "ko": "발표 후 질의응답에서 통계적 유의성에 대해 질문을 받았습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "発表",
+    "en": "talk|presentation",
+    "zh": "报告|发表|演讲",
+    "ko": "발표"
+   },
+   {
+    "kind": "term",
+    "ja": "質疑応答",
+    "en": "Q&A|question-and-answer|questions",
+    "zh": "问答|提问",
+    "ko": "질의응답|질의 응답|Q&A"
+   },
+   {
+    "kind": "term",
+    "ja": "統計的な有意性|統計的有意性|有意性|有意差",
+    "en": "statistical significance|statistically significant",
+    "zh": "统计显著性|显著性",
+    "ko": "통계적 유의성|유의성|유의미성"
+   }
+  ]
+ },
+ {
+  "id": "intro-01",
+  "domain": "intro",
+  "texts": {
+   "ja": "はじめまして。北山工業大学で情報工学を専攻している山田です。",
+   "en": "Nice to meet you. I'm Yamada, and I major in information engineering at Kitayama University of Technology.",
+   "zh": "初次见面，我叫山田，在北山工业大学主修信息工程。",
+   "ko": "처음 뵙겠습니다. 기타야마 공업대학에서 정보공학을 전공하고 있는 야마다입니다."
+  },
+  "terms": [
+   {
+    "kind": "name",
+    "ja": "北山工業大学",
+    "en": "Kitayama University of Technology|Kitayama Institute of Technology",
+    "zh": "北山工业大学",
+    "ko": "기타야마 공업대학|기타야마 공대|기타야마공업대학"
+   },
+   {
+    "kind": "name",
+    "ja": "山田",
+    "en": "Yamada",
+    "zh": "山田",
+    "ko": "야마다"
+   },
+   {
+    "kind": "term",
+    "ja": "専攻",
+    "en": "major",
+    "zh": "专业|主修",
+    "ko": "전공"
+   },
+   {
+    "kind": "term",
+    "ja": "情報工学",
+    "en": "information engineering",
+    "zh": "信息工程",
+    "ko": "정보공학|정보 공학"
+   }
+  ]
+ },
+ {
+  "id": "intro-02",
+  "domain": "intro",
+  "texts": {
+   "ja": "私は修士2年で、チームではロボットの画像認識を研究しています。",
+   "en": "I'm a second-year master's student, and in my lab I work on image recognition for robots.",
+   "zh": "我是硕士二年级的学生，在实验室研究机器人的图像识别。",
+   "ko": "저는 석사 2년 차이고, 연구실에서 로봇 이미지 인식을 연구하고 있습니다."
+  },
+  "terms": [
+   {
+    "kind": "term",
+    "ja": "修士",
+    "en": "master's|master",
+    "zh": "硕士|研究生",
+    "ko": "석사"
+   },
+   {
+    "kind": "term",
+    "ja": "チーム|ラボ",
+    "en": "lab|laboratory",
+    "zh": "实验室|チーム|课题组",
+    "ko": "연구실|랩"
+   },
+   {
+    "kind": "term",
+    "ja": "画像認識",
+    "en": "image recognition",
+    "zh": "图像识别",
+    "ko": "이미지 인식|영상 인식|이미지인식"
+   }
+  ]
+ },
+ {
+  "id": "intro-03",
+  "domain": "intro",
+  "texts": {
+   "ja": "大学ではAIを専攻していて、卒業後はIoT関係の会社で働きたいです。",
+   "en": "I'm majoring in AI at university, and after graduation I want to work at an IoT company.",
+   "zh": "我在大学主修AI，毕业后想去IoT相关的公司工作。",
+   "ko": "대학에서 AI를 전공하고 있고, 졸업 후에는 IoT 관련 회사에서 일하고 싶습니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "AI|人工知能",
+    "en": "AI|artificial intelligence",
+    "zh": "AI|人工智能",
+    "ko": "AI|인공지능"
+   },
+   {
+    "kind": "acronym",
+    "ja": "IoT|モノのインターネット",
+    "en": "IoT|Internet of Things",
+    "zh": "IoT|物联网",
+    "ko": "IoT|사물인터넷|사물 인터넷"
+   },
+   {
+    "kind": "term",
+    "ja": "専攻",
+    "en": "major",
+    "zh": "主修|专业",
+    "ko": "전공"
+   }
+  ]
+ },
+ {
+  "id": "intro-04",
+  "domain": "intro",
+  "texts": {
+   "ja": "キムさんは韓国からの留学生で、半導体工学の博士課程に在籍しています。",
+   "en": "Kim is an international student from Korea, enrolled in a doctoral program in semiconductor engineering.",
+   "zh": "金同学是来自韩国的留学生，目前在读半导体工程专业的博士。",
+   "ko": "김 씨는 한국에서 온 유학생으로, 반도체공학 박사 과정에 재학 중입니다."
+  },
+  "terms": [
+   {
+    "kind": "name",
+    "ja": "キム",
+    "en": "Kim",
+    "zh": "金",
+    "ko": "김"
+   },
+   {
+    "kind": "term",
+    "ja": "留学生",
+    "en": "international student|exchange student|foreign student",
+    "zh": "留学生",
+    "ko": "유학생"
+   },
+   {
+    "kind": "term",
+    "ja": "半導体工学",
+    "en": "semiconductor engineering",
+    "zh": "半导体工程",
+    "ko": "반도체공학|반도체 공학"
+   },
+   {
+    "kind": "term",
+    "ja": "博士課程|博士",
+    "en": "doctoral|PhD|Ph.D.",
+    "zh": "博士|读博",
+    "ko": "박사 과정|박사과정|박사"
+   }
+  ]
+ },
+ {
+  "id": "intro-05",
+  "domain": "intro",
+  "texts": {
+   "ja": "私の研究テーマは、LLMを使った同時通訳システムです。",
+   "en": "My research topic is a simultaneous interpretation system using LLMs.",
+   "zh": "我的研究课题是基于LLM的同声传译系统。",
+   "ko": "제 연구 주제는 LLM을 활용한 동시통역 시스템입니다."
+  },
+  "terms": [
+   {
+    "kind": "acronym",
+    "ja": "LLM|大規模言語モデル",
+    "en": "LLM|large language model",
+    "zh": "LLM|大语言模型|大型语言模型",
+    "ko": "LLM|대규모 언어 모델|거대 언어 모델"
+   },
+   {
+    "kind": "term",
+    "ja": "同時通訳",
+    "en": "simultaneous interpret",
+    "zh": "同声传译|同传",
+    "ko": "동시통역|동시 통역"
+   },
+   {
+    "kind": "term",
+    "ja": "研究テーマ",
+    "en": "research topic|research theme",
+    "zh": "研究课题|研究方向|研究主题",
+    "ko": "연구 주제|연구 테마"
+   }
+  ]
+ }
+]

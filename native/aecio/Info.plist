@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>app.sokutsu.dev.aecio</string>
+  <key>CFBundleName</key><string>Sokutsu</string>
+  <key>NSMicrophoneUsageDescription</key><string>話し手の声を聞き取って翻訳するために使います(読み上げ中もエコーを消して聞き続けます)。</string>
+</dict></plist>

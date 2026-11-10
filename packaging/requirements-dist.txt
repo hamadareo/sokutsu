@@ -1,0 +1,28 @@
+# 配る Sokutsu.app に入れる Python の部品(CPython 3.12, macOS arm64 の wheel だけ)。
+# 依存の閉包をすべて版で固定する(scripts/build_dist.sh が --no-deps で入れる)。
+# proxy_tools(pywebview の依存)は wheel が無いので、build_dist.sh が sdist から
+# モジュールのファイルだけを写す(setup.py は実行しない)。
+sherpa-onnx==2.0.1
+sherpa-onnx-core==2.0.1
+pywhispercpp==1.5.1
+pywebview==6.2.1
+sounddevice==0.5.6
+numpy==2.2.6
+requests==2.34.2
+certifi==2026.10.23
+charset-normalizer==3.5.2
+idna==3.20
+urllib3==2.8.0
+cffi==2.1.1
+pycparser==3.11
+bottle==0.13.4
+typing_extensions==4.16.0
+tqdm==4.70.1
+platformdirs==4.12.4
+pyobjc-core==12.2.2
+pyobjc-framework-Cocoa==12.2.2
+pyobjc-framework-Quartz==12.2.2
+pyobjc-framework-Security==12.2.2
+pyobjc-framework-UniformTypeIdentifiers==12.2.2
+pyobjc-framework-WebKit==12.2.2
+pyobjc-framework-EventKit==12.2.2

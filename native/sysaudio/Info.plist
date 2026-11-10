@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>app.sokutsu.dev.sysaudio</string>
+  <key>CFBundleName</key><string>Sokutsu</string>
+  <key>NSAudioCaptureUsageDescription</key><string>オンライン会議の相手の声(この Mac で鳴っている音)を聞き取って翻訳・会議メモにするために使います。</string>
+</dict></plist>

@@ -1,0 +1,20 @@
+{
+  "pair": "ja-zh",
+  "domain": "qa",
+  "turns": [
+    {"spk": "B", "lang": "zh", "text": "谢谢您的精彩报告。我想问一下关于传感器的问题。您用的鞋垫型压力传感器，一共有多少个测量点？", "ref": "素晴らしいご発表をありがとうございました。センサーについてお伺いしたいのですが、お使いになったインソール型の圧力センサーには、測定点が全部でいくつありますか。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "片足16点", "ref": "每只脚16个测量点。", "kind": "short", "ctx": true, "ctx_note": "16点 = number of measurement points on the insole pressure sensor asked in turn 1"},
+    {"spk": "B", "lang": "zh", "text": "明白了", "ref": "わかりました", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "那采样频率是多少？", "ref": "では、サンプリング周波数はどのくらいですか。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "えー、100ヘルツで取っています。最初は200ヘルツで試したんですが、電池が半日しか持たなかったので、下げました。歩行の解析には100で十分だと考えています。", "ref": "我们是以100赫兹采集的。一开始试过200赫兹，但电池只能撑半天，所以就把频率降下来了。我们认为做步态分析的话，100赫兹已经足够了。", "kind": "long", "ctx": true, "ctx_note": "zero object: the insole sensor's sampling rate asked in turn 4; 下げました = lowered the sampling rate"},
+    {"spk": "B", "lang": "zh", "text": "我是另一所大学的。您刚才说被试是65岁以上的老年人，一共有多少人参加？另外，有没有包括有跌倒经历的人？", "ref": "別の大学の者です。先ほど、被験者は65歳以上の高齢者だとおっしゃいましたが、全部で何名参加したのでしょうか。また、転倒経験のある方は含まれていますか。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "全部で42名で、そのうち11名が過去1年以内に転倒しています。", "ref": "被试一共42人，其中11人在过去一年内跌倒过。", "kind": "mid", "ctx": true, "ctx_note": "42名 = total number of elderly participants asked in turn 6"},
+    {"spk": "B", "lang": "zh", "text": "哦，这样", "ref": "ああ、なるほど", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "那这两组的步态有明显差别吗？", "ref": "では、転倒経験のある群とない群とで、歩き方にはっきりした違いはありましたか。", "kind": "mid", "ctx": true, "ctx_note": "这两组 = fallers vs non-fallers from turn 7"},
+    {"spk": "A", "lang": "ja", "text": "はい、ありました。特に、かかとが着地してからつま先に体重が移るまでの時間が、転倒群のほうが平均で0.08秒長かったです。ただ、人数が少ないので、まだ断定はできません。", "ref": "是的，有差别。特别是从脚跟着地到重心移到脚尖的这段时间，跌倒组平均要长0.08秒。不过由于人数较少，目前还不能下定论。", "kind": "long", "ctx": true, "ctx_note": "はい、ありました = yes, the gait of the two groups differed (question in turn 9)"},
+    {"spk": "B", "lang": "zh", "text": "这个指标能用来预测跌倒吗？", "ref": "その指標は、転倒の予測に使えるのでしょうか。", "kind": "mid", "ctx": true, "ctx_note": "这个指标 = heel-strike-to-toe weight transfer time from turn 10"},
+    {"spk": "A", "lang": "ja", "text": "今のところ、それはまだ言えません。", "ref": "目前还不能说这个指标可以预测跌倒。", "kind": "mid", "ctx": true, "ctx_note": "それ = whether the metric can predict falls (turn 11)"},
+    {"spk": "A", "lang": "ja", "text": "来年から、同じ方を半年間追跡する予定です。その間に実際に転倒した方のデータと照らし合わせて、予測にどこまで使えるかを検証したいと思っています。", "ref": "我们计划从明年开始，对同一批被试进行为期半年的跟踪。然后和这期间实际跌倒的人的数据进行对照，验证这个指标在预测跌倒上到底能起多大作用。", "kind": "long", "ctx": true, "ctx_note": "同じ方 = the same 42 participants; 予測 = fall prediction with the transfer-time metric"},
+    {"spk": "B", "lang": "zh", "text": "非常感谢", "ref": "ありがとうございました", "kind": "short", "ctx": false, "ctx_note": ""}
+  ]
+}

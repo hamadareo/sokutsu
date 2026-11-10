@@ -1,0 +1,20 @@
+{
+  "pair": "ja-zh",
+  "domain": "it",
+  "turns": [
+    {"spk": "A", "lang": "ja", "text": "昨日の夜のデプロイの件なんですけど、リリース直後から決済APIのレイテンシが急に上がって、p99が800ミリ秒を超えてました。結局ロールバックしたんですよね。", "ref": "关于昨晚的部署，刚发布完支付API的延迟就突然上升，p99超过了800毫秒。最后我们还是回滚了。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "对，我看到告警了。原因找到了吗？", "ref": "はい、アラートは見ました。原因はわかりましたか。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "たぶんキャッシュです。新しいバージョンでキャッシュのキーの形式を変えたので、デプロイした瞬間に全部ミスになって、リクエストがデータベースに直接行っちゃったんだと思います。", "ref": "应该是缓存的问题。新版本改了缓存键的格式，所以部署的那一刻缓存全部未命中，请求都直接打到数据库上了。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "原来如此", "ref": "なるほど", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "那下次发布之前，能不能先做一下缓存预热？或者让新旧两种键格式先并存一段时间。", "ref": "では次のリリースの前に、先にキャッシュのウォームアップをしておけませんか。あるいは、新旧二つのキー形式をしばらく併存させるとか。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "じゃあ併存で", "ref": "那就采用新旧键格式并存的方案吧。", "kind": "short", "ctx": true, "ctx_note": "併存 = keeping the old and new cache key formats side by side, proposed in turn 5"},
+    {"spk": "B", "lang": "zh", "text": "好。另外，数据库迁移那件事，进展怎么样了？", "ref": "わかりました。それと、データベース移行の件はどうなっていますか。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "スキーマの変更自体は終わっていて、今はステージングで、2億件くらいあるログのテーブルをコピーしています。ただ、このペースだと終わるのが木曜の朝になりそうです。", "ref": "表结构的变更本身已经完成了，现在正在预发环境里复制那张大约两亿条记录的日志表。不过照这个速度，可能要到周四早上才能复制完。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "周四？", "ref": "木曜ですか？", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "那会不会影响周五的发布？", "ref": "コピーが木曜までかかると、金曜のリリースに影響しませんか。", "kind": "mid", "ctx": true, "ctx_note": "那 = the log-table copy not finishing until Thursday morning (turn 8)"},
+    {"spk": "A", "lang": "ja", "text": "ぎりぎり間に合うと思います。もし遅れたら、移行は来週に回して、さっきのキャッシュの修正だけ先に出します。", "ref": "我觉得应该刚好赶得上周五。万一延误了，就把迁移推到下周，先只发布刚才说的那个缓存修复。", "kind": "long", "ctx": true, "ctx_note": "間に合う = in time for the Friday release (turn 10); さっきのキャッシュの修正 = the key-format coexistence fix from turns 3-6"},
+    {"spk": "B", "lang": "zh", "text": "可以。那个修复谁来写？", "ref": "わかりました。そのキャッシュの修正は誰が書きますか。", "kind": "mid", "ctx": true, "ctx_note": "那个修复 = the cache key fix mentioned in turn 11"},
+    {"spk": "A", "lang": "ja", "text": "僕がやります", "ref": "缓存修复我来写。", "kind": "short", "ctx": true, "ctx_note": "zero object: the cache fix asked about in turn 12"},
+    {"spk": "A", "lang": "ja", "text": "今日中にプルリクを出すので、レビューお願いします。", "ref": "我今天之内会提交PR，麻烦你帮忙审查一下。", "kind": "mid", "ctx": false, "ctx_note": ""}
+  ]
+}

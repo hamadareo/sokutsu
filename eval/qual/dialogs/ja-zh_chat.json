@@ -1,0 +1,20 @@
+{
+  "pair": "ja-zh",
+  "domain": "chat",
+  "turns": [
+    {"spk": "A", "lang": "ja", "text": "週末、何か予定ある？", "ref": "这个周末你有什么安排吗？", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "还没定呢。我本来想去爬山，但是天气预报说周六可能会下雨，所以有点犹豫。", "ref": "まだ決めてないんだ。もともと山登りに行こうと思ってたんだけど、天気予報だと土曜は雨が降るかもしれないから、ちょっと迷ってて。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "あー、土曜は降りそうだよね。じゃあさ、日曜に一緒にご飯行かない？駅の近くに新しくできた火鍋の店があって、ずっと気になってたんだ。", "ref": "啊，周六看样子是会下雨。那要不要周日一起去吃饭？车站附近新开了一家火锅店，我一直很想去。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "好啊！", "ref": "いいね！", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "那家是不是要提前预约啊？", "ref": "その火鍋の店って、予約しないとだめなのかな？", "kind": "mid", "ctx": true, "ctx_note": "那家 = the new hotpot restaurant near the station from turn 3"},
+    {"spk": "A", "lang": "ja", "text": "うん、週末は取っといたほうがいいって。俺が取っとくよ。", "ref": "嗯，听说周末最好先订位。我来订吧。", "kind": "mid", "ctx": true, "ctx_note": "取っとく = book a table at the hotpot restaurant asked about in turn 5; zero object"},
+    {"spk": "B", "lang": "zh", "text": "几点？", "ref": "何時にする？", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "6時半とか？", "ref": "六点半怎么样？", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "六点半可以。对了，我妹妹下个月要来日本玩一个星期，她第一次出国，我还在想带她去哪儿。", "ref": "6時半で大丈夫。そういえば、妹が来月1週間日本に遊びに来るんだけど、初めての海外だから、どこに連れて行こうかまだ考えてるんだ。", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "初めてなら、京都とかいいんじゃない？紅葉の時期だったらすごくきれいだし。ただ、人がめちゃくちゃ多いから、朝早く行くのがおすすめ。", "ref": "你妹妹第一次来的话，去京都应该不错吧？赶上红叶季节会特别漂亮。不过人特别多，建议早上早点去。", "kind": "long", "ctx": true, "ctx_note": "初めて = the younger sister's first trip abroad (turn 9); implied subject is the sister"},
+    {"spk": "B", "lang": "zh", "text": "是吗", "ref": "そうなんだ", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "zh", "text": "不过她不太喜欢人多的地方。", "ref": "でも、妹は人混みがあんまり好きじゃないんだよね。", "kind": "mid", "ctx": true, "ctx_note": "她 = B's younger sister introduced in turn 9"},
+    {"spk": "A", "lang": "ja", "text": "それなら、奈良のほうが落ち着いてるかも。京都から電車で40分ぐらいだから、日帰りでも行けるよ。", "ref": "那样的话，奈良可能会清静一些。从京都坐电车大概四十分钟，当天来回也完全可以。", "kind": "long", "ctx": true, "ctx_note": "それなら = since the sister dislikes crowds (turn 12)"},
+    {"spk": "B", "lang": "zh", "text": "那我回去问问她想不想去。", "ref": "じゃあ帰ったら、奈良に行きたいか妹に聞いてみるね。", "kind": "mid", "ctx": true, "ctx_note": "她 = the sister; 想不想去 = whether she wants to go to Nara (turn 13)"}
+  ]
+}

@@ -1,0 +1,8 @@
+sherpa-onnx==2.0.1
+pywhispercpp==1.5.1
+pywebview==6.2.1
+sounddevice==0.5.6
+numpy>=2.0
+requests>=2.31
+# カレンダーの繰り返しの予定も拾う(W4 calendar_mac.py。無ければ osascript で動く)
+pyobjc-framework-EventKit==12.2.2

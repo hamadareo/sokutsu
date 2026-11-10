@@ -1,0 +1,16 @@
+{"pair": "ja-ko", "domain": "it", "turns": [
+  {"spk": "A", "lang": "ja", "text": "昨日の夜のデプロイの後から、決済APIのレイテンシが急に上がってるんです。p99が普段は200ミリ秒くらいなのに、今は1.5秒を超えてます。", "ref": "어젯밤 배포 이후로 결제 API 지연 시간이 갑자기 올라갔어요. p99가 평소에는 200밀리초 정도인데 지금은 1.5초를 넘고 있어요.", "kind": "long", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "혹시 그 배포에 캐시 설정 변경도 들어 있었나요?", "ref": "もしかして、そのデプロイにキャッシュ設定の変更も入っていましたか？", "kind": "mid", "ctx": true, "ctx_note": "'그 배포' is last night's deploy A mentioned."},
+  {"spk": "A", "lang": "ja", "text": "はい、入ってました。", "ref": "네, 캐시 설정 변경도 들어 있었어요.", "kind": "short", "ctx": true, "ctx_note": "Omitted subject is the cache config change B asked about."},
+  {"spk": "B", "lang": "ko", "text": "그럼 아마 그게 원인일 가능성이 높아요. 캐시 TTL이 너무 짧게 바뀌면 요청이 전부 데이터베이스로 가서 응답이 느려지거든요.", "ref": "それなら、たぶんそれが原因の可能性が高いです。キャッシュのTTLが短くなりすぎると、リクエストが全部データベースに行って応答が遅くなるんですよ。", "kind": "long", "ctx": true, "ctx_note": "'그게' is the cache config change included in the deploy."},
+  {"spk": "A", "lang": "ja", "text": "確認したら、TTLが300秒から5秒になってました。", "ref": "확인해 보니까 TTL이 300초에서 5초로 바뀌어 있었어요.", "kind": "mid", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "역시 그렇군요.", "ref": "やっぱりそうでしたか。", "kind": "short", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "일단 롤백하는 게 제일 빠를 것 같아요. 다만 같은 배포에 스키마 마이그레이션도 있었으면 롤백이 위험할 수 있으니까 그것부터 확인해 주세요.", "ref": "とりあえずロールバックするのが一番早いと思います。ただ、同じデプロイにスキーママイグレーションも含まれていたらロールバックは危険かもしれないので、まずそこを確認してください。", "kind": "long", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "マイグレーションはありませんでした。設定ファイルだけです。", "ref": "마이그레이션은 없었어요. 바뀐 건 설정 파일뿐이에요.", "kind": "mid", "ctx": true, "ctx_note": "'設定ファイルだけ' means the deploy changed only config files, answering B's migration check."},
+  {"spk": "B", "lang": "ko", "text": "그럼 바로 하죠.", "ref": "じゃあ、すぐロールバックしましょう。", "kind": "short", "ctx": true, "ctx_note": "'하죠' means doing the rollback proposed two turns earlier."},
+  {"spk": "A", "lang": "ja", "text": "今ロールバックが終わりました。レイテンシは少しずつ下がってきていて、p99は300ミリ秒くらいまで戻っています。", "ref": "방금 롤백이 끝났어요. 지연 시간은 조금씩 내려가고 있고, p99는 300밀리초 정도까지 돌아왔어요.", "kind": "long", "ctx": false, "ctx_note": ""},
+  {"spk": "A", "lang": "ja", "text": "ただ、どうしてアラートが鳴らなかったのかが気になります。", "ref": "다만 왜 알림이 안 울렸는지가 마음에 걸려요.", "kind": "mid", "ctx": false, "ctx_note": ""},
+  {"spk": "B", "lang": "ko", "text": "모니터링 임계값이 평균 지연 시간 기준으로만 설정돼 있어서 그래요. 평균은 크게 안 올라서 못 잡은 거죠. p99 기준 알림도 추가해야겠어요.", "ref": "モニタリングのしきい値が平均レイテンシ基準でしか設定されていないからです。平均はそれほど上がらなかったので、検知できなかったんですね。p99基準のアラートも追加しないといけませんね。", "kind": "long", "ctx": true, "ctx_note": "Answers why the alert did not fire; '못 잡은' omits the p99 latency spike as object."},
+  {"spk": "A", "lang": "ja", "text": "それ、今日中に私が設定しておきます。", "ref": "그 p99 알림은 오늘 안에 제가 설정해 둘게요.", "kind": "mid", "ctx": true, "ctx_note": "'それ' is the p99-based alert B proposed adding."},
+  {"spk": "B", "lang": "ko", "text": "네, 부탁해요.", "ref": "はい、お願いします。", "kind": "short", "ctx": false, "ctx_note": ""}
+]}

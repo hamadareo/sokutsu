@@ -1,0 +1,40 @@
+Sokutsu — on-device interpreter and meeting notes for face-to-face and online meetings
+
+REQUIREMENTS
+  A Mac with Apple silicon (M1 or later), macOS 13.3 or later.
+  Listening to the other side of an online meeting needs macOS 14.2 or later.
+  About 5 GB free disk space (models are about 3.4 GB). 16 GB of memory recommended (8 GB works, more slowly).
+
+INSTALL
+  1. Drag Sokutsu onto "Applications" in this window.
+  2. The first time you open it (the app is not notarized by Apple, so this is needed once):
+     - macOS 14 or earlier: in Applications, Control-click (right-click) Sokutsu, choose Open, then Open.
+     - macOS 15 or later: open Sokutsu once and click Done on the warning. Then open
+       System Settings > Privacy & Security, scroll down to '"Sokutsu" was blocked…',
+       click "Open Anyway", enter your password and click Open.
+  After that it opens normally.
+
+FIRST-TIME SETUP
+  On first launch Sokutsu downloads its speech, translation and voice models (about 3.4 GB) from their
+  official sources (Hugging Face, GitHub). If you close the window, it resumes next time.
+  After that it works without a network connection.
+  Gemma is provided under and subject to the Gemma Terms of Use found at ai.google.dev/gemma/terms.
+
+PERMISSIONS
+  Microphone: to hear what is said (required).
+  Screen & System Audio Recording: only when you choose "Mic + this Mac's sound" for online meetings.
+  Calendars / Reminders: only when you press those buttons.
+
+YOUR DATA (all on this Mac; nothing is sent anywhere)
+  Settings, transcripts, recordings, glossary, voices, models: ~/Library/Application Support/Sokutsu/
+  App logs: ~/Library/Logs/Sokutsu/
+  To uninstall, move Sokutsu.app and these two folders to the Trash.
+
+ADVANCED: YOUR OWN TRANSLATION SERVER
+  Add to ~/Library/Application Support/Sokutsu/config.json:
+    "server_url": "http://<host>:<port>"   (an OpenAI-compatible /v1 server)
+    "server_model": "<model id>"          (optional; defaults to the server's first model)
+  A "Your server" option then appears. By default everything runs on this Mac.
+
+LICENSES
+  Sokutsu.app/Contents/Resources/THIRD_PARTY_NOTICES.txt

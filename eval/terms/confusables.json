@@ -1,0 +1,1322 @@
+[
+ {
+  "id": "cf-01",
+  "src": "ja",
+  "a": {
+   "text": "ノードを確認してください。",
+   "ref": {
+    "en": "Please check the node.",
+    "zh": "请检查一下节点。",
+    "ko": "노드를 확인해 주세요."
+   },
+   "key": {
+    "en": "node",
+    "zh": "节点|结点",
+    "ko": "노드"
+   }
+  },
+  "b": {
+   "text": "コードを確認してください。",
+   "ref": {
+    "en": "Please check the code.",
+    "zh": "请检查一下代码。",
+    "ko": "코드를 확인해 주세요."
+   },
+   "key": {
+    "en": "code",
+    "zh": "代码",
+    "ko": "코드"
+   }
+  }
+ },
+ {
+  "id": "cf-02",
+  "src": "ja",
+  "a": {
+   "text": "センサーのデータを確認してください。",
+   "ref": {
+    "en": "Please check the sensor data.",
+    "zh": "请确认一下传感器的数据。",
+    "ko": "센서 데이터를 확인해 주세요."
+   },
+   "key": {
+    "en": "sensor",
+    "zh": "传感器",
+    "ko": "센서"
+   }
+  },
+  "b": {
+   "text": "センターのデータを確認してください。",
+   "ref": {
+    "en": "Please check the data from the center.",
+    "zh": "请确认一下中心的数据。",
+    "ko": "센터 데이터를 확인해 주세요."
+   },
+   "key": {
+    "en": "center|centre",
+    "zh": "中心",
+    "ko": "센터"
+   }
+  }
+ },
+ {
+  "id": "cf-03",
+  "src": "ja",
+  "a": {
+   "text": "この規格を見直しましょう。",
+   "ref": {
+    "en": "Let's review this standard.",
+    "zh": "我们重新审视一下这个规格吧。",
+    "ko": "이 규격을 재검토합시다."
+   },
+   "key": {
+    "en": "standard|specification|spec",
+    "zh": "规格|标准",
+    "ko": "규격|표준"
+   }
+  },
+  "b": {
+   "text": "この企画を見直しましょう。",
+   "ref": {
+    "en": "Let's review this plan.",
+    "zh": "我们重新审视一下这个企划吧。",
+    "ko": "이 기획을 재검토합시다."
+   },
+   "key": {
+    "en": "plan|proposal|project",
+    "zh": "企划|策划|方案|计划",
+    "ko": "기획"
+   }
+  }
+ },
+ {
+  "id": "cf-04",
+  "src": "ja",
+  "a": {
+   "text": "精度の問題について話しましょう。",
+   "ref": {
+    "en": "Let's talk about the accuracy issue.",
+    "zh": "我们来谈谈精度的问题吧。",
+    "ko": "정확도 문제에 대해 이야기합시다."
+   },
+   "key": {
+    "en": "accuracy|precision",
+    "zh": "精度|准确率|准确度|精确度",
+    "ko": "정확도|정밀도"
+   }
+  },
+  "b": {
+   "text": "制度の問題について話しましょう。",
+   "ref": {
+    "en": "Let's talk about the problems with the system.",
+    "zh": "我们来谈谈制度的问题吧。",
+    "ko": "제도 문제에 대해 이야기합시다."
+   },
+   "key": {
+    "en": "system|institution|regulation|rules|policy",
+    "zh": "制度|体制",
+    "ko": "제도"
+   }
+  }
+ },
+ {
+  "id": "cf-05",
+  "src": "ja",
+  "a": {
+   "text": "明日は講演があります。",
+   "ref": {
+    "en": "There's a lecture tomorrow.",
+    "zh": "明天有一场讲座。",
+    "ko": "내일은 강연이 있습니다."
+   },
+   "key": {
+    "en": "lecture|talk|presentation|speech",
+    "zh": "讲座|演讲|报告",
+    "ko": "강연"
+   }
+  },
+  "b": {
+   "text": "明日は公演があります。",
+   "ref": {
+    "en": "There's a performance tomorrow.",
+    "zh": "明天有一场演出。",
+    "ko": "내일은 공연이 있습니다."
+   },
+   "key": {
+    "en": "performance|show|concert",
+    "zh": "演出|公演",
+    "ko": "공연"
+   }
+  }
+ },
+ {
+  "id": "cf-06",
+  "src": "ja",
+  "a": {
+   "text": "この機関について説明します。",
+   "ref": {
+    "en": "Let me explain this organization.",
+    "zh": "我来介绍一下这个机构。",
+    "ko": "이 기관에 대해 설명하겠습니다."
+   },
+   "key": {
+    "en": "organization|institution|agency|organisation",
+    "zh": "机构|组织",
+    "ko": "기관"
+   }
+  },
+  "b": {
+   "text": "この期間について説明します。",
+   "ref": {
+    "en": "Let me explain this period.",
+    "zh": "我来说明一下这个时间段。",
+    "ko": "이 기간에 대해 설명하겠습니다."
+   },
+   "key": {
+    "en": "period|duration|timeframe",
+    "zh": "时间段|期间|时期|期限",
+    "ko": "기간"
+   }
+  }
+ },
+ {
+  "id": "cf-07",
+  "src": "ja",
+  "a": {
+   "text": "このノードを修正してください。",
+   "ref": {
+    "en": "Please fix this node.",
+    "zh": "请修改一下这个节点。",
+    "ko": "이 노드를 수정해 주세요."
+   },
+   "key": {
+    "en": "node",
+    "zh": "节点|结点",
+    "ko": "노드"
+   }
+  },
+  "b": {
+   "text": "このコードを修正してください。",
+   "ref": {
+    "en": "Please fix this code.",
+    "zh": "请修改一下这段代码。",
+    "ko": "이 코드를 수정해 주세요."
+   },
+   "key": {
+    "en": "code",
+    "zh": "代码|程序",
+    "ko": "코드"
+   }
+  }
+ },
+ {
+  "id": "cf-08",
+  "src": "ja",
+  "a": {
+   "text": "バグを見つけました。",
+   "ref": {
+    "en": "I found a bug.",
+    "zh": "我发现了一个bug。",
+    "ko": "버그를 찾았습니다."
+   },
+   "key": {
+    "en": "bug",
+    "zh": "bug|错误|缺陷|漏洞",
+    "ko": "버그|오류"
+   }
+  },
+  "b": {
+   "text": "バッグを見つけました。",
+   "ref": {
+    "en": "I found the bag.",
+    "zh": "我找到包了。",
+    "ko": "가방을 찾았습니다."
+   },
+   "key": {
+    "en": "bag",
+    "zh": "包|袋",
+    "ko": "가방"
+   }
+  }
+ },
+ {
+  "id": "cf-09",
+  "src": "ja",
+  "a": {
+   "text": "シートを共有してください。",
+   "ref": {
+    "en": "Please share the sheet.",
+    "zh": "请把表格共享一下。",
+    "ko": "시트를 공유해 주세요."
+   },
+   "key": {
+    "en": "sheet|spreadsheet",
+    "zh": "表格|工作表",
+    "ko": "시트"
+   }
+  },
+  "b": {
+   "text": "シードを共有してください。",
+   "ref": {
+    "en": "Please share the seed.",
+    "zh": "请把随机种子共享一下。",
+    "ko": "시드를 공유해 주세요."
+   },
+   "key": {
+    "en": "seed",
+    "zh": "种子",
+    "ko": "시드"
+   }
+  }
+ },
+ {
+  "id": "cf-10",
+  "src": "ja",
+  "a": {
+   "text": "モデルを交換してください。",
+   "ref": {
+    "en": "Please replace the model.",
+    "zh": "请更换一下模型。",
+    "ko": "모델을 교체해 주세요."
+   },
+   "key": {
+    "en": "model",
+    "zh": "模型",
+    "ko": "모델"
+   }
+  },
+  "b": {
+   "text": "モデムを交換してください。",
+   "ref": {
+    "en": "Please replace the modem.",
+    "zh": "请更换一下调制解调器。",
+    "ko": "모뎀을 교체해 주세요."
+   },
+   "key": {
+    "en": "modem",
+    "zh": "调制解调器|猫|modem",
+    "ko": "모뎀"
+   }
+  }
+ },
+ {
+  "id": "cf-11",
+  "src": "ja",
+  "a": {
+   "text": "彼女は科学の研究をしています。",
+   "ref": {
+    "en": "She is doing research in science.",
+    "zh": "她在做科学研究。",
+    "ko": "그녀는 과학 연구를 하고 있습니다."
+   },
+   "key": {
+    "en": "science|scientific",
+    "zh": "科学",
+    "ko": "과학"
+   }
+  },
+  "b": {
+   "text": "彼女は化学の研究をしています。",
+   "ref": {
+    "en": "She is doing research in chemistry.",
+    "zh": "她在做化学研究。",
+    "ko": "그녀는 화학 연구를 하고 있습니다."
+   },
+   "key": {
+    "en": "chemistry|chemical",
+    "zh": "化学",
+    "ko": "화학"
+   }
+  }
+ },
+ {
+  "id": "cf-12",
+  "src": "en",
+  "a": {
+   "text": "Let's look at the draft first.",
+   "ref": {
+    "ja": "まず下書きを見ましょう。",
+    "zh": "我们先看一下草稿吧。",
+    "ko": "먼저 초안을 봅시다."
+   },
+   "key": {
+    "ja": "下書き|ドラフト|草案|原稿|草稿",
+    "zh": "草稿|初稿|草案",
+    "ko": "초안|초고|드래프트|원고"
+   }
+  },
+  "b": {
+   "text": "Let's look at the graph first.",
+   "ref": {
+    "ja": "まずグラフを見ましょう。",
+    "zh": "我们先看一下图表吧。",
+    "ko": "먼저 그래프를 봅시다."
+   },
+   "key": {
+    "ja": "グラフ|図",
+    "zh": "图表|图",
+    "ko": "그래프|도표|차트"
+   }
+  }
+ },
+ {
+  "id": "cf-13",
+  "src": "en",
+  "a": {
+   "text": "We're running out of cache.",
+   "ref": {
+    "ja": "キャッシュが足りなくなってきています。",
+    "zh": "缓存快不够用了。",
+    "ko": "캐시가 부족해지고 있습니다."
+   },
+   "key": {
+    "ja": "キャッシュ",
+    "zh": "缓存",
+    "ko": "캐시"
+   }
+  },
+  "b": {
+   "text": "We're running out of cash.",
+   "ref": {
+    "ja": "現金が足りなくなってきています。",
+    "zh": "现金快不够用了。",
+    "ko": "현금이 부족해지고 있습니다."
+   },
+   "key": {
+    "ja": "現金|資金|お金",
+    "zh": "现金|资金|钱",
+    "ko": "현금|자금|돈"
+   }
+  }
+ },
+ {
+  "id": "cf-14",
+  "src": "en",
+  "a": {
+   "text": "Please update the model.",
+   "ref": {
+    "ja": "モデルを更新してください。",
+    "zh": "请更新一下模型。",
+    "ko": "모델을 업데이트해 주세요."
+   },
+   "key": {
+    "ja": "モデル",
+    "zh": "模型",
+    "ko": "모델"
+   }
+  },
+  "b": {
+   "text": "Please update the module.",
+   "ref": {
+    "ja": "モジュールを更新してください。",
+    "zh": "请更新一下模块。",
+    "ko": "모듈을 업데이트해 주세요."
+   },
+   "key": {
+    "ja": "モジュール",
+    "zh": "模块",
+    "ko": "모듈"
+   }
+  }
+ },
+ {
+  "id": "cf-15",
+  "src": "en",
+  "a": {
+   "text": "Can you check the data again?",
+   "ref": {
+    "ja": "データをもう一度確認してもらえますか。",
+    "zh": "你能再确认一下数据吗？",
+    "ko": "데이터를 다시 확인해 줄 수 있어요?"
+   },
+   "key": {
+    "ja": "データ",
+    "zh": "数据",
+    "ko": "데이터"
+   }
+  },
+  "b": {
+   "text": "Can you check the date again?",
+   "ref": {
+    "ja": "日付をもう一度確認してもらえますか。",
+    "zh": "你能再确认一下日期吗？",
+    "ko": "날짜를 다시 확인해 줄 수 있어요?"
+   },
+   "key": {
+    "ja": "日付|日にち|日程",
+    "zh": "日期|日子",
+    "ko": "날짜|일자"
+   }
+  }
+ },
+ {
+  "id": "cf-16",
+  "src": "en",
+  "a": {
+   "text": "The patch failed last night.",
+   "ref": {
+    "ja": "昨夜、パッチの適用に失敗しました。",
+    "zh": "昨晚补丁安装失败了。",
+    "ko": "어젯밤에 패치가 실패했습니다."
+   },
+   "key": {
+    "ja": "パッチ",
+    "zh": "补丁",
+    "ko": "패치"
+   }
+  },
+  "b": {
+   "text": "The batch failed last night.",
+   "ref": {
+    "ja": "昨夜、バッチ処理が失敗しました。",
+    "zh": "昨晚批处理失败了。",
+    "ko": "어젯밤에 배치 작업이 실패했습니다."
+   },
+   "key": {
+    "ja": "バッチ",
+    "zh": "批处理|批次|批量",
+    "ko": "배치"
+   }
+  }
+ },
+ {
+  "id": "cf-17",
+  "src": "en",
+  "a": {
+   "text": "The precision is what matters here.",
+   "ref": {
+    "ja": "ここで重要なのは精度です。",
+    "zh": "这里重要的是精度。",
+    "ko": "여기서 중요한 것은 정밀도입니다."
+   },
+   "key": {
+    "ja": "精度|適合率",
+    "zh": "精度|精确率|精确度|准确率",
+    "ko": "정밀도|정확도"
+   }
+  },
+  "b": {
+   "text": "The decision is what matters here.",
+   "ref": {
+    "ja": "ここで重要なのは決定です。",
+    "zh": "这里重要的是决定。",
+    "ko": "여기서 중요한 것은 결정입니다."
+   },
+   "key": {
+    "ja": "決定|判断|決断",
+    "zh": "决定|决策",
+    "ko": "결정|판단"
+   }
+  }
+ },
+ {
+  "id": "cf-18",
+  "src": "en",
+  "a": {
+   "text": "Please send me the code.",
+   "ref": {
+    "ja": "コードを送ってください。",
+    "zh": "请把代码发给我。",
+    "ko": "코드를 보내 주세요."
+   },
+   "key": {
+    "ja": "コード|プログラム",
+    "zh": "代码|程序",
+    "ko": "코드"
+   }
+  },
+  "b": {
+   "text": "Please send me the note.",
+   "ref": {
+    "ja": "メモを送ってください。",
+    "zh": "请把笔记发给我。",
+    "ko": "메모를 보내 주세요."
+   },
+   "key": {
+    "ja": "メモ|ノート",
+    "zh": "笔记|便条|备注|记录",
+    "ko": "메모|노트"
+   }
+  }
+ },
+ {
+  "id": "cf-19",
+  "src": "en",
+  "a": {
+   "text": "When will the chip arrive?",
+   "ref": {
+    "ja": "チップはいつ届きますか。",
+    "zh": "芯片什么时候到？",
+    "ko": "칩은 언제 도착하나요?"
+   },
+   "key": {
+    "ja": "チップ",
+    "zh": "芯片",
+    "ko": "칩"
+   }
+  },
+  "b": {
+   "text": "When will the ship arrive?",
+   "ref": {
+    "ja": "船はいつ到着しますか。",
+    "zh": "船什么时候到？",
+    "ko": "배는 언제 도착하나요?"
+   },
+   "key": {
+    "ja": "船",
+    "zh": "船",
+    "ko": "배는|배가|선박"
+   }
+  }
+ },
+ {
+  "id": "cf-20",
+  "src": "en",
+  "a": {
+   "text": "Can you check the test?",
+   "ref": {
+    "ja": "テストを確認してもらえますか。",
+    "zh": "你能检查一下测试吗？",
+    "ko": "테스트를 확인해 줄 수 있어요?"
+   },
+   "key": {
+    "ja": "テスト|試験",
+    "zh": "测试|考试",
+    "ko": "테스트|시험"
+   }
+  },
+  "b": {
+   "text": "Can you check the text?",
+   "ref": {
+    "ja": "テキストを確認してもらえますか。",
+    "zh": "你能检查一下文本吗？",
+    "ko": "텍스트를 확인해 줄 수 있어요?"
+   },
+   "key": {
+    "ja": "テキスト|文章|本文",
+    "zh": "文本|文字|文章|课文",
+    "ko": "텍스트|본문|문장"
+   }
+  }
+ },
+ {
+  "id": "cf-21",
+  "src": "en",
+  "a": {
+   "text": "Let me explain the process.",
+   "ref": {
+    "ja": "プロセスについて説明します。",
+    "zh": "我来解释一下流程。",
+    "ko": "프로세스를 설명하겠습니다."
+   },
+   "key": {
+    "ja": "プロセス|工程|手順|過程|流れ",
+    "zh": "流程|过程|工序|步骤",
+    "ko": "프로세스|과정|절차|공정"
+   }
+  },
+  "b": {
+   "text": "Let me explain the progress.",
+   "ref": {
+    "ja": "進捗について説明します。",
+    "zh": "我来解释一下进度。",
+    "ko": "진행 상황을 설명하겠습니다."
+   },
+   "key": {
+    "ja": "進捗|進み具合|進行状況",
+    "zh": "进度|进展",
+    "ko": "진행 상황|진척|진도|경과"
+   }
+  }
+ },
+ {
+  "id": "cf-22",
+  "src": "en",
+  "a": {
+   "text": "Let's discuss the network.",
+   "ref": {
+    "ja": "ネットワークについて話し合いましょう。",
+    "zh": "我们讨论一下网络吧。",
+    "ko": "네트워크에 대해 논의합시다."
+   },
+   "key": {
+    "ja": "ネットワーク|人脈",
+    "zh": "网络|人脉",
+    "ko": "네트워크|인맥"
+   }
+  },
+  "b": {
+   "text": "Let's discuss the net worth.",
+   "ref": {
+    "ja": "純資産について話し合いましょう。",
+    "zh": "我们讨论一下净资产吧。",
+    "ko": "순자산에 대해 논의합시다."
+   },
+   "key": {
+    "ja": "純資産|資産",
+    "zh": "净资产|资产净值",
+    "ko": "순자산|자산"
+   }
+  }
+ },
+ {
+  "id": "cf-23",
+  "src": "zh",
+  "a": {
+   "text": "这台机器坏了。",
+   "ref": {
+    "ja": "この機械が壊れました。",
+    "en": "This machine is broken.",
+    "ko": "이 기계가 고장 났어요."
+   },
+   "key": {
+    "ja": "機械|マシン|装置",
+    "en": "machine",
+    "ko": "기계|머신"
+   }
+  },
+  "b": {
+   "text": "这台机器人坏了。",
+   "ref": {
+    "ja": "このロボットが壊れました。",
+    "en": "This robot is broken.",
+    "ko": "이 로봇이 고장 났어요."
+   },
+   "key": {
+    "ja": "ロボット",
+    "en": "robot",
+    "ko": "로봇"
+   }
+  }
+ },
+ {
+  "id": "cf-24",
+  "src": "zh",
+  "a": {
+   "text": "请修改一下这个图表。",
+   "ref": {
+    "ja": "このグラフを修正してください。",
+    "en": "Please revise this chart.",
+    "ko": "이 그래프를 수정해 주세요."
+   },
+   "key": {
+    "ja": "グラフ|図表|チャート|図",
+    "en": "chart|graph|figure|diagram",
+    "ko": "그래프|차트|도표"
+   }
+  },
+  "b": {
+   "text": "请修改一下这个图标。",
+   "ref": {
+    "ja": "このアイコンを修正してください。",
+    "en": "Please revise this icon.",
+    "ko": "이 아이콘을 수정해 주세요."
+   },
+   "key": {
+    "ja": "アイコン",
+    "en": "icon",
+    "ko": "아이콘"
+   }
+  }
+ },
+ {
+  "id": "cf-25",
+  "src": "zh",
+  "a": {
+   "text": "带宽有问题。",
+   "ref": {
+    "ja": "帯域幅に問題があります。",
+    "en": "There's a problem with the bandwidth.",
+    "ko": "대역폭에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "帯域|バンド幅",
+    "en": "bandwidth",
+    "ko": "대역폭"
+   }
+  },
+  "b": {
+   "text": "宽带有问题。",
+   "ref": {
+    "ja": "ブロードバンド回線に問題があります。",
+    "en": "There's a problem with the broadband connection.",
+    "ko": "인터넷 회선에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "ブロードバンド|回線|インターネット",
+    "en": "broadband|internet connection",
+    "ko": "광대역|인터넷|회선|브로드밴드"
+   }
+  }
+ },
+ {
+  "id": "cf-26",
+  "src": "zh",
+  "a": {
+   "text": "请检查一下内存。",
+   "ref": {
+    "ja": "メモリを確認してください。",
+    "en": "Please check the memory.",
+    "ko": "메모리를 확인해 주세요."
+   },
+   "key": {
+    "ja": "メモリ",
+    "en": "memory",
+    "ko": "메모리"
+   }
+  },
+  "b": {
+   "text": "请检查一下内容。",
+   "ref": {
+    "ja": "内容を確認してください。",
+    "en": "Please check the content.",
+    "ko": "내용을 확인해 주세요."
+   },
+   "key": {
+    "ja": "内容|中身",
+    "en": "content",
+    "ko": "내용"
+   }
+  }
+ },
+ {
+  "id": "cf-27",
+  "src": "zh",
+  "a": {
+   "text": "我们换一个模型吧。",
+   "ref": {
+    "ja": "モデルを変えましょう。",
+    "en": "Let's switch to a different model.",
+    "ko": "다른 모델로 바꿉시다."
+   },
+   "key": {
+    "ja": "モデル",
+    "en": "model",
+    "ko": "모델"
+   }
+  },
+  "b": {
+   "text": "我们换一个模板吧。",
+   "ref": {
+    "ja": "テンプレートを変えましょう。",
+    "en": "Let's switch to a different template.",
+    "ko": "다른 템플릿으로 바꿉시다."
+   },
+   "key": {
+    "ja": "テンプレート|テンプレ|ひな形|雛形",
+    "en": "template",
+    "ko": "템플릿|양식|서식"
+   }
+  }
+ },
+ {
+  "id": "cf-28",
+  "src": "zh",
+  "a": {
+   "text": "这个芯片有问题。",
+   "ref": {
+    "ja": "このチップに問題があります。",
+    "en": "There's a problem with this chip.",
+    "ko": "이 칩에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "チップ|半導体",
+    "en": "chip",
+    "ko": "칩"
+   }
+  },
+  "b": {
+   "text": "这个切片有问题。",
+   "ref": {
+    "ja": "この切片に問題があります。",
+    "en": "There's a problem with this slice.",
+    "ko": "이 절편에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "切片|スライス|標本",
+    "en": "slice|section|specimen",
+    "ko": "절편|슬라이스|표본"
+   }
+  }
+ },
+ {
+  "id": "cf-29",
+  "src": "zh",
+  "a": {
+   "text": "服务器停了。",
+   "ref": {
+    "ja": "サーバーが止まりました。",
+    "en": "The server has gone down.",
+    "ko": "서버가 멈췄어요."
+   },
+   "key": {
+    "ja": "サーバー|サーバ",
+    "en": "server",
+    "ko": "서버"
+   }
+  },
+  "b": {
+   "text": "服务停了。",
+   "ref": {
+    "ja": "サービスが止まりました。",
+    "en": "The service has gone down.",
+    "ko": "서비스가 멈췄어요."
+   },
+   "key": {
+    "ja": "サービス",
+    "en": "service",
+    "ko": "서비스"
+   }
+  }
+ },
+ {
+  "id": "cf-30",
+  "src": "zh",
+  "a": {
+   "text": "精度怎么样？",
+   "ref": {
+    "ja": "精度はどうですか。",
+    "en": "How's the accuracy?",
+    "ko": "정확도는 어때요?"
+   },
+   "key": {
+    "ja": "精度",
+    "en": "accuracy|precision",
+    "ko": "정확도|정밀도"
+   }
+  },
+  "b": {
+   "text": "进度怎么样？",
+   "ref": {
+    "ja": "進捗はどうですか。",
+    "en": "How's the progress?",
+    "ko": "진행 상황은 어때요?"
+   },
+   "key": {
+    "ja": "進捗|進み具合|進行状況",
+    "en": "progress",
+    "ko": "진행 상황|진척|진도|진행"
+   }
+  }
+ },
+ {
+  "id": "cf-31",
+  "src": "zh",
+  "a": {
+   "text": "请看一下预算。",
+   "ref": {
+    "ja": "予算を見てください。",
+    "en": "Please take a look at the budget.",
+    "ko": "예산을 봐 주세요."
+   },
+   "key": {
+    "ja": "予算",
+    "en": "budget",
+    "ko": "예산"
+   }
+  },
+  "b": {
+   "text": "请看一下预测。",
+   "ref": {
+    "ja": "予測を見てください。",
+    "en": "Please take a look at the forecast.",
+    "ko": "예측을 봐 주세요."
+   },
+   "key": {
+    "ja": "予測|予想|見通し",
+    "en": "forecast|prediction|projection",
+    "ko": "예측|전망"
+   }
+  }
+ },
+ {
+  "id": "cf-32",
+  "src": "zh",
+  "a": {
+   "text": "这个公式有问题。",
+   "ref": {
+    "ja": "この式に問題があります。",
+    "en": "There's a problem with this formula.",
+    "ko": "이 공식에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "式|公式|数式",
+    "en": "formula|equation",
+    "ko": "공식|수식"
+   }
+  },
+  "b": {
+   "text": "这个公司有问题。",
+   "ref": {
+    "ja": "この会社には問題があります。",
+    "en": "There's a problem with this company.",
+    "ko": "이 회사에 문제가 있습니다."
+   },
+   "key": {
+    "ja": "会社|企業",
+    "en": "company|firm",
+    "ko": "회사|기업"
+   }
+  }
+ },
+ {
+  "id": "cf-33",
+  "src": "zh",
+  "a": {
+   "text": "请确认一下编码。",
+   "ref": {
+    "ja": "エンコードを確認してください。",
+    "en": "Please check the encoding.",
+    "ko": "인코딩을 확인해 주세요."
+   },
+   "key": {
+    "ja": "エンコード|符号化|文字コード",
+    "en": "encoding|encode",
+    "ko": "인코딩|부호화"
+   }
+  },
+  "b": {
+   "text": "请确认一下编号。",
+   "ref": {
+    "ja": "番号を確認してください。",
+    "en": "Please check the number.",
+    "ko": "번호를 확인해 주세요."
+   },
+   "key": {
+    "ja": "番号|ナンバー",
+    "en": "number",
+    "ko": "번호"
+   }
+  }
+ },
+ {
+  "id": "cf-34",
+  "src": "ko",
+  "a": {
+   "text": "그 기사 봤어요?",
+   "ref": {
+    "ja": "あの記事、見ましたか。",
+    "en": "Did you see that article?",
+    "zh": "你看了那篇文章吗？"
+   },
+   "key": {
+    "ja": "記事",
+    "en": "article|news|story",
+    "zh": "文章|报道|新闻"
+   }
+  },
+  "b": {
+   "text": "그 기차 봤어요?",
+   "ref": {
+    "ja": "あの電車、見ましたか。",
+    "en": "Did you see that train?",
+    "zh": "你看到那列火车了吗？"
+   },
+   "key": {
+    "ja": "電車|列車|汽車",
+    "en": "train",
+    "zh": "火车|列车"
+   }
+  }
+ },
+ {
+  "id": "cf-35",
+  "src": "ko",
+  "a": {
+   "text": "모델을 바꿔야 할 것 같아요.",
+   "ref": {
+    "ja": "モデルを変えたほうがいいと思います。",
+    "en": "I think we need to change the model.",
+    "zh": "我觉得得换个模型。"
+   },
+   "key": {
+    "ja": "モデル",
+    "en": "model",
+    "zh": "模型"
+   }
+  },
+  "b": {
+   "text": "모텔을 바꿔야 할 것 같아요.",
+   "ref": {
+    "ja": "モーテルを変えたほうがいいと思います。",
+    "en": "I think we need to change the motel.",
+    "zh": "我觉得得换家汽车旅馆。"
+   },
+   "key": {
+    "ja": "モーテル",
+    "en": "motel",
+    "zh": "汽车旅馆|旅馆|motel"
+   }
+  }
+ },
+ {
+  "id": "cf-36",
+  "src": "ko",
+  "a": {
+   "text": "학회 일정을 알려 주세요.",
+   "ref": {
+    "ja": "学会の日程を教えてください。",
+    "en": "Please tell me the conference schedule.",
+    "zh": "请告诉我学术会议的日程。"
+   },
+   "key": {
+    "ja": "学会",
+    "en": "conference",
+    "zh": "学术会议|学会|会议"
+   }
+  },
+  "b": {
+   "text": "학과 일정을 알려 주세요.",
+   "ref": {
+    "ja": "学科の日程を教えてください。",
+    "en": "Please tell me the department schedule.",
+    "zh": "请告诉我系里的日程安排。"
+   },
+   "key": {
+    "ja": "学科",
+    "en": "department",
+    "zh": "系里|院系|学系|学科"
+   }
+  }
+ },
+ {
+  "id": "cf-37",
+  "src": "ko",
+  "a": {
+   "text": "내일 실험이 있어요.",
+   "ref": {
+    "ja": "明日、実験があります。",
+    "en": "I have an experiment tomorrow.",
+    "zh": "明天有实验。"
+   },
+   "key": {
+    "ja": "実験",
+    "en": "experiment",
+    "zh": "实验"
+   }
+  },
+  "b": {
+   "text": "내일 시험이 있어요.",
+   "ref": {
+    "ja": "明日、試験があります。",
+    "en": "I have an exam tomorrow.",
+    "zh": "明天有考试。"
+   },
+   "key": {
+    "ja": "試験|テスト",
+    "en": "exam|test",
+    "zh": "考试|测验"
+   }
+  }
+ },
+ {
+  "id": "cf-38",
+  "src": "ko",
+  "a": {
+   "text": "확률을 다시 계산해 주세요.",
+   "ref": {
+    "ja": "確率をもう一度計算してください。",
+    "en": "Please recalculate the probability.",
+    "zh": "请重新计算一下概率。"
+   },
+   "key": {
+    "ja": "確率",
+    "en": "probability|odds|chance",
+    "zh": "概率|几率|机率"
+   }
+  },
+  "b": {
+   "text": "환율을 다시 계산해 주세요.",
+   "ref": {
+    "ja": "為替レートをもう一度計算してください。",
+    "en": "Please recalculate the exchange rate.",
+    "zh": "请重新计算一下汇率。"
+   },
+   "key": {
+    "ja": "為替|レート",
+    "en": "exchange rate|currency rate",
+    "zh": "汇率"
+   }
+  }
+ },
+ {
+  "id": "cf-39",
+  "src": "ko",
+  "a": {
+   "text": "지연 문제를 먼저 해결합시다.",
+   "ref": {
+    "ja": "遅延の問題を先に解決しましょう。",
+    "en": "Let's solve the latency problem first.",
+    "zh": "我们先解决延迟的问题吧。"
+   },
+   "key": {
+    "ja": "遅延|レイテンシ|遅れ",
+    "en": "latency|delay|lag",
+    "zh": "延迟|时延|延时"
+   }
+  },
+  "b": {
+   "text": "지원 문제를 먼저 해결합시다.",
+   "ref": {
+    "ja": "サポートの問題を先に解決しましょう。",
+    "en": "Let's solve the support problem first.",
+    "zh": "我们先解决支持的问题吧。"
+   },
+   "key": {
+    "ja": "サポート|支援",
+    "en": "support|funding|assistance",
+    "zh": "支持|支援|援助|资助"
+   }
+  }
+ },
+ {
+  "id": "cf-40",
+  "src": "ko",
+  "a": {
+   "text": "예산보다 높게 나왔어요.",
+   "ref": {
+    "ja": "予算より高くなりました。",
+    "en": "It came out higher than the budget.",
+    "zh": "结果比预算高了。"
+   },
+   "key": {
+    "ja": "予算",
+    "en": "budget",
+    "zh": "预算"
+   }
+  },
+  "b": {
+   "text": "예상보다 높게 나왔어요.",
+   "ref": {
+    "ja": "予想より高くなりました。",
+    "en": "It came out higher than expected.",
+    "zh": "结果比预期高了。"
+   },
+   "key": {
+    "ja": "予想|見込み|予測",
+    "en": "expected|anticipated|predicted|expectation|estimate",
+    "zh": "预期|预想|预料|预计|想象"
+   }
+  }
+ },
+ {
+  "id": "cf-41",
+  "src": "ko",
+  "a": {
+   "text": "인공지능 관련 회의가 있어요.",
+   "ref": {
+    "ja": "AI関連の会議があります。",
+    "en": "There's a meeting about AI.",
+    "zh": "有一个关于人工智能的会议。"
+   },
+   "key": {
+    "ja": "AI|人工知能",
+    "en": "AI|artificial intelligence",
+    "zh": "人工智能|AI"
+   }
+  },
+  "b": {
+   "text": "인공위성 관련 회의가 있어요.",
+   "ref": {
+    "ja": "人工衛星関連の会議があります。",
+    "en": "There's a meeting about satellites.",
+    "zh": "有一个关于人造卫星的会议。"
+   },
+   "key": {
+    "ja": "人工衛星|衛星",
+    "en": "satellite",
+    "zh": "人造卫星|卫星"
+   }
+  }
+ },
+ {
+  "id": "cf-42",
+  "src": "ko",
+  "a": {
+   "text": "클라우드 쪽에 문제가 있어요.",
+   "ref": {
+    "ja": "クラウド側に問題があります。",
+    "en": "There's a problem on the cloud side.",
+    "zh": "云端那边有问题。"
+   },
+   "key": {
+    "ja": "クラウド",
+    "en": "cloud",
+    "zh": "云端|云"
+   }
+  },
+  "b": {
+   "text": "클라이언트 쪽에 문제가 있어요.",
+   "ref": {
+    "ja": "クライアント側に問題があります。",
+    "en": "There's a problem on the client side.",
+    "zh": "客户端那边有问题。"
+   },
+   "key": {
+    "ja": "クライアント",
+    "en": "client",
+    "zh": "客户端|客户"
+   }
+  }
+ },
+ {
+  "id": "cf-43",
+  "src": "ko",
+  "a": {
+   "text": "수식을 확인해 주세요.",
+   "ref": {
+    "ja": "数式を確認してください。",
+    "en": "Please check the formula.",
+    "zh": "请检查一下公式。"
+   },
+   "key": {
+    "ja": "数式|式",
+    "en": "formula|equation",
+    "zh": "公式|算式|式子"
+   }
+  },
+  "b": {
+   "text": "수신을 확인해 주세요.",
+   "ref": {
+    "ja": "受信を確認してください。",
+    "en": "Please check whether it was received.",
+    "zh": "请确认一下是否收到了。"
+   },
+   "key": {
+    "ja": "受信",
+    "en": "receiv|reception|incoming",
+    "zh": "收到|接收"
+   }
+  }
+ },
+ {
+  "id": "cf-44",
+  "src": "ko",
+  "a": {
+   "text": "전력 문제를 논의합시다.",
+   "ref": {
+    "ja": "電力の問題について話し合いましょう。",
+    "en": "Let's discuss the power issue.",
+    "zh": "我们来讨论一下电力问题吧。"
+   },
+   "key": {
+    "ja": "電力|電源",
+    "en": "power|electricity",
+    "zh": "电力|供电|用电|电源"
+   }
+  },
+  "b": {
+   "text": "전략 문제를 논의합시다.",
+   "ref": {
+    "ja": "戦略の問題について話し合いましょう。",
+    "en": "Let's discuss the strategy issue.",
+    "zh": "我们来讨论一下战略问题吧。"
+   },
+   "key": {
+    "ja": "戦略",
+    "en": "strategy|strategic",
+    "zh": "战略|策略"
+   }
+  }
+ }
+]

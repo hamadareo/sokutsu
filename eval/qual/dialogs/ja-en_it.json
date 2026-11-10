@@ -1,0 +1,20 @@
+{
+  "pair": "ja-en",
+  "domain": "it",
+  "turns": [
+    {"spk": "A", "lang": "ja", "text": "昨日の夜のデプロイのあと、決済APIのレイテンシが急に上がったの、気づきました？", "ref": "Did you notice that the payment API's latency suddenly went up after last night's deployment?", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "Yeah, the p99 went from around 200 milliseconds to over 2 seconds.", "ref": "ええ、p99が200ミリ秒くらいから2秒以上に跳ね上がりました。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "原因を調べたら、新しいバージョンでキャッシュキーの形式が変わっていたんです。それで既存のキャッシュが全然ヒットしなくなって、データベースに直接リクエストが集中していました。", "ref": "When I looked into the cause, it turned out the cache key format had changed in the new version. Because of that, none of the existing cache entries were hitting anymore, and all the requests were going straight to the database.", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "Ah, that explains it.", "ref": "ああ、それで説明がつきますね。", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "B", "lang": "en", "text": "So the cache should have warmed up again on its own after a while, right? Or did you end up having to roll back the whole release?", "ref": "でも、しばらくすればキャッシュは自然にまた温まったはずですよね？それとも、結局リリース全体をロールバックすることになったんですか？", "kind": "long", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "結局、戻しました。待っている間に、データベースのCPU使用率が95パーセントを超えてしまったので。", "ref": "We ended up rolling it back. While we were waiting, the database CPU usage went over 95 percent.", "kind": "long", "ctx": true, "ctx_note": "戻しました has zero subject and object: 'we' rolled back 'the release'."},
+    {"spk": "B", "lang": "en", "text": "Did the cache key change go through code review?", "ref": "キャッシュキーの変更は、コードレビューを通っていたんですか？", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "通ってました。", "ref": "Yes, it did.", "kind": "short", "ctx": true, "ctx_note": "Answers whether the cache key change went through code review."},
+    {"spk": "A", "lang": "ja", "text": "ただ、レビューした人も、キーの形式が変わることには気づかなかったみたいです。差分の中では一行だけの変更だったので。", "ref": "But it seems the reviewer didn't notice that the key format would change either. It was only a one-line change in the diff.", "kind": "long", "ctx": true, "ctx_note": "キー is the cache key; the zero subject of the second sentence is the cache key change."},
+    {"spk": "B", "lang": "en", "text": "We should add a test in CI that fails if the cache key format changes without a version bump.", "ref": "キャッシュキーの形式がバージョンを上げずに変わったら失敗するテストを、CIに追加したほうがいいですね。", "kind": "mid", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "賛成です。", "ref": "Agreed.", "kind": "short", "ctx": false, "ctx_note": ""},
+    {"spk": "A", "lang": "ja", "text": "それ、今週中にお願いできますか？", "ref": "Could you get that CI test done this week?", "kind": "mid", "ctx": true, "ctx_note": "それ refers to adding the cache key test to CI."},
+    {"spk": "B", "lang": "en", "text": "I can have it ready by Thursday. And for the redeploy, I think we should support both key formats for a day so the cache can warm up gradually.", "ref": "そのテストなら木曜までに用意できます。それから再デプロイについては、キャッシュが徐々に温まるように、一日は両方のキー形式に対応させておくべきだと思います。", "kind": "long", "ctx": true, "ctx_note": "'it' is the CI test; 'both key formats' means the old and new cache key formats."},
+    {"spk": "A", "lang": "ja", "text": "それでいきましょう。", "ref": "Let's go with that.", "kind": "short", "ctx": true, "ctx_note": "それ refers to B's proposal to support both key formats for a day during the redeploy."}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "note": "応答速度の評価(scripts/eval_speed.py)のための作った対訳。人の発言ではない。short=1〜2秒・mid=3〜4秒・long=6〜9秒。",
+  "sents": [
+    {"id": 1, "kind": "short", "ja": "はい、わかりました。", "zh": "好的，我明白了。", "en": "Okay, I understand."},
+    {"id": 2, "kind": "short", "ja": "ありがとうございます。", "zh": "谢谢您。", "en": "Thank you very much."},
+    {"id": 3, "kind": "short", "ja": "それはいいですね。", "zh": "那很好啊。", "en": "That sounds good."},
+    {"id": 4, "kind": "short", "ja": "もう一度お願いします。", "zh": "请再说一遍。", "en": "Could you say that again?"},
+    {"id": 5, "kind": "short", "ja": "明日は大丈夫です。", "zh": "明天没问题。", "en": "Tomorrow is fine."},
+    {"id": 6, "kind": "short", "ja": "少し待ってください。", "zh": "请稍等一下。", "en": "Please wait a moment."},
+    {"id": 7, "kind": "mid", "ja": "会議は午後三時から始まる予定です。", "zh": "会议预计下午三点开始。", "en": "The meeting is scheduled to start at three in the afternoon."},
+    {"id": 8, "kind": "mid", "ja": "駅までは歩いて十分くらいかかります。", "zh": "走到车站大约需要十分钟。", "en": "It takes about ten minutes to walk to the station."},
+    {"id": 9, "kind": "mid", "ja": "この資料は来週までに準備しておきます。", "zh": "这份资料我会在下周之前准备好。", "en": "I will have these materials ready by next week."},
+    {"id": 10, "kind": "mid", "ja": "新しいシステムの使い方を教えてもらえますか。", "zh": "能教我怎么使用新系统吗？", "en": "Could you show me how to use the new system?"},
+    {"id": 11, "kind": "mid", "ja": "昨日の実験の結果はとても良かったです。", "zh": "昨天的实验结果非常好。", "en": "The results of yesterday's experiment were very good."},
+    {"id": 12, "kind": "mid", "ja": "予算については部長と相談する必要があります。", "zh": "关于预算，需要和部长商量。", "en": "We need to discuss the budget with the department manager."},
+    {"id": 13, "kind": "long", "ja": "来月の展示会では、新しい製品を三つ紹介する予定なので、それぞれの担当者を今週中に決めたいと思います。", "zh": "下个月的展会上我们计划介绍三款新产品，所以我想在这周之内决定各自的负责人。", "en": "We plan to introduce three new products at next month's exhibition, so I would like to decide who is in charge of each one by the end of this week."},
+    {"id": 14, "kind": "long", "ja": "先週お送りした見積もりについて、価格を少し下げられないかというご相談をいただいたので、社内で検討しています。", "zh": "关于上周发给您的报价，您问能否稍微降低价格，我们公司内部正在研究。", "en": "Regarding the quote we sent last week, you asked whether the price could be lowered a little, and we are reviewing that internally."},
+    {"id": 15, "kind": "long", "ja": "雨が降った場合は、屋外のイベントを中止して、代わりに会議室で説明会を開くことにしましょう。", "zh": "如果下雨的话，我们就取消户外活动，改为在会议室举办说明会吧。", "en": "If it rains, let's cancel the outdoor event and hold a briefing session in the meeting room instead."},
+    {"id": 16, "kind": "long", "ja": "データの分析にはもう少し時間がかかりそうなので、結果は金曜日の朝までにメールでお知らせします。", "zh": "数据分析可能还需要一些时间，所以我会在周五早上之前通过邮件通知您结果。", "en": "The data analysis looks like it will take a little more time, so I will email you the results by Friday morning."},
+    {"id": 17, "kind": "long", "ja": "空港からホテルまではシャトルバスが出ていますが、夜遅くに着く場合はタクシーを使ったほうが便利です。", "zh": "从机场到酒店有班车，但如果深夜到达的话，坐出租车会更方便。", "en": "There is a shuttle bus from the airport to the hotel, but if you arrive late at night, it is more convenient to take a taxi."},
+    {"id": 18, "kind": "long", "ja": "学生たちは毎週木曜日に集まって、それぞれの研究の進み具合を報告し合っています。", "zh": "学生们每周四聚在一起，互相汇报各自研究的进展情况。", "en": "The students meet every Thursday and report to each other on how their research is progressing."}
+  ]
+}
