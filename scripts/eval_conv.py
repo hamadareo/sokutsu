@@ -518,7 +518,7 @@ class _SpecSim:
 
 
 class _NoLocal:
-    """リモートサーバーの耳が落ちたとき Mac の whisper に落とさない(重い計算は remote だけ)。"""
+    """リモートサーバーの耳が落ちたとき Mac の whisper に落とさない(重い計算は リモートサーバー だけ)。"""
     fails = 0
 
     def transcribe(self, samples):
@@ -564,7 +564,7 @@ def run_pipeline(conv_json: Path, out_root: Path, vad_threshold: float | None = 
         stt = RemoteSTT(s.stt_url, SenseVoiceSTT(s.sense_voice_dir), hedge_s=hedge)
         stt.local.langs = pair_t
         if preview > 0:
-            # アプリ(1d00fb3〜)と同じ: リモートサーバーが preview 秒で返らなければ、このMacの耳の
+            # アプリ(1d00fb3〜)と同じ: リモートサーバー が preview 秒で返らなければ、このMacの耳の
             # 結果で予想訳を先に出す(on_preview)。確定は リモートサーバーのまま
             stt.preview_s = preview
     else:
@@ -1554,7 +1554,7 @@ def main() -> None:
     r.add_argument("--mac", action="store_true", help="このMacだけ(耳=SenseVoice, 翻訳=LM Studio)")
     r.add_argument("--hedge", type=float, default=0.0, help="リモートサーバーの耳をこの秒数だけ待ち、来なければ SenseVoice")
     r.add_argument("--preview", type=float, default=0.0,
-                   help="--hedge と併用: リモートサーバーがこの秒数で返らなければこのMacの耳で予想訳を先に出す")
+                   help="--hedge と併用: リモートサーバー がこの秒数で返らなければこのMacの耳で予想訳を先に出す")
     r.add_argument("--mac-ear", action="store_true", help="耳だけこのMac(SenseVoice)、翻訳は remote")
     r.add_argument("--mac-model", default=None, help="このMacの翻訳モデル(既定 config の ENGINE_MODELS)")
     e = sub.add_parser("eval", help="run.json から指標だけ計算し直す")

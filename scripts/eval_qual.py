@@ -19,7 +19,7 @@
 
 実行:
   build  (Mac。say の声): .venv/bin/python -I scripts/eval_qual.py build --out eval/qual/audio
-  以降は計算機(node / リモートサーバー)で。eval_qual.py run / score(このあと足す)。
+  以降は計算機(node / remote)で。eval_qual.py run / score(このあと足す)。
 """
 from __future__ import annotations
 

@@ -9,7 +9,7 @@
   - 用語辞書: 人名・専門用語を覚えておき、毎回の聞き取りの手がかり(whisper の
     initial_prompt。テーマ欄と合わせる)と、会議メモの綴りの手がかりにする。 → terms.json
 
-記録の行の形は 設計メモ(公開版には含めない) の
+記録の行の形は docs/superpowers/specs/2026-11-07-meeting-features-parity.md の
 「記録のデータの約束」。読む側は notes.load_meeting(同じ id の後の行で上書き・del で消す・
 undo で直近の修正を取り消す)。記録は追記だけで、元の行は書き換えない(壊れても戻せる)。
 

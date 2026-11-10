@@ -58,7 +58,7 @@ def note_failure(base: str, e: BaseException) -> "threading.Event | None":
         _state["ev"], _state["at"] = ev, time.monotonic()
 
     def go():
-        print("[tunnel] リモートサーバーへの転送が切れたので張り直します", flush=True)
+        print("[tunnel] リモートサーバー への転送が切れたので張り直します", flush=True)
         try:
             _run_script()
         except Exception as ex:  # noqa: BLE001

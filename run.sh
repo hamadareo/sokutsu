@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 # Sokutsu(即通)の起動。
-# 翻訳の処理場所はアプリ内の『翻訳の処理場所』で選ぶ(自動 / リモート / このMac)。
-# 自分のリモート推論サーバーを使うときだけ、SSH の宛先を渡す:
-#   TSUYAKU_SSH=user@host ./run.sh        (scripts/remote_tunnel.sh が SSH 転送を貼る)
-# 渡さなければ「このMac」(ポート1234 の OpenAI 互換サーバー、LM Studio など)だけで動く。
-# 強制指定: TSUYAKU_HOST/TSUYAKU_PORT/TSUYAKU_MODEL/TSUYAKU_ENGINE を自分で設定すればそのまま使う。
+# 翻訳の処理場所はアプリ内の『翻訳の処理場所』で選ぶ(既定: 自動 = リモートGPU →
+# この Mac の LM Studio)。ここは リモートサーバー へのSSHトンネルを試すだけ。
+# 強制指定: TSUYAKU_HOST/TSUYAKU_PORT/TSUYAKU_MODEL/TSUYAKU_ENGINE を自分で
+# 設定すればそのまま使う。
 set -uo pipefail
 cd "$(dirname "$0")"
 export PYTHONPATH="$PWD/src"
 
-if [[ -z "${TSUYAKU_HOST:-}" && -z "${TSUYAKU_PORT:-}" && -n "${TSUYAKU_SSH:-}" ]]; then
+if [[ -z "${TSUYAKU_HOST:-}" && -z "${TSUYAKU_PORT:-}" ]]; then
   if bash scripts/remote_tunnel.sh; then
-    echo "[run] リモートサーバーに接続済み — 既定は『自動』でリモートを先に使います(起動画面で変更可)"
+    echo "[run] リモートサーバー とんねる接続済み — 既定は『自動』で リモートGPU を使います(起動画面で変更可)"
   else
-    echo "[run] リモートサーバーに届きませんでした —『自動』ならこの Mac(ポート1234)で進みます"
+    echo "[run] リモートサーバー に届きませんでした —『自動』ならこの Mac の LM Studio(ポート1234)で進みます"
   fi
 fi
 

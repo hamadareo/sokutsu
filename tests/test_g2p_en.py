@@ -20,7 +20,7 @@ class TestEnG2P(unittest.TestCase):
 
     def test_live_session_words_are_all_voiced(self):
         for s in ["That's great.",
-                  "I'm Taro Yamada, a student at Kaihin Institute of Technology.",
+                  "I'm Ryo Yamada, a student at Kaihin Institute of Technology.",
                   "I currently live in Midori City, Aoba Prefecture.",
                   "We have refined it so actual conversations can take place."]:
             self.assertEqual(self.g.missing(s), [], s)

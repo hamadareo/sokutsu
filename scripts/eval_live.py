@@ -17,7 +17,7 @@ STT/翻訳/先読み/途中字幕/Endpointer はアプリのコードと設定(c
 
 材料: AMI 会議コーパス(CC BY 4.0)。手作業の書き起こし(単語ごとの時刻・話者)が正解。
   build: 会議の一部を切り出して clip WAV と正解 JSON を作る。参照訳 = 正解の書き起こしを
-         同じ翻訳モデル(リモートサーバー)で訳したもの(同じ話者の続きをまとめて、アプリと同じ文脈で)。
+         同じ翻訳モデル(remote)で訳したもの(同じ話者の続きをまとめて、アプリと同じ文脈で)。
   run:   1クリップを実時間で流す(長さぶん時間がかかる)。
   eval:  記録から指標を計算し直す。
   ab:    2つの結果フォルダを比べる。
@@ -178,7 +178,7 @@ def build(zip_path: Path, wav: Path, start: float, dur: float, out_dir: Path,
 
 
 def add_reference(meta: dict) -> None:
-    """参照訳: 正解の書き起こしをアプリと同じ翻訳(リモートサーバー、同じ指示・直前4ターンの文脈)で訳す。"""
+    """参照訳: 正解の書き起こしをアプリと同じ翻訳(remote、同じ指示・直前4ターンの文脈)で訳す。"""
     sys.path.insert(0, str(ROOT / "src"))
     from tsuyaku.config import engine_candidates, load_settings
     from tsuyaku.translate import build_messages, pick_model, translate_with_retry, warmup
@@ -640,7 +640,7 @@ def evaluate(clip_json: Path, out: Path) -> Path:
             agree.append(ec.chrf(g_tr, best[1]))
 
     stt = [e for e in ev if e["kind"] == "stt"]
-    remote = [e["dt"] for e in stt if e["where"] == "remote"]
+    リモートサーバー = [e["dt"] for e in stt if e["where"] == "remote"]
     mac = [e for e in ev if e["kind"] == "mac_ear"]
     sm = {
         "clip": clip_json.stem, "dur": meta["dur"], "words": n, "git": run["meta"]["git"],
@@ -696,7 +696,7 @@ def fmt(sm: dict) -> str:
             f"WER {sm['wer']}% (確定の語{sm['hyp_words']}/正解{sm['ref_words']}) / chrF(参照訳, 30秒窓) {sm['chrf']} "
             f"/ 単位{sm['units']}(捨て{sm['flushed']}) 長さ 中央{sm['unit_len_med']} p90 {sm['unit_len_p90']} "
             f"最大{sm['unit_len_max']} 8秒超{sm['units_over8']} / 文の分割 {sm['sent_split']}% / 2人入り {sm['cross_units']}\n"
-            f"耳: remote {sm['stt_calls'] - sm['stt_mac']}回 中央{sm['stt_remote_med']}s p90 {sm['stt_remote_p90']}s "
+            f"耳: リモートサーバー {sm['stt_calls'] - sm['stt_mac']}回 中央{sm['stt_remote_med']}s p90 {sm['stt_remote_p90']}s "
             f"/ Mac確定 {sm['stt_mac']} / Macの耳 {sm['mac_ear_calls']}回 {sm['mac_ear_med']}s / 区間 {sm['segs']} "
             f"/ 途中音声 {sm['interim_set']} / 失敗 {sm['fail']} / 詰まりで捨てた 区間{sm.get('backlog_seg', '-')}"
             f" 訳{sm.get('backlog_text', '-')} / 予想訳 vs 確定訳 chrF {sm.get('guess_vs_final_chrf')}"
@@ -722,7 +722,7 @@ def pooled(d: Path, clips: "set[str] | None" = None) -> dict:
     ulen = []
     over8 = units = 0
     lr_src, lr_tr = [], []
-    remote = []
+    リモートサーバー = []
     for sp in sorted(d.glob("*/summary.json")):
         if clips is not None and sp.parent.name not in clips:
             continue
@@ -739,7 +739,7 @@ def pooled(d: Path, clips: "set[str] | None" = None) -> dict:
         over8 += sm["units_over8"]
         ev = json.loads((sp.parent / "events.json").read_text(encoding="utf-8"))["events"]
         ulen += [e["hi"] - e["speech_lo"] for e in ev if e["kind"] == "unit" and e["how"] != "flush"]
-        remote += [e["dt"] for e in ev if e["kind"] == "stt" and e["where"] == "remote"]
+        リモートサーバー += [e["dt"] for e in ev if e["kind"] == "stt" and e["where"] == "remote"]
         clip = json.loads(Path(json.loads((sp.parent / "events.json").read_text(
             encoding="utf-8"))["meta"]["clip"]).read_text(encoding="utf-8"))
         # 窓 chrF は summary の再計算が要るので evaluate と同じ方法で統計を足す

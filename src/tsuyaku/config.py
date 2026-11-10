@@ -22,7 +22,7 @@ def _config_file() -> Path:
 
 LANG_NAMES = {"ja": "日本語", "en": "英語", "zh": "中国語", "ko": "韓国語"}
 
-# 処理場所(翻訳LLMをどこで走らせるか)。リモートサーバーは 翻訳ゲートウェイ へのSSH転送ポート。
+# 処理場所(翻訳LLMをどこで走らせるか)。リモートサーバー は 翻訳ゲートウェイ へのSSH転送ポート。
 ENGINE_LABELS = {"auto": "自動", "remote": "リモートGPU", "mac": "このMac"}
 # Mac は qwen3-4b-2507(2.3GB)。gemma-3-12b(8GB)は16GBのMacで whisper/VOICEVOX と
 # 同居するとスワップを使い切り、翻訳1件45〜67秒・タイムアウト連発(11/05ライブ)。
@@ -69,7 +69,7 @@ def engine_candidates(engine: str = "auto", host: str = "127.0.0.1",
     """処理場所 → 試す順の [(ラベル, base_url, 推奨モデル)]。
 
     auto: リモートGPU を先に試し、届かなければこの Mac に落ちる。
-    remote / mac: その1つだけ。TSUYAKU_PORT でカスタムポートを明示した場合は
+    リモートサーバー / mac: その1つだけ。TSUYAKU_PORT でカスタムポートを明示した場合は
     それを従う(処理場所よりカスタム指定を優先。以前の起動方法との互換)。
     配る版(dist): このMac = 同梱の llama-server、自分のサーバー = server(空なら使わない)。
     """
@@ -91,7 +91,7 @@ def engine_candidates(engine: str = "auto", host: str = "127.0.0.1",
 
 @dataclass
 class Settings:
-    host: str = "127.0.0.1"                # LM Studio サーバー(リモート可: SSH転送の先)
+    host: str = "127.0.0.1"                # LM Studio サーバー(リモート可: リモートサーバートンネル先)
     port: int = 1234                       # LM Studio サーバー
     model: str = "google/gemma-3-4b"      # /v1/models の id。見つからなければ最初のLLMへ
     whisper_model: str = str(MODELS / "ggml-large-v3-turbo.bin")
@@ -101,7 +101,7 @@ class Settings:
     # 直す(11/08 relisten.py)。リモートサーバーの耳のときは使わない
     relisten: bool = True
     sense_voice_dir: str = ""
-    # リモートGPU の耳(SSH転送 127.0.0.1:12346 → remote:9941)。翻訳を リモートサーバーでやるときだけ使う。
+    # リモートGPU の耳(SSH転送 127.0.0.1:12346 → remote:9941)。翻訳を リモートサーバー でやるときだけ使う。
     stt_url: str = "http://127.0.0.1:12346"
     silero_vad: str = str(MODELS / "silero_vad.onnx")
     tts_dir_kokoro: str = ""               # models/kokoro-int8-multi-lang-v1_0
@@ -157,10 +157,10 @@ class Settings:
     # 確定の品質は リモートサーバーのまま: 0.7秒/2.5秒で切ると混んだ回線で chrF -2〜4 だったので、
     # 今までの時間切れ(4秒)と同じにする。速さは下の予想訳の先出しで出す。
     stt_hedge_s: float = 4.0
-    # これを過ぎても リモートサーバーが返らなければ、このMacの耳の結果で予想訳だけ先に出す。
+    # これを過ぎても リモートサーバー が返らなければ、このMacの耳の結果で予想訳だけ先に出す。
     stt_preview_s: float = 0.35
     # 先送り(11/06, uplink.py): 話している間に声を リモートサーバーの耳へ送っておき、聞くときは範囲だけ
-    # 送る(ふつうの回線で耳の往復 中央1.9秒 → 範囲だけなら音声の大きさに関係なく1往復)。
+    # 送る(家の回線で耳の往復 中央1.9秒 → 範囲だけなら音声の大きさに関係なく1往復)。
     stt_stream: bool = True
     # 前回のテーマメモ(人名・専門用語)。次の起動で入力欄に戻す(11/06)。
     last_topic: str = ""
@@ -234,7 +234,7 @@ def apply_dist(s: "Settings", data: Path, cfg: dict) -> None:
     """配る版の既定。cfg(config.json の中身)に書いてある値はそのまま(利用者の選択が勝つ)。"""
     s.log_dir = str(Path(data) / "logs")
     resolve_dist_models(s, data)
-    s.stt_url = ""                         # リモートの耳(自分のサーバー)は使わない
+    s.stt_url = ""                         # リモートの耳(研究室のサーバー)は使わない
     if "model" not in cfg:
         s.model = DIST_MODEL
     if "tts_voice" not in cfg:

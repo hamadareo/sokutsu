@@ -6,7 +6,7 @@ eval/terms/it_testset.json(220項目 × ja/en/zh/ko、クラウド・コンテ�
 
   tts   : 音声(ja = VOICEVOX・say Kyoko/Eddy/Flo、en = say Samantha・Kokoro、zh = say Tingting/Reed/Flo、
           ko = say Yuna/Reed/Flo。Kokoro の ja/zh は英字の語を読み飛ばすので使わない)。項目ごとに声を回す。"speak" があればその読み(製品名のカタカナ読み)を読ませる
-  stt   : 耳(remote whisper / このMac SenseVoice)→ 聞き取りの CER/WER と用語の当たり(耳の直しの前/後)
+  stt   : 耳(リモートサーバー whisper / このMac SenseVoice)→ 聞き取りの CER/WER と用語の当たり(耳の直しの前/後)
   mt    : eval_terms.mt と同じ(--set を it_testset に)
   score : 種類ごとの表
 
@@ -131,7 +131,7 @@ def stt(args) -> None:
     ET.use_src(args.src_root)
     from tsuyaku.terms import clean_heard
     items = ET.load_set(args.set)
-    ET.guard_app()          # ユーザーのアプリが動いていたら測らない(remote / このMac の取り合い)
+    ET.guard_app()          # ユーザーのアプリが動いていたら測らない(リモートサーバー / このMac の取り合い)
     if args.ear == "remote":
         from tsuyaku.stt import RemoteSTT
         ear = RemoteSTT(args.stt_url, None, timeout=20.0)
@@ -341,7 +341,7 @@ def main() -> None:
     if len(sys.argv) > 1 and sys.argv[1] == "et":
         # eval_terms.py の mt / cf / fleurs を、こちらのアプリの見張り(app_running)で流す
         sys.argv = ["eval_terms.py"] + sys.argv[2:]
-        # 訳のサーバーを差し替える(11/08 方針: 品質の評価は リモートサーバー。Mac のモデルも リモートサーバーの自分の llama-server で)
+        # 訳のサーバーを差し替える(11/08 方針: 品質の評価は remote。Mac のモデルも リモートサーバーの自分の llama-server で)
         # TSUYAKU_EVAL_LLM="http://127.0.0.1:9981|gemma-3-4b"
         if os.environ.get("TSUYAKU_EVAL_LLM"):
             url, _, model = os.environ["TSUYAKU_EVAL_LLM"].partition("|")

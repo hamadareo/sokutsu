@@ -19,11 +19,11 @@ class TestPick(unittest.TestCase):
         evs = [ev("終日の予定", NOW.replace(hour=0, minute=0), NOW.replace(hour=23, minute=59), allday=True),
                ev("次の会議", NOW + dt.timedelta(minutes=10), NOW + dt.timedelta(minutes=70)),
                ev("定例", NOW - dt.timedelta(minutes=5), NOW + dt.timedelta(minutes=25),
-                  att=[("山田 花子", "h@example.com"), ("", "smith@example.com")])]
+                  att=[("山田 怜央", "h@example.com"), ("", "smith@example.com")])]
         p = C.pick_event(evs, NOW)
         self.assertEqual(p["title"], "定例")
         self.assertEqual([a.get("name") or a.get("email") for a in p["attendees"]],
-                         ["山田 花子", "smith@example.com"])
+                         ["山田 怜央", "smith@example.com"])
 
     def test_starting_soon_is_used_when_nothing_is_ongoing(self):
         evs = [ev("あとの会議", NOW + dt.timedelta(minutes=40), NOW + dt.timedelta(minutes=90)),

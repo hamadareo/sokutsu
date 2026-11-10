@@ -1,6 +1,6 @@
 """会議の記録の整理(W4 11/07): 題の変更・タグ・フォルダ・お気に入り・ゴミ箱(戻せる)。
 
-設計: 設計メモ(公開版には含めない)(W4)
+設計: docs/superpowers/specs/2026-11-07-meeting-features-parity.md(W4)
   - 会議ごとの付属ファイル `session-….tags.json` に {title, tags, folder, star, calendar, trashed}
     を置く(記録の jsonl は書き換えない。消せば元どおり)。題は空にすると自動の題(メモの題)に戻る。
   - フォルダは1段だけ(会議は1つのフォルダに入るか、どこにも入らない)。空のフォルダも残せるよう
@@ -147,8 +147,17 @@ def _entry(p: Path) -> "dict | None":
     return e
 
 
+def kinds_of(e: dict) -> list:
+    """一覧の種別: 通訳(interpret)/会議メモ(notes)。mode が both なら両方。mode 無しの古い記録は通訳。"""
+    mode = e.get("mode") or "interpret"
+    if mode == "both":
+        return ["interpret", "notes"]
+    return ["notes"] if mode == "notes" else ["interpret"]
+
+
 def _decorate(e: dict, info: dict) -> dict:
     m = dict(e)
+    m["kinds"] = kinds_of(e)
     m["auto_title"] = e.get("title", "")
     if info.get("title"):
         m["title"] = info["title"]
@@ -197,6 +206,8 @@ def facets(log_dir: "str | Path") -> dict:
     return {"all": len(lst), "star": sum(1 for m in lst if m["star"]),
             "tags": [{"name": k, "n": v} for k, v in sorted(tags.items(), key=lambda kv: (-kv[1], kv[0]))],
             "folders": [{"name": k, "n": folders[k]} for k in sorted(folders)],
+            "kinds": {"all": len(lst), "interpret": sum(1 for m in lst if "interpret" in m["kinds"]),
+                      "notes": sum(1 for m in lst if "notes" in m["kinds"])},
             "trash": len(_trashed(log_dir))}
 
 

@@ -5,7 +5,7 @@
 伴奏は和音(I–V–vi–IV)のピアノっぽい音 + ベース + キックとハイハット。歌声に対する伴奏の大きさを
 0(アカペラ)/ 0.5 / 1 / 2 倍で混ぜる。正解は「字幕なし」。
 
-実行(リモートサーバーで。VOICEVOX は自分のコンテナ、例 127.0.0.1:50121):
+実行(リモートサーバー で。VOICEVOX は自分のコンテナ、例 127.0.0.1:50121):
   python -I scripts/make_songs.py --url http://127.0.0.1:50121 --out eval/long/songs
 """
 from __future__ import annotations

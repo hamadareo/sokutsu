@@ -29,11 +29,11 @@ class TestSidecar(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p = write_log(d)
             self.assertEqual(LB.load_info(p), {})
-            LB.update_info(p, title="  定例  ", tags=["予算", " 予算 ", "", "A社"], folder="チーム", star=True)
+            LB.update_info(p, title="  定例  ", tags=["予算", " 予算 ", "", "A社"], folder="研究室", star=True)
             info = LB.load_info(p)
             self.assertEqual(info["title"], "定例")
             self.assertEqual(info["tags"], ["予算", "A社"])        # 空・重複・前後の空白を落とす
-            self.assertEqual(info["folder"], "チーム")
+            self.assertEqual(info["folder"], "研究室")
             self.assertTrue(info["star"])
             self.assertTrue(Path(d, "session-20261106-100000.tags.json").exists())
             LB.update_info(p, title="")                              # 空 = 自動の題に戻す
@@ -63,14 +63,14 @@ class TestList(unittest.TestCase):
             p = write_log(d)
             write_log(d, stem="session-20261107-090000", start="2026-11-07 09:00:00")
             N.save_notes(p, {"lang": "ja", "title": "自動の題", "participants": [], "keywords": ["予算"]})
-            LB.update_info(p, title="手で付けた題", tags=["予算"], folder="チーム", star=True)
+            LB.update_info(p, title="手で付けた題", tags=["予算"], folder="研究室", star=True)
             lst = LB.list_meetings(d)
             self.assertEqual([m["id"] for m in lst], ["session-20261107-090000", "session-20261106-100000"])
             m = lst[1]
             self.assertEqual(m["title"], "手で付けた題")
             self.assertEqual(m["auto_title"], "自動の題")
             self.assertEqual(m["tags"], ["予算"])
-            self.assertEqual(m["folder"], "チーム")
+            self.assertEqual(m["folder"], "研究室")
             self.assertTrue(m["star"])
             self.assertFalse(lst[0]["star"])
             self.assertEqual(lst[0]["tags"], [])
@@ -103,21 +103,43 @@ class TestList(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             a = write_log(d)
             b = write_log(d, stem="session-20261107-090000", start="2026-11-07 09:00:00")
-            LB.update_info(a, tags=["予算", "A社"], folder="チーム", star=True)
+            LB.update_info(a, tags=["予算", "A社"], folder="研究室", star=True)
             LB.update_info(b, tags=["予算"], folder="")
             LB.folder_add(d, "空のフォルダ")
             f = LB.facets(d)
             self.assertEqual(f["tags"], [{"name": "予算", "n": 2}, {"name": "A社", "n": 1}])
-            self.assertEqual(f["folders"], [{"name": "チーム", "n": 1}, {"name": "空のフォルダ", "n": 0}])
+            self.assertEqual(f["folders"], [{"name": "研究室", "n": 1}, {"name": "空のフォルダ", "n": 0}])
             self.assertEqual(f["star"], 1)
             self.assertEqual(f["all"], 2)
             self.assertEqual(f["trash"], 0)
 
+    def test_kinds_split_interpret_and_notes(self):
+        def mk(d, stem, mode):
+            p = write_log(d, stem=stem)
+            rows = p.read_text(encoding="utf-8").splitlines()
+            meta = json.loads(rows[0])
+            if mode is None:
+                meta.pop("mode")
+            else:
+                meta["mode"] = mode
+            p.write_text("\n".join([json.dumps(meta, ensure_ascii=False)] + rows[1:]) + "\n", encoding="utf-8")
+        with tempfile.TemporaryDirectory() as d:
+            mk(d, "session-20261101-000001", "interpret")
+            mk(d, "session-20261101-000002", "notes")
+            mk(d, "session-20261101-000003", "both")
+            mk(d, "session-20261101-000004", None)         # 古い記録(mode 無し)は通訳
+            by = {m["id"][-1]: m for m in LB.list_meetings(d)}
+            self.assertEqual(by["1"]["kinds"], ["interpret"])
+            self.assertEqual(by["2"]["kinds"], ["notes"])
+            self.assertEqual(by["3"]["kinds"], ["interpret", "notes"])
+            self.assertEqual(by["4"]["kinds"], ["interpret"])
+            self.assertEqual(LB.facets(d)["kinds"], {"all": 4, "interpret": 3, "notes": 2})
+
     def test_folder_rename_and_remove_update_meetings(self):
         with tempfile.TemporaryDirectory() as d:
             a = write_log(d)
-            LB.update_info(a, folder="チーム")
-            LB.folder_rename(d, "チーム", "ラボ")
+            LB.update_info(a, folder="研究室")
+            LB.folder_rename(d, "研究室", "ラボ")
             self.assertEqual(LB.load_info(a)["folder"], "ラボ")
             self.assertIn("ラボ", [x["name"] for x in LB.facets(d)["folders"]])
             LB.folder_remove(d, "ラボ")                    # フォルダを消しても会議は消えない

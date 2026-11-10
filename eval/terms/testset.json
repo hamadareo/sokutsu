@@ -1962,7 +1962,7 @@
   "id": "academic-01",
   "domain": "academic",
   "texts": {
-   "ja": "私の専攻は情報工学で、チームでは音声認識を研究しています。",
+   "ja": "私の専攻は情報工学で、研究室では音声認識を研究しています。",
    "en": "My major is information engineering, and in my lab I research speech recognition.",
    "zh": "我的专业是信息工程，在实验室里做语音识别方面的研究。",
    "ko": "제 전공은 정보공학이고, 연구실에서는 음성 인식을 연구하고 있습니다."
@@ -1984,9 +1984,9 @@
    },
    {
     "kind": "term",
-    "ja": "チーム|ラボ",
+    "ja": "研究室|ラボ",
     "en": "lab|laboratory",
-    "zh": "实验室|チーム|课题组",
+    "zh": "实验室|研究室|课题组",
     "ko": "연구실|랩"
    },
    {
@@ -2299,7 +2299,7 @@
   "id": "intro-02",
   "domain": "intro",
   "texts": {
-   "ja": "私は修士2年で、チームではロボットの画像認識を研究しています。",
+   "ja": "私は修士2年で、研究室ではロボットの画像認識を研究しています。",
    "en": "I'm a second-year master's student, and in my lab I work on image recognition for robots.",
    "zh": "我是硕士二年级的学生，在实验室研究机器人的图像识别。",
    "ko": "저는 석사 2년 차이고, 연구실에서 로봇 이미지 인식을 연구하고 있습니다."
@@ -2314,9 +2314,9 @@
    },
    {
     "kind": "term",
-    "ja": "チーム|ラボ",
+    "ja": "研究室|ラボ",
     "en": "lab|laboratory",
-    "zh": "实验室|チーム|课题组",
+    "zh": "实验室|研究室|课题组",
     "ko": "연구실|랩"
    },
    {

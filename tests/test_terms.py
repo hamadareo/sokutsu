@@ -59,9 +59,9 @@ class TestLetters(unittest.TestCase):
 
 class TestUserTermFix(unittest.TestCase):
     def test_near_miss_fixed(self):
-        u = ["北山工業大学", "ProjectX3x3"]
+        u = ["北山工業大学", "TrackID3x3"]
         self.assertEqual(terms.fix_user_terms("私は北山工大学の学生です", u), "私は北山工業大学の学生です")
-        self.assertEqual(terms.fix_user_terms("we ran ProjectX3x on it", u), "we ran ProjectX3x3 on it")
+        self.assertEqual(terms.fix_user_terms("we ran TrackID3x on it", u), "we ran TrackID3x3 on it")
 
     def test_other_user_term_kept(self):
         u = ["北山工業大学", "北山工业大学"]
@@ -131,8 +131,8 @@ class TestTermBase(unittest.TestCase):
                          ("グラフ", "YOLO", "ラフ"))
 
     def test_user_plain_latin_kept(self):
-        got = dict(self.pairs("ProjectXの精度が上がった", "ja", "en", user=["ProjectX", "山田"]))
-        self.assertEqual(got.get("ProjectX"), "ProjectX")
+        got = dict(self.pairs("TrackIDの精度が上がった", "ja", "en", user=["TrackID", "山田"]))
+        self.assertEqual(got.get("TrackID"), "TrackID")
         self.assertNotIn("山田", got)          # 日本語の名前は訳す側に任せる(ローマ字にする)
 
     def test_limit(self):

@@ -771,6 +771,15 @@ body.m-notes #hintNotes{display:block}
   #mdoc{scroll-behavior:auto}
 }
 /* ================= W4: 整理・全文検索・話者の分析・書き出し・声を覚える・カレンダー ================= */
+/* 一覧の種別タブ: すべて / 通訳 / 会議メモ(細いサイドバーに収まる小さな切替) */
+.w4kind{display:flex;gap:2px;margin:0 14px 8px;padding:2px;border:1px solid var(--line);border-radius:8px}
+.w4kind[hidden]{display:none}
+.w4kind button{flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:4px;background:none;border:none;border-radius:6px;
+  color:var(--muted);font-size:12px;padding:3px 4px;line-height:1.5;white-space:nowrap}
+.w4kind button span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.w4kind button small{font-size:10.5px;opacity:.7;font-variant-numeric:tabular-nums}
+.w4kind button:hover{color:var(--paper)}
+.w4kind button.on{background:var(--paper);color:var(--ink);font-weight:600}
 /* 一覧の絞り込み: すべて / お気に入り / フォルダ / タグ(1つだけ選ぶ) */
 .w4scope[hidden]{display:none}
 .w4scope{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 10px;border-bottom:1px solid var(--line)}
@@ -2219,6 +2228,7 @@ body.speaking #crumb .cl,body.speaking #crumb i,body.speaking #crumb .ct,body.sp
 /* 上の帯(新しい会話・設定・会議の記録): パンくず + 状態 */
 #newBar{position:sticky;top:0;z-index:3;background:var(--bg)}
 body.sb-off #newBar{padding-left:48px}
+.gstat[hidden]{display:none}
 .gstat{display:inline-flex;align-items:center;gap:7px;min-height:28px;padding:2px 10px 2px 9px;border:none;border-radius:20px;
   background:var(--bg-hover);color:var(--text-2);font:inherit;font-size:13px;white-space:nowrap;cursor:default;flex:none}
 .gstat:not(:disabled){cursor:pointer} .gstat:not(:disabled):hover{background:var(--bg-sel);color:var(--text)}
@@ -2507,7 +2517,7 @@ try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.body.cla
     <div class="segnote" id="voiceNote"></div>
   </div>
   <div class="field"><button id="go" type="button" data-t>会話を始める</button></div>
-  <div class="hint" id="startHint">自動: リモートサーバーの GPU、無ければこの Mac</div>
+  <div class="hint" id="startHint">自動: リモートGPU、無ければこの Mac</div>
   </div>
  </div>
 </div>
@@ -2597,7 +2607,7 @@ try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.body.cla
           <dt><i class="hx band"></i></dt><dd data-t>上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す</dd>
           <dt><span class="hx dots">Abc</span></dt><dd data-t>点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する</dd>
           <dt><i class="hx bar"></i></dt><dd data-t>字幕の左の太い線は、この訳を受け取る人の色</dd>
-          <dt><span class="hx net"><svg viewBox="0 0 16 14" aria-hidden="true"><rect x="1" y="9" width="3" height="4" rx=".6"/><rect x="6.5" y="5.5" width="3" height="7.5" rx=".6"/><rect class="nb" x="12" y="1.5" width="3" height="11.5" rx=".6"/></svg></span></dt><dd data-t>上の帯の「回線が混んでいます」は、リモートサーバーへの回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる</dd>
+          <dt><span class="hx net"><svg viewBox="0 0 16 14" aria-hidden="true"><rect x="1" y="9" width="3" height="4" rx=".6"/><rect x="6.5" y="5.5" width="3" height="7.5" rx=".6"/><rect class="nb" x="12" y="1.5" width="3" height="11.5" rx=".6"/></svg></span></dt><dd data-t>上の帯の「回線が混んでいます」は、リモートサーバー への回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる</dd>
         </dl>
       </section>
     </div>
@@ -2665,7 +2675,7 @@ en:{
 "声と話す速さ <small>▶で試聴 — 会話中も変えられます</small>":"Voice and speed <small>▶ to preview — can be changed anytime</small>",
 "翻訳の処理場所":"Where to translate","自動":"Auto","このMac":"This Mac","まわりの音":"Surroundings",
 "読み上げ":"Read aloud","声も出す":"Voice and captions","字幕だけ":"Captions only","訳を声でも読みます。読み上げの間はマイクを止めるので、終わってから話してください":"Translations are also read aloud. The mic pauses while the app speaks, so talk after it finishes","声を出さず字幕だけ。マイクを止めないので、続けて話しても全部聞き取ります":"Captions only, no voice. The mic never pauses, so it hears everything even if you keep talking","読み上げのあり・なし(字幕だけ)を切り替える":"Switch the voice on or off (captions only)","字幕だけにしました — 続けて話せます":"Captions only — keep talking","読み上げを戻しました":"Voice is back on","静かな部屋":"Quiet room","騒がしい会場":"Noisy venue","会話を始める":"Start conversation",
-"自動は リモートサーバーの GPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"Auto uses the remote GPU when found, otherwise LM Studio on this Mac",
+"自動は リモートGPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"Auto uses the リモートGPU when found, otherwise LM Studio on this Mac",
 "待機中":"Idle","翻訳に使っている言語モデル":"Language model used for translation",
 "字幕の大きさ":"Caption size","字幕を小さく":"Smaller captions","字幕を大きく":"Larger captions",
 "声・速度":"Voice","声と話す速さの設定":"Voice and speaking speed",
@@ -2708,13 +2718,13 @@ en:{
 "{lang}の声":"{lang} voice","{lang}の話す速さ":"{lang} speaking speed","{lang}を試聴":"Preview {lang}",
 "カスタムの翻訳サーバーに接続できました — このまま会話を始められます":"Connected to the custom translation server — ready to start",
 "カスタムの翻訳サーバーが応答しません — TSUYAKU_PORT/とんねるの設定を確かめてください":"The custom translation server is not responding — check TSUYAKU_PORT / the tunnel",
-"リモートサーバーの GPU に接続できました —{m}を裏で用意しています":"Connected to the remote GPU —{m}is being prepared",
-"リモートサーバーに届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"Can't reach the remote server — check the tunnel (scripts/remote_tunnel.sh) or that the remote server is running",
+"リモートGPU に接続できました —{m}を裏で用意しています":"Connected to the リモートGPU —{m}is being prepared",
+"remote に届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"Can't reach リモートサーバー — check the tunnel (scripts/remote_tunnel.sh) or that リモートサーバー is running",
 "この Mac の LM Studio に接続できました —{m}でこのまま会話を始められます":"Connected to LM Studio on this Mac —{m}is ready",
 "この Mac の LM Studio が応答しません — LM Studio のサーバー起動が必要です":"LM Studio on this Mac is not responding — start its server",
-"リモートサーバーを見つけました —{m}を リモートサーバーの GPU で翻訳します":"Found the remote server — translating with{m}on its GPU",
-"リモートサーバーが見つからないので、この Mac の{m}で翻訳します":"Remote server not found — translating with{m}on this Mac",
-"翻訳サーバーが見つかりません — 処理場所を変えるか、remote/LM Studio を起動してください":"No translation server found — change the location or start remote / LM Studio",
+"remote を見つけました —{m}を リモートGPU で翻訳します":"Found リモートサーバー — translating with{m}on its GPU",
+"remote が見つからないので、この Mac の{m}で翻訳します":"remote not found — translating with{m}on this Mac",
+"翻訳サーバーが見つかりません — 処理場所を変えるか、remote/LM Studio を起動してください":"No translation server found — change the location or start リモートサーバー / LM Studio",
 "翻訳サーバーを確かめています…":"Checking the translation server…",
 "耳":"STT","もう一度押すと終了":"Press again to quit","読み込み中…":"Loading…",
 "(字幕のみ)":"(captions only)","{n}発話":"{n} utterances","(翻訳できず)":"(no translation)","（翻訳できませんでした）":"(Could not translate)",
@@ -2727,7 +2737,7 @@ en:{
 "会話を始められませんでした":"Couldn't start the conversation","翻訳サーバーに接続できません":"Can't connect to the translation server",
 "音声認識モデルを読み込めません":"Can't load the speech recognition model","音声認識に失敗しました":"Speech recognition failed",
 "翻訳が途中で切れました":"The translation was cut off",
-"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバー/LM Studio)のモデル設定を確認してください。":"Please say it again. If this keeps happening, check the model settings of the translation server (the remote server / LM Studio).",
+"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバーゲート/LM Studio)のモデル設定を確認してください。":"Please say it again. If this keeps happening, check the model settings of the translation server (リモートサーバー gate / LM Studio).",
 "もう一度「会話を始める」を押してください":"press “Start conversation” again",
 "画面の言語":"Screen language",
 "ほか{n}人":"{n} others","畳む":"Collapse","相づちや小さな声の切れ端が、別の話者として数えられたもの":"Brief replies or faint voice fragments counted as separate speakers",
@@ -2739,8 +2749,8 @@ en:{
 "訳して、字幕と声で相手へ":"Translate, in captions and voice","訳さずに記録して、要約とやることに":"Record without translating; get a summary and to-dos","訳して届けながら、会議メモにも":"Translate and also make meeting notes","タイトルや日付で探す":"Search by title or date","{lang}の話者":"{lang} speaker","今日":"Today","昨日":"Yesterday","見つかりません":"Nothing found","この会話の記録を開けませんでした":"Couldn't open this conversation","会話を始めると、話した内容がここに残ります。あとから要約・決定事項・やることを会議メモにできます。":"Start a conversation and what is said stays here. Later you can turn it into meeting notes with a summary, decisions and to-dos.","会話を始めると、話した内容がここに残ります。":"Start a conversation and what is said stays here.","まだ作っていません":"Not made yet","最新にする":"Refresh","メモを作成":"Notes made","名前の根拠":"Name from","もう一度作る":"Try again","この会話のメモはまだありません":"No notes for this conversation yet","記録({n}件の発言)から、要約・話題ごとの要点・決定事項・やることを作ります。長い会議でも数十秒〜数分です。":"From the transcript ({n} lines) it makes a summary, key points by topic, decisions and to-dos. Even long meetings take seconds to a few minutes.","まだ発言がありません":"Nothing has been said yet","要点":"Key points","記録の中を探す":"Search the transcript","訳も表示":"Show translations","記録を読む":"Read","区切りごとに要約":"Summarize sections","まとめる":"Combine","できあがり":"Done","メモができました":"Notes are ready","保存できませんでした":"Couldn't save","名前を「{name}」にしました":"Renamed to “{name}”","名前を消しました":"Name cleared",
 "使い方":"Use","通訳だけ":"Interpret only","会議メモだけ":"Notes only","通訳+会議メモ":"Interpret + notes","今までどおり、訳して字幕と声で届けます":"As before: translate and deliver in captions and voice","訳さず、聞き取った言葉と話者だけを記録して会議メモにします(同じ言語どうしの会議にも)":"No translation: records what is said and who said it, then makes meeting notes (also for same-language meetings)","訳して届けながら、話者も見分けて会議メモにします":"Translates and also tells speakers apart to make meeting notes","話す言語":"Spoken languages","1言語(訳さずに記録)":"One language (record, no translation)","2言語(訳さずに両方聞き取る)":"Two languages (hear both, no translation)","日本語だけ":"日本語 only","会議の記録":"Meetings","これまでの会話の記録と会議メモを見る":"See past conversations and meeting notes","メモ":"Notes","ここまでの会話の会議メモ(要約・決定事項・やること)を作って開きます":"Make and open meeting notes for this conversation so far (summary, decisions, to-dos)","会議メモ: 聞き取った言葉と話者を記録しています(訳と読み上げはしません)":"Meeting notes: recording what is said and by whom (no translation or voice)","話者{n}":"Speaker {n}","今の会話":"This conversation","この版では会議の記録を読めません":"This version cannot read meeting records yet","まだ会話の記録がありません":"No conversations recorded yet","無題の会話":"Untitled conversation","{n}分":"{n} min","メモあり":"Notes","通訳":"Interpret","会議メモ":"Meeting notes","日時":"Date","長さ":"Length","言語":"Languages","発言":"Lines","{n}件":"{n}","メモの言語":"Notes language","作り直す":"Remake","Markdown をコピー":"Copy Markdown","ファイルに保存":"Save to file","参加者":"Participants","根拠":"Evidence","名前":"Name","{n}件の発言":"{n} lines","この会話のメモはまだありません。記録から、要約・話題ごとの要点・決定事項・やることを作ります。":"No notes for this conversation yet. They will be made from the transcript: summary, key points by topic, decisions and to-dos.","{lang}でメモを作る":"Make notes in {lang}","要約":"Summary","話題ごとの要点":"Key points by topic","決定事項":"Decisions","やること":"To-dos","済み":"Done","担当":"Owner","期限":"Due","残った質問":"Open questions","キーワード":"Keywords","全文の記録":"Full transcript","記録を読んでいます…":"Reading the transcript…","区切りごとに要約しています…":"Summarizing section by section…","まとめています…":"Putting it together…","できました":"Done","メモを作れませんでした":"Couldn't make the notes","Markdown をコピーしました":"Markdown copied","保存しました":"Saved",
 "記録をコピー":"Copy transcript","コピーしました":"Copied","コピーできませんでした":"Couldn't copy","ファイル":"File","時刻・話者の言語・原文・訳をテキストでコピーします(学会のあとで見返す・貼り付ける用)":"Copies time, language, original and translation as text (to review or paste later)","会話の記録のファイル(logs/session-*.txt)を Finder で表示します":"Shows the transcript file (logs/session-*.txt) in Finder","{n}発話 / 字幕の中央値 {c} / 声の中央値 {v} / 予想訳が先に出た {g}回":"{n} utterances / median caption {c} / median voice {v} / predicted first {g} times","原文":"Original","訳":"Translation","予想訳が先に出た":"Predicted first",
-"回線が混んでいます — 予想訳を先に出しています":"Network is slow — showing predicted translations first","回線混雑":"Slow network","+{n}秒":"+{n}s","リモートサーバーの耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"Round trips to the remote speech recognizer take {n}s longer on average (e.g. a busy uplink). Predicted translations come first from this Mac; the final caption and voice wait for the remote server, so they are a little later.","上の帯の「回線が混んでいます」は、リモートサーバーへの回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"“Network is slow” in the top bar means the link to the remote server is slow. Predicted translations still come first; the final caption and voice are a little later.",
-"リモートサーバーの GPU が見つかればそれで、無ければこの Mac で翻訳します":"Uses the remote GPU when it is found, otherwise translates on this Mac","リモートの GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"Translates on the lab GPU server. Fast and accurate, but needs the network","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"Translates on this Mac only. No network needed (long sentences may be a little slower)","小さな声も拾います(静かな部屋・チーム向け)":"Picks up quiet voices too (for quiet rooms and labs)","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"Ignores nearby chatter and noise more. Speak a little louder and clearly","操作の早見":"Quick help","キーとクリック":"Keys and clicks","または字幕をクリック":"or click the caption","読み上げを止めて、すぐ聞き始める":"Stop the voice and start listening right away","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"Stops speaking or translating. When idle, quits the app","または A− A＋":"or A− A＋","記録の行を押す":"Click a transcript line","その発言をもう一度大きな字幕に出す":"Shows that utterance as the big caption again","下の帯の「応答」を押す":"Click “Response” at the bottom","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"Response time of the last 20 utterances (listening, translation, voice)","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"Brightens faint text and lines for a projector in a bright room","この早見を開く・閉じる":"Open or close this help","画面の見方":"Reading the screen","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"The pillars at the left and right edges are the two people’s languages. The talker’s pillar shows their voice","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"While the top bar is filled with color the app is speaking and the mic is paused. Talk after it finishes","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"A dotted underline marks a predicted translation. It may change as the speaker goes on and becomes final when they finish","字幕の左の太い線は、この訳を受け取る人の色":"The thick line left of the caption is in the color of the person it is for","新しい発言 ↓":"New ↓",
+"回線が混んでいます — 予想訳を先に出しています":"Network is slow — showing predicted translations first","回線混雑":"Slow network","+{n}秒":"+{n}s","remote の耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"Round trips to the リモートサーバー speech recognizer take {n}s longer on average (e.g. a busy uplink). Predicted translations come first from this Mac; the final caption and voice wait for remote, so they are a little later.","上の帯の「回線が混んでいます」は、リモートサーバー への回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"“Network is slow” in the top bar means the link to リモートサーバー is slow. Predicted translations still come first; the final caption and voice are a little later.",
+"リモートGPU が見つかればそれで、無ければこの Mac で翻訳します":"Uses the リモートGPU when it is found, otherwise translates on this Mac","研究室の GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"Translates on the lab GPU server. Fast and accurate, but needs the network","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"Translates on this Mac only. No network needed (long sentences may be a little slower)","小さな声も拾います(静かな部屋・研究室向け)":"Picks up quiet voices too (for quiet rooms and labs)","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"Ignores nearby chatter and noise more. Speak a little louder and clearly","操作の早見":"Quick help","キーとクリック":"Keys and clicks","または字幕をクリック":"or click the caption","読み上げを止めて、すぐ聞き始める":"Stop the voice and start listening right away","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"Stops speaking or translating. When idle, quits the app","または A− A＋":"or A− A＋","記録の行を押す":"Click a transcript line","その発言をもう一度大きな字幕に出す":"Shows that utterance as the big caption again","下の帯の「応答」を押す":"Click “Response” at the bottom","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"Response time of the last 20 utterances (listening, translation, voice)","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"Brightens faint text and lines for a projector in a bright room","この早見を開く・閉じる":"Open or close this help","画面の見方":"Reading the screen","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"The pillars at the left and right edges are the two people’s languages. The talker’s pillar shows their voice","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"While the top bar is filled with color the app is speaking and the mic is paused. Talk after it finishes","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"A dotted underline marks a predicted translation. It may change as the speaker goes on and becomes final when they finish","字幕の左の太い線は、この訳を受け取る人の色":"The thick line left of the caption is in the color of the person it is for","新しい発言 ↓":"New ↓",
 "マイク休止中 — 読み上げが終わったら話してください":"Mic paused — speak when the voice finishes","<kbd>Space</kbd> で中止":"<kbd>Space</kbd> to stop","聞いています — どうぞ":"Listening — go ahead",
 "投影":"Projector","投影モード: 明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"Projector mode: makes secondary text and lines brighter so they survive a projector in a bright room",
 "聞く音":"Audio to hear","マイクだけ":"Mic only","マイク+この Mac の音(Zoom など)":"Mic + this Mac's sound (Zoom etc.)","この Mac のマイクだけを聞きます(向かい合って話すとき)":"Hears only this Mac's microphone (for face-to-face talks)","オンライン会議の相手の声(Zoom・Teams・Meet など、この Mac で鳴っている音)もマイクと一緒に聞きます。ヘッドホン推奨。初回は macOS が録音の許可を聞きます":"Also hears remote participants in online meetings (Zoom, Teams, Meet — whatever this Mac plays) together with the mic. Headphones recommended. macOS asks for recording permission the first time","この Mac の音を聞けません":"Can't hear this Mac's sound","聞いています — マイク+この Mac の音":"Listening — mic + this Mac's sound","この Mac の音を聞く許可がありません。システム設定 > プライバシーとセキュリティ > 画面とシステムオーディオ録音 の「システムオーディオ録音のみ」で Sokutsu を許可してください — マイクだけで続けます":"No permission to hear this Mac's sound. Allow Sokutsu under System Settings > Privacy & Security > Screen & System Audio Recording, “System Audio Recording Only” — continuing with the mic only","この macOS ではこの Mac の音を聞けません(macOS 14.2 以降が必要) — マイクだけで続けます":"This macOS can't capture this Mac's sound (macOS 14.2 or later required) — continuing with the mic only",
@@ -2755,7 +2765,7 @@ zh:{
 "声と話す速さ <small>▶で試聴 — 会話中も変えられます</small>":"声音与语速 <small>▶ 试听 — 对话中也可更改</small>",
 "翻訳の処理場所":"翻译运行位置","自動":"自动","このMac":"这台 Mac","まわりの音":"周围环境",
 "読み上げ":"朗读","声も出す":"语音和字幕","字幕だけ":"仅字幕","訳を声でも読みます。読み上げの間はマイクを止めるので、終わってから話してください":"译文也会朗读。朗读时麦克风暂停，请在朗读结束后再说话","声を出さず字幕だけ。マイクを止めないので、続けて話しても全部聞き取ります":"不发声，只显示字幕。麦克风不会暂停，连续说话也能全部听到","読み上げのあり・なし(字幕だけ)を切り替える":"切换朗读开/关(仅字幕)","字幕だけにしました — 続けて話せます":"已切换为仅字幕 — 可以连续说话","読み上げを戻しました":"已恢复朗读","静かな部屋":"安静的房间","騒がしい会場":"嘈杂的会场","会話を始める":"开始对话",
-"自動は リモートサーバーの GPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"自动：找到 远程服务器的 GPU 就使用，否则用这台 Mac 上的 LM Studio",
+"自動は リモートGPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"自动：找到 リモートサーバー 的 GPU 就使用，否则用这台 Mac 上的 LM Studio",
 "待機中":"待机","翻訳に使っている言語モデル":"用于翻译的语言模型",
 "字幕の大きさ":"字幕大小","字幕を小さく":"缩小字幕","字幕を大きく":"放大字幕",
 "声・速度":"声音・语速","声と話す速さの設定":"声音与语速设置",
@@ -2798,12 +2808,12 @@ zh:{
 "{lang}の声":"{lang}声音","{lang}の話す速さ":"{lang}语速","{lang}を試聴":"试听{lang}",
 "カスタムの翻訳サーバーに接続できました — このまま会話を始められます":"已连接自定义翻译服务器 — 可以直接开始对话",
 "カスタムの翻訳サーバーが応答しません — TSUYAKU_PORT/とんねるの設定を確かめてください":"自定义翻译服务器无响应 — 请检查 TSUYAKU_PORT/隧道设置",
-"リモートサーバーの GPU に接続できました —{m}を裏で用意しています":"已连接 远程服务器的 GPU —正在后台准备{m}",
-"リモートサーバーに届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"无法连接远程服务器 — 请检查隧道（scripts/remote_tunnel.sh）或远程服务器是否启动",
+"リモートGPU に接続できました —{m}を裏で用意しています":"已连接 リモートサーバー 的 GPU —正在后台准备{m}",
+"remote に届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"无法连接 リモートサーバー — 请检查隧道（scripts/remote_tunnel.sh）或 リモートサーバー 是否启动",
 "この Mac の LM Studio に接続できました —{m}でこのまま会話を始められます":"已连接这台 Mac 的 LM Studio —可用{m}直接开始对话",
 "この Mac の LM Studio が応答しません — LM Studio のサーバー起動が必要です":"这台 Mac 的 LM Studio 无响应 — 需要启动 LM Studio 服务器",
-"リモートサーバーを見つけました —{m}を リモートサーバーの GPU で翻訳します":"找到远程服务器 —用 远程服务器的 GPU 运行{m}翻译",
-"リモートサーバーが見つからないので、この Mac の{m}で翻訳します":"未找到远程服务器，改用这台 Mac 的{m}翻译",
+"remote を見つけました —{m}を リモートGPU で翻訳します":"找到 リモートサーバー —用 リモートサーバー 的 GPU 运行{m}翻译",
+"remote が見つからないので、この Mac の{m}で翻訳します":"未找到 remote，改用这台 Mac 的{m}翻译",
 "翻訳サーバーが見つかりません — 処理場所を変えるか、remote/LM Studio を起動してください":"找不到翻译服务器 — 请更换运行位置，或启动 remote/LM Studio",
 "翻訳サーバーを確かめています…":"正在检查翻译服务器…",
 "耳":"识别","もう一度押すと終了":"再按一次退出","読み込み中…":"加载中…",
@@ -2817,7 +2827,7 @@ zh:{
 "会話を始められませんでした":"无法开始对话","翻訳サーバーに接続できません":"无法连接翻译服务器",
 "音声認識モデルを読み込めません":"无法加载语音识别模型","音声認識に失敗しました":"语音识别失败",
 "翻訳が途中で切れました":"翻译中途中断了",
-"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバー/LM Studio)のモデル設定を確認してください。":"请再说一遍。如果反复出现，请检查翻译服务器（远程服务器/LM Studio）的模型设置。",
+"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバーゲート/LM Studio)のモデル設定を確認してください。":"请再说一遍。如果反复出现，请检查翻译服务器（リモートサーバー 网关/LM Studio）的模型设置。",
 "もう一度「会話を始める」を押してください":"请再按一次“开始对话”",
 "画面の言語":"界面语言",
 "ほか{n}人":"另外 {n} 人","畳む":"收起","相づちや小さな声の切れ端が、別の話者として数えられたもの":"附和声或微弱语音片段被算作了其他说话人",
@@ -2829,8 +2839,8 @@ zh:{
 "訳して、字幕と声で相手へ":"翻译后用字幕和语音传达","訳さずに記録して、要約とやることに":"不翻译只记录，生成摘要和待办","訳して届けながら、会議メモにも":"一边翻译传达，一边生成会议纪要","タイトルや日付で探す":"按标题或日期搜索","{lang}の話者":"{lang}说话人","今日":"今天","昨日":"昨天","見つかりません":"没有找到","この会話の記録を開けませんでした":"无法打开此对话记录","会話を始めると、話した内容がここに残ります。あとから要約・決定事項・やることを会議メモにできます。":"开始对话后，说过的内容会保存在这里，之后可以生成包含摘要、决定事项和待办的会议纪要。","会話を始めると、話した内容がここに残ります。":"开始对话后，说过的内容会保存在这里。","まだ作っていません":"尚未生成","最新にする":"刷新","メモを作成":"纪要生成","名前の根拠":"姓名依据","もう一度作る":"重新生成","この会話のメモはまだありません":"此对话还没有纪要","記録({n}件の発言)から、要約・話題ごとの要点・決定事項・やることを作ります。長い会議でも数十秒〜数分です。":"根据记录（{n} 条发言）生成摘要、各话题要点、决定事项和待办。即使是长会议也只需几十秒到几分钟。","まだ発言がありません":"还没有发言","要点":"要点","記録の中を探す":"在记录中搜索","訳も表示":"显示译文","記録を読む":"读取记录","区切りごとに要約":"分段摘要","まとめる":"汇总","できあがり":"完成","メモができました":"纪要已生成","保存できませんでした":"无法保存","名前を「{name}」にしました":"已改名为“{name}”","名前を消しました":"已清除姓名",
 "使い方":"使用方式","通訳だけ":"仅翻译","会議メモだけ":"仅会议纪要","通訳+会議メモ":"翻译+会议纪要","今までどおり、訳して字幕と声で届けます":"与以往相同：翻译并用字幕和语音传达","訳さず、聞き取った言葉と話者だけを記録して会議メモにします(同じ言語どうしの会議にも)":"不翻译，只记录听到的内容和说话人，并生成会议纪要（也适用于同一语言的会议）","訳して届けながら、話者も見分けて会議メモにします":"一边翻译传达，一边区分说话人并生成会议纪要","話す言語":"说话语言","1言語(訳さずに記録)":"一种语言（只记录，不翻译）","2言語(訳さずに両方聞き取る)":"两种语言（都听取，不翻译）","日本語だけ":"仅日本語","会議の記録":"会议记录","これまでの会話の記録と会議メモを見る":"查看以往的对话记录和会议纪要","メモ":"纪要","ここまでの会話の会議メモ(要約・決定事項・やること)を作って開きます":"为目前为止的对话生成并打开会议纪要（摘要・决定事项・待办）","会議メモ: 聞き取った言葉と話者を記録しています(訳と読み上げはしません)":"会议纪要：正在记录听到的内容和说话人（不翻译、不朗读）","話者{n}":"说话人{n}","今の会話":"当前对话","この版では会議の記録を読めません":"此版本还无法读取会议记录","まだ会話の記録がありません":"还没有对话记录","無題の会話":"无标题对话","{n}分":"{n} 分钟","メモあり":"有纪要","通訳":"翻译","会議メモ":"会议纪要","日時":"日期时间","長さ":"时长","言語":"语言","発言":"发言","{n}件":"{n} 条","メモの言語":"纪要语言","作り直す":"重新生成","Markdown をコピー":"复制 Markdown","ファイルに保存":"保存为文件","参加者":"参与者","根拠":"依据","名前":"姓名","{n}件の発言":"{n} 条发言","この会話のメモはまだありません。記録から、要約・話題ごとの要点・決定事項・やることを作ります。":"此对话还没有纪要。将根据记录生成摘要、各话题要点、决定事项和待办。","{lang}でメモを作る":"用{lang}生成纪要","要約":"摘要","話題ごとの要点":"各话题要点","決定事項":"决定事项","やること":"待办事项","済み":"已完成","担当":"负责人","期限":"期限","残った質問":"遗留问题","キーワード":"关键词","全文の記録":"完整记录","記録を読んでいます…":"正在读取记录…","区切りごとに要約しています…":"正在分段摘要…","まとめています…":"正在汇总…","できました":"完成","メモを作れませんでした":"无法生成纪要","Markdown をコピーしました":"已复制 Markdown","保存しました":"已保存",
 "記録をコピー":"复制记录","コピーしました":"已复制","コピーできませんでした":"无法复制","ファイル":"文件","時刻・話者の言語・原文・訳をテキストでコピーします(学会のあとで見返す・貼り付ける用)":"以文本复制时间、说话语言、原文和译文（便于会后回顾、粘贴）","会話の記録のファイル(logs/session-*.txt)を Finder で表示します":"在 Finder 中显示对话记录文件（logs/session-*.txt）","{n}発話 / 字幕の中央値 {c} / 声の中央値 {v} / 予想訳が先に出た {g}回":"{n} 句 / 字幕中位数 {c} / 语音中位数 {v} / 预测译文先出 {g} 次","原文":"原文","訳":"译文","予想訳が先に出た":"预测先出",
-"回線が混んでいます — 予想訳を先に出しています":"网络拥堵 — 先显示预测译文","回線混雑":"网络拥堵","+{n}秒":"+{n}秒","リモートサーバーの耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"与远程服务器语音识别的往返平均多花 {n} 秒（如上行网络拥堵）。预测译文由这台 Mac 先给出，最终字幕和朗读需等待远程服务器，会稍晚一些。","上の帯の「回線が混んでいます」は、リモートサーバーへの回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"顶部横条显示“网络拥堵”表示到远程服务器 的网络较慢。预测译文仍会先出现，最终字幕和朗读会稍晚。",
-"リモートサーバーの GPU が見つかればそれで、無ければこの Mac で翻訳します":"找到 远程服务器的 GPU 就用它，否则在这台 Mac 上翻译","リモートの GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"在实验室的 GPU 服务器上翻译。快而准确，但需要网络","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"只在这台 Mac 上翻译。不需要网络（长句可能稍慢）","小さな声も拾います(静かな部屋・チーム向け)":"小声也能听到（适合安静的房间、实验室）","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"减少拾取周围的说话声和噪音。请稍大声、清楚地说话","操作の早見":"操作速查","キーとクリック":"按键与点击","または字幕をクリック":"或点击字幕","読み上げを止めて、すぐ聞き始める":"停止朗读，马上开始听","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"朗读或翻译时停止；空闲时退出应用","または A− A＋":"或 A− A＋","記録の行を押す":"点击记录中的一行","その発言をもう一度大きな字幕に出す":"把那句话再次显示为大字幕","下の帯の「応答」を押す":"点击底部的“响应”","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"最近 20 句的响应速度明细（听取・翻译・语音）","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"为明亮会场的投影仪加亮浅色文字和线条","この早見を開く・閉じる":"打开或关闭此速查","画面の見方":"如何看画面","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"左右两端的柱代表面对面的两人的语言。说话人的柱上会出现声音条纹","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"顶部横条被颜色填满时正在朗读，麦克风暂停。请等朗读结束再说话","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"虚线下划线表示预测译文，可能随后续内容变化，说完后确定","字幕の左の太い線は、この訳を受け取る人の色":"字幕左侧的粗线是接收这段译文的人的颜色","新しい発言 ↓":"新发言 ↓",
+"回線が混んでいます — 予想訳を先に出しています":"网络拥堵 — 先显示预测译文","回線混雑":"网络拥堵","+{n}秒":"+{n}秒","remote の耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"与 リモートサーバー 语音识别的往返平均多花 {n} 秒（如上行网络拥堵）。预测译文由这台 Mac 先给出，最终字幕和朗读需等待 remote，会稍晚一些。","上の帯の「回線が混んでいます」は、リモートサーバー への回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"顶部横条显示“网络拥堵”表示到 リモートサーバー 的网络较慢。预测译文仍会先出现，最终字幕和朗读会稍晚。",
+"リモートGPU が見つかればそれで、無ければこの Mac で翻訳します":"找到 リモートサーバー 的 GPU 就用它，否则在这台 Mac 上翻译","研究室の GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"在实验室的 GPU 服务器上翻译。快而准确，但需要网络","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"只在这台 Mac 上翻译。不需要网络（长句可能稍慢）","小さな声も拾います(静かな部屋・研究室向け)":"小声也能听到（适合安静的房间、实验室）","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"减少拾取周围的说话声和噪音。请稍大声、清楚地说话","操作の早見":"操作速查","キーとクリック":"按键与点击","または字幕をクリック":"或点击字幕","読み上げを止めて、すぐ聞き始める":"停止朗读，马上开始听","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"朗读或翻译时停止；空闲时退出应用","または A− A＋":"或 A− A＋","記録の行を押す":"点击记录中的一行","その発言をもう一度大きな字幕に出す":"把那句话再次显示为大字幕","下の帯の「応答」を押す":"点击底部的“响应”","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"最近 20 句的响应速度明细（听取・翻译・语音）","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"为明亮会场的投影仪加亮浅色文字和线条","この早見を開く・閉じる":"打开或关闭此速查","画面の見方":"如何看画面","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"左右两端的柱代表面对面的两人的语言。说话人的柱上会出现声音条纹","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"顶部横条被颜色填满时正在朗读，麦克风暂停。请等朗读结束再说话","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"虚线下划线表示预测译文，可能随后续内容变化，说完后确定","字幕の左の太い線は、この訳を受け取る人の色":"字幕左侧的粗线是接收这段译文的人的颜色","新しい発言 ↓":"新发言 ↓",
 "マイク休止中 — 読み上げが終わったら話してください":"麦克风暂停 — 朗读结束后再说话","<kbd>Space</kbd> で中止":"<kbd>Space</kbd> 停止","聞いています — どうぞ":"正在听 — 请说",
 "投影":"投影","投影モード: 明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"投影模式：在明亮会场用投影仪时，加亮辅助文字和线条，避免看不清",
 "聞く音":"收听的声音","マイクだけ":"仅麦克风","マイク+この Mac の音(Zoom など)":"麦克风+本机声音(Zoom 等)","この Mac のマイクだけを聞きます(向かい合って話すとき)":"只收听本机的麦克风(面对面交谈时)","オンライン会議の相手の声(Zoom・Teams・Meet など、この Mac で鳴っている音)もマイクと一緒に聞きます。ヘッドホン推奨。初回は macOS が録音の許可を聞きます":"同时收听在线会议中对方的声音(Zoom、Teams、Meet 等本机播放的声音)。建议使用耳机。首次使用时 macOS 会请求录音权限","この Mac の音を聞けません":"无法收听本机的声音","聞いています — マイク+この Mac の音":"正在收听 — 麦克风+本机声音","この Mac の音を聞く許可がありません。システム設定 > プライバシーとセキュリティ > 画面とシステムオーディオ録音 の「システムオーディオ録音のみ」で Sokutsu を許可してください — マイクだけで続けます":"没有收听本机声音的权限。请在 系统设置 > 隐私与安全性 > 录屏与系统录音 的“仅系统录音”中允许 Sokutsu — 仅用麦克风继续","この macOS ではこの Mac の音を聞けません(macOS 14.2 以降が必要) — マイクだけで続けます":"此 macOS 无法收听本机声音(需要 macOS 14.2 或更高版本) — 仅用麦克风继续",
@@ -2845,7 +2855,7 @@ ko:{
 "声と話す速さ <small>▶で試聴 — 会話中も変えられます</small>":"목소리와 속도 <small>▶ 미리 듣기 — 대화 중에도 바꿀 수 있습니다</small>",
 "翻訳の処理場所":"번역 처리 위치","自動":"자동","このMac":"이 Mac","まわりの音":"주변 소리",
 "読み上げ":"읽어 주기","声も出す":"음성과 자막","字幕だけ":"자막만","訳を声でも読みます。読み上げの間はマイクを止めるので、終わってから話してください":"번역을 소리로도 읽어 줍니다. 읽는 동안 마이크가 멈추니 끝난 뒤에 말씀하세요","声を出さず字幕だけ。マイクを止めないので、続けて話しても全部聞き取ります":"소리 없이 자막만 표시합니다. 마이크가 멈추지 않아 계속 말해도 모두 알아듣습니다","読み上げのあり・なし(字幕だけ)を切り替える":"읽어 주기 켜기/끄기(자막만)","字幕だけにしました — 続けて話せます":"자막만 표시 — 계속 말씀하세요","読み上げを戻しました":"읽어 주기를 다시 켰습니다","静かな部屋":"조용한 방","騒がしい会場":"시끄러운 행사장","会話を始める":"대화 시작",
-"自動は リモートサーバーの GPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"자동: 원격 GPU를 찾으면 사용하고, 없으면 이 Mac의 LM Studio로 동작합니다",
+"自動は リモートGPU を見つけて使い、無ければこの Mac の LM Studio で動きます":"자동: リモートGPU를 찾으면 사용하고, 없으면 이 Mac의 LM Studio로 동작합니다",
 "待機中":"대기 중","翻訳に使っている言語モデル":"번역에 쓰는 언어 모델",
 "字幕の大きさ":"자막 크기","字幕を小さく":"자막 작게","字幕を大きく":"자막 크게",
 "声・速度":"음성·속도","声と話す速さの設定":"목소리와 말하기 속도 설정",
@@ -2888,12 +2898,12 @@ ko:{
 "{lang}の声":"{lang} 음성","{lang}の話す速さ":"{lang} 말하기 속도","{lang}を試聴":"{lang} 미리 듣기",
 "カスタムの翻訳サーバーに接続できました — このまま会話を始められます":"사용자 지정 번역 서버에 연결했습니다 — 바로 대화를 시작할 수 있습니다",
 "カスタムの翻訳サーバーが応答しません — TSUYAKU_PORT/とんねるの設定を確かめてください":"사용자 지정 번역 서버가 응답하지 않습니다 — TSUYAKU_PORT/터널 설정을 확인하세요",
-"リモートサーバーの GPU に接続できました —{m}を裏で用意しています":"リモートGPU에 연결했습니다 —{m}준비 중",
-"リモートサーバーに届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"원격 서버에 닿지 않습니다 — 터널(scripts/remote_tunnel.sh) 또는 원격 서버 실행을 확인하세요",
+"リモートGPU に接続できました —{m}を裏で用意しています":"リモートGPU에 연결했습니다 —{m}준비 중",
+"remote に届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください":"remote에 닿지 않습니다 — 터널(scripts/remote_tunnel.sh) 또는 リモートサーバー 실행을 확인하세요",
 "この Mac の LM Studio に接続できました —{m}でこのまま会話を始められます":"이 Mac의 LM Studio에 연결했습니다 —{m}로 바로 대화할 수 있습니다",
 "この Mac の LM Studio が応答しません — LM Studio のサーバー起動が必要です":"이 Mac의 LM Studio가 응답하지 않습니다 — LM Studio 서버를 시작해야 합니다",
-"リモートサーバーを見つけました —{m}を リモートサーバーの GPU で翻訳します":"원격 서버를 찾았습니다 —원격 GPU에서{m}로 번역합니다",
-"リモートサーバーが見つからないので、この Mac の{m}で翻訳します":"remote를 찾지 못해 이 Mac의{m}로 번역합니다",
+"remote を見つけました —{m}を リモートGPU で翻訳します":"remote를 찾았습니다 —リモートGPU에서{m}로 번역합니다",
+"remote が見つからないので、この Mac の{m}で翻訳します":"remote를 찾지 못해 이 Mac의{m}로 번역합니다",
 "翻訳サーバーが見つかりません — 処理場所を変えるか、remote/LM Studio を起動してください":"번역 서버를 찾을 수 없습니다 — 처리 위치를 바꾸거나 remote/LM Studio를 시작하세요",
 "翻訳サーバーを確かめています…":"번역 서버를 확인하는 중…",
 "耳":"인식","もう一度押すと終了":"한 번 더 누르면 종료","読み込み中…":"불러오는 중…",
@@ -2907,7 +2917,7 @@ ko:{
 "会話を始められませんでした":"대화를 시작하지 못했습니다","翻訳サーバーに接続できません":"번역 서버에 연결할 수 없습니다",
 "音声認識モデルを読み込めません":"음성 인식 모델을 불러올 수 없습니다","音声認識に失敗しました":"음성 인식에 실패했습니다",
 "翻訳が途中で切れました":"번역이 중간에 끊겼습니다",
-"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバー/LM Studio)のモデル設定を確認してください。":"다시 말씀해 주세요. 계속 나타나면 번역 서버(원격 서버/LM Studio)의 모델 설정을 확인하세요.",
+"もう一度話しかけてください。何度も出る場合は翻訳サーバー(リモートサーバーゲート/LM Studio)のモデル設定を確認してください。":"다시 말씀해 주세요. 계속 나타나면 번역 서버(リモートサーバー 게이트/LM Studio)의 모델 설정을 확인하세요.",
 "もう一度「会話を始める」を押してください":"‘대화 시작’을 다시 눌러 주세요",
 "画面の言語":"화면 언어",
 "ほか{n}人":"외 {n}명","畳む":"접기","相づちや小さな声の切れ端が、別の話者として数えられたもの":"맞장구나 작은 목소리 조각이 다른 화자로 세어진 것",
@@ -2919,8 +2929,8 @@ ko:{
 "訳して、字幕と声で相手へ":"번역해 자막과 음성으로 전달","訳さずに記録して、要約とやることに":"번역 없이 기록해 요약과 할 일로","訳して届けながら、会議メモにも":"번역해 전하면서 회의록도","タイトルや日付で探す":"제목이나 날짜로 찾기","{lang}の話者":"{lang} 화자","今日":"오늘","昨日":"어제","見つかりません":"찾을 수 없습니다","この会話の記録を開けませんでした":"이 대화 기록을 열 수 없습니다","会話を始めると、話した内容がここに残ります。あとから要約・決定事項・やることを会議メモにできます。":"대화를 시작하면 말한 내용이 여기에 남습니다. 나중에 요약·결정 사항·할 일을 회의록으로 만들 수 있습니다.","会話を始めると、話した内容がここに残ります。":"대화를 시작하면 말한 내용이 여기에 남습니다.","まだ作っていません":"아직 만들지 않음","最新にする":"새로 고침","メモを作成":"회의록 작성","名前の根拠":"이름 근거","もう一度作る":"다시 만들기","この会話のメモはまだありません":"이 대화의 회의록은 아직 없습니다","記録({n}件の発言)から、要約・話題ごとの要点・決定事項・やることを作ります。長い会議でも数十秒〜数分です。":"기록(발언 {n}건)에서 요약·주제별 요점·결정 사항·할 일을 만듭니다. 긴 회의도 수십 초~몇 분이면 됩니다.","まだ発言がありません":"아직 발언이 없습니다","要点":"요점","記録の中を探す":"기록에서 찾기","訳も表示":"번역도 표시","記録を読む":"기록 읽기","区切りごとに要約":"구간별 요약","まとめる":"정리","できあがり":"완성","メモができました":"회의록이 완성되었습니다","保存できませんでした":"저장하지 못했습니다","名前を「{name}」にしました":"이름을 ‘{name}’(으)로 바꿨습니다","名前を消しました":"이름을 지웠습니다",
 "使い方":"사용 방식","通訳だけ":"통역만","会議メモだけ":"회의록만","通訳+会議メモ":"통역+회의록","今までどおり、訳して字幕と声で届けます":"지금까지처럼 번역해서 자막과 음성으로 전합니다","訳さず、聞き取った言葉と話者だけを記録して会議メモにします(同じ言語どうしの会議にも)":"번역하지 않고 들은 말과 화자만 기록해 회의록을 만듭니다(같은 언어끼리의 회의에도)","訳して届けながら、話者も見分けて会議メモにします":"번역해 전하면서 화자도 구분해 회의록을 만듭니다","話す言語":"말하는 언어","1言語(訳さずに記録)":"1개 언어(번역 없이 기록)","2言語(訳さずに両方聞き取る)":"2개 언어(번역 없이 둘 다 듣기)","日本語だけ":"日本語만","会議の記録":"회의 기록","これまでの会話の記録と会議メモを見る":"지금까지의 대화 기록과 회의록 보기","メモ":"회의록","ここまでの会話の会議メモ(要約・決定事項・やること)を作って開きます":"지금까지의 대화로 회의록(요약·결정 사항·할 일)을 만들어 엽니다","会議メモ: 聞き取った言葉と話者を記録しています(訳と読み上げはしません)":"회의록: 들은 말과 화자를 기록하는 중(번역·읽기 없음)","話者{n}":"화자{n}","今の会話":"현재 대화","この版では会議の記録を読めません":"이 버전에서는 회의 기록을 읽을 수 없습니다","まだ会話の記録がありません":"아직 대화 기록이 없습니다","無題の会話":"제목 없는 대화","{n}分":"{n}분","メモあり":"회의록 있음","通訳":"통역","会議メモ":"회의록","日時":"일시","長さ":"길이","言語":"언어","発言":"발언","{n}件":"{n}건","メモの言語":"회의록 언어","作り直す":"다시 만들기","Markdown をコピー":"Markdown 복사","ファイルに保存":"파일로 저장","参加者":"참가자","根拠":"근거","名前":"이름","{n}件の発言":"발언 {n}건","この会話のメモはまだありません。記録から、要約・話題ごとの要点・決定事項・やることを作ります。":"이 대화의 회의록은 아직 없습니다. 기록에서 요약·주제별 요점·결정 사항·할 일을 만듭니다.","{lang}でメモを作る":"{lang}로 회의록 만들기","要約":"요약","話題ごとの要点":"주제별 요점","決定事項":"결정 사항","やること":"할 일","済み":"완료","担当":"담당","期限":"기한","残った質問":"남은 질문","キーワード":"키워드","全文の記録":"전체 기록","記録を読んでいます…":"기록을 읽는 중…","区切りごとに要約しています…":"구간별로 요약하는 중…","まとめています…":"정리하는 중…","できました":"완료","メモを作れませんでした":"회의록을 만들지 못했습니다","Markdown をコピーしました":"Markdown을 복사했습니다","保存しました":"저장했습니다",
 "記録をコピー":"기록 복사","コピーしました":"복사했습니다","コピーできませんでした":"복사하지 못했습니다","ファイル":"파일","時刻・話者の言語・原文・訳をテキストでコピーします(学会のあとで見返す・貼り付ける用)":"시각·말한 언어·원문·번역을 텍스트로 복사합니다(학회 후 다시 보거나 붙여 넣기용)","会話の記録のファイル(logs/session-*.txt)を Finder で表示します":"대화 기록 파일(logs/session-*.txt)을 Finder에서 표시합니다","{n}発話 / 字幕の中央値 {c} / 声の中央値 {v} / 予想訳が先に出た {g}回":"{n}발화 / 자막 중앙값 {c} / 음성 중앙값 {v} / 예상 번역 먼저 {g}회","原文":"원문","訳":"번역","予想訳が先に出た":"예상 먼저",
-"回線が混んでいます — 予想訳を先に出しています":"회선이 혼잡합니다 — 예상 번역을 먼저 표시합니다","回線混雑":"회선 혼잡","+{n}秒":"+{n}초","リモートサーバーの耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"원격 서버 음성 인식과의 왕복이 평균 {n}초 더 걸립니다(업로드 회선 혼잡 등). 예상 번역은 이 Mac이 먼저 내고, 확정 자막과 읽기는 원격 서버를 기다리므로 조금 늦어집니다.","上の帯の「回線が混んでいます」は、リモートサーバーへの回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"위쪽 띠의 ‘회선이 혼잡합니다’는 remote까지의 회선이 느리다는 표시. 예상 번역은 먼저 나오지만 확정과 읽기는 조금 늦어집니다.",
-"リモートサーバーの GPU が見つかればそれで、無ければこの Mac で翻訳します":"원격 GPU를 찾으면 그것으로, 없으면 이 Mac에서 번역합니다","リモートの GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"연구실 GPU 서버에서 번역합니다. 빠르고 정확하지만 네트워크가 필요합니다","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"이 Mac에서만 번역합니다. 네트워크 불필요(긴 문장은 조금 느릴 수 있습니다)","小さな声も拾います(静かな部屋・チーム向け)":"작은 목소리도 잡습니다(조용한 방·연구실용)","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"주변 말소리와 잡음을 덜 잡습니다. 조금 크게, 또렷하게 말해 주세요","操作の早見":"조작 안내","キーとクリック":"키와 클릭","または字幕をクリック":"또는 자막 클릭","読み上げを止めて、すぐ聞き始める":"읽기를 멈추고 바로 듣기 시작","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"읽기·번역 중에는 중지, 아무것도 안 할 때는 앱 종료","または A− A＋":"또는 A− A＋","記録の行を押す":"기록의 줄을 누르기","その発言をもう一度大きな字幕に出す":"그 발언을 다시 큰 자막으로 표시","下の帯の「応答」を押す":"아래 띠의 ‘응답’ 누르기","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"최근 20발화의 응답 속도 내역(듣기·번역·음성)","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"밝은 행사장의 프로젝터용으로 흐린 글자와 선을 진하게","この早見を開く・閉じる":"이 안내 열기·닫기","画面の見方":"화면 보는 법","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"좌우 끝의 기둥은 마주 보는 두 사람의 언어. 말하는 사람의 기둥에 목소리 줄무늬가 나타납니다","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"위쪽 띠가 색으로 채워져 있는 동안은 읽는 중이고 마이크는 일시 정지. 끝난 뒤에 말하세요","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"점선 밑줄은 예상 번역. 말이 이어지면 바뀔 수 있고, 말이 끝나면 확정됩니다","字幕の左の太い線は、この訳を受け取る人の色":"자막 왼쪽의 굵은 선은 이 번역을 받는 사람의 색","新しい発言 ↓":"새 발언 ↓",
+"回線が混んでいます — 予想訳を先に出しています":"회선이 혼잡합니다 — 예상 번역을 먼저 표시합니다","回線混雑":"회선 혼잡","+{n}秒":"+{n}초","remote の耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます":"remote 음성 인식과의 왕복이 평균 {n}초 더 걸립니다(업로드 회선 혼잡 등). 예상 번역은 이 Mac이 먼저 내고, 확정 자막과 읽기는 remote를 기다리므로 조금 늦어집니다.","上の帯の「回線が混んでいます」は、リモートサーバー への回線が遅い印。予想訳は先に出るが、確定と読み上げは少し遅れる":"위쪽 띠의 ‘회선이 혼잡합니다’는 remote까지의 회선이 느리다는 표시. 예상 번역은 먼저 나오지만 확정과 읽기는 조금 늦어집니다.",
+"リモートGPU が見つかればそれで、無ければこの Mac で翻訳します":"リモートGPU를 찾으면 그것으로, 없으면 이 Mac에서 번역합니다","研究室の GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります":"연구실 GPU 서버에서 번역합니다. 빠르고 정확하지만 네트워크가 필요합니다","この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)":"이 Mac에서만 번역합니다. 네트워크 불필요(긴 문장은 조금 느릴 수 있습니다)","小さな声も拾います(静かな部屋・研究室向け)":"작은 목소리도 잡습니다(조용한 방·연구실용)","周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください":"주변 말소리와 잡음을 덜 잡습니다. 조금 크게, 또렷하게 말해 주세요","操作の早見":"조작 안내","キーとクリック":"키와 클릭","または字幕をクリック":"또는 자막 클릭","読み上げを止めて、すぐ聞き始める":"읽기를 멈추고 바로 듣기 시작","読み上げ・翻訳中は中止。何もしていない時はアプリを終了":"읽기·번역 중에는 중지, 아무것도 안 할 때는 앱 종료","または A− A＋":"또는 A− A＋","記録の行を押す":"기록의 줄을 누르기","その発言をもう一度大きな字幕に出す":"그 발언을 다시 큰 자막으로 표시","下の帯の「応答」を押す":"아래 띠의 ‘응답’ 누르기","直近20発話の応答速度の内訳(聞き取り・翻訳・声)":"최근 20발화의 응답 속도 내역(듣기·번역·음성)","明るい会場のプロジェクタ向けに、淡い文字と線を濃くする":"밝은 행사장의 프로젝터용으로 흐린 글자와 선을 진하게","この早見を開く・閉じる":"이 안내 열기·닫기","画面の見方":"화면 보는 법","左右の端の柱が、向かい合う2人の言語。話している人の柱に声の縞が立つ":"좌우 끝의 기둥은 마주 보는 두 사람의 언어. 말하는 사람의 기둥에 목소리 줄무늬가 나타납니다","上の帯が色で満ちている間は読み上げ中で、マイクは休止。終わってから話す":"위쪽 띠가 색으로 채워져 있는 동안은 읽는 중이고 마이크는 일시 정지. 끝난 뒤에 말하세요","点線の下線は予想訳。話の続きで変わることがあり、言い終わると確定する":"점선 밑줄은 예상 번역. 말이 이어지면 바뀔 수 있고, 말이 끝나면 확정됩니다","字幕の左の太い線は、この訳を受け取る人の色":"자막 왼쪽의 굵은 선은 이 번역을 받는 사람의 색","新しい発言 ↓":"새 발언 ↓",
 "マイク休止中 — 読み上げが終わったら話してください":"마이크 일시 정지 — 읽기가 끝나면 말씀하세요","<kbd>Space</kbd> で中止":"<kbd>Space</kbd> 중지","聞いています — どうぞ":"듣는 중 — 말씀하세요",
 "投影":"프로젝터","投影モード: 明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"프로젝터 모드: 밝은 행사장의 프로젝터에서도 흐린 글자가 사라지지 않도록 보조 글자와 선을 진하게 합니다",
 "聞く音":"들을 소리","マイクだけ":"마이크만","マイク+この Mac の音(Zoom など)":"마이크+이 Mac의 소리(Zoom 등)","この Mac のマイクだけを聞きます(向かい合って話すとき)":"이 Mac의 마이크만 듣습니다(마주 보고 이야기할 때)","オンライン会議の相手の声(Zoom・Teams・Meet など、この Mac で鳴っている音)もマイクと一緒に聞きます。ヘッドホン推奨。初回は macOS が録音の許可を聞きます":"온라인 회의 상대의 목소리(Zoom·Teams·Meet 등 이 Mac에서 나는 소리)도 마이크와 함께 듣습니다. 헤드폰 권장. 처음에는 macOS가 녹음 권한을 묻습니다","この Mac の音を聞けません":"이 Mac의 소리를 들을 수 없습니다","聞いています — マイク+この Mac の音":"듣는 중 — 마이크+이 Mac의 소리","この Mac の音を聞く許可がありません。システム設定 > プライバシーとセキュリティ > 画面とシステムオーディオ録音 の「システムオーディオ録音のみ」で Sokutsu を許可してください — マイクだけで続けます":"이 Mac의 소리를 들을 권한이 없습니다. 시스템 설정 > 개인정보 보호 및 보안 > 화면 및 시스템 오디오 녹음의 ‘시스템 오디오 녹음만’에서 Sokutsu를 허용해 주세요 — 마이크만으로 계속합니다","この macOS ではこの Mac の音を聞けません(macOS 14.2 以降が必要) — マイクだけで続けます":"이 macOS에서는 이 Mac의 소리를 들을 수 없습니다(macOS 14.2 이상 필요) — 마이크만으로 계속합니다",
@@ -2928,7 +2938,7 @@ ko:{
 }};
 /*W3-I18N-BEGIN 会議中の道具(印・自分のメモ・議題・修正・用語辞書)*/
 Object.assign(I18N.en,{
-"会議の一覧":"Meeting list","字幕だけ(声なし) — V で声を出す":"Captions only (no voice) — press V for voice","声を出します":"Voice on","字幕だけにしました":"Captions only","自動: リモートサーバーの GPU、無ければこの Mac":"Auto: the remote GPU, otherwise this Mac","会議を検索":"Search meetings","マイク休止中":"Mic paused","目次":"Contents","選ぶ":"Select","メモ作成中":"Making notes","翻訳サーバー未接続":"Translation server not connected","準備できています":"Ready","設定を開く":"Open settings","取り込みの様子を見る":"Show import progress","会議メモを開く":"Open meeting notes","記録を探す":"Search meetings","操作":"Actions","探す":"Search","「{q}」を記録の中から探す":"Search meetings for “{q}”","新しい会話を始める":"Start a new conversation","音声ファイルを取り込む":"Import an audio file","コマンド":"Commands","会議・操作を探す…":"Search meetings and actions…","開く":"Open","すべてのコマンド":"All commands","サイドバーの幅":"Sidebar width","前回の設定のまま始めます。変えるときは下の項目を押します":"Starts with your last settings. Click an item below to change it","サイドバーを閉じる (⌘\\)":"Close sidebar (⌘\\)","サイドバーを閉じる":"Close sidebar","サイドバーを開く (⌘\\)":"Open sidebar (⌘\\)","サイドバーを開く":"Open sidebar","サイドバー":"Sidebar","新しい会話":"New conversation","設定":"Settings","画面":"Display","翻訳と声":"Translation & voice","画面の明るさ":"Appearance","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"“Match system” follows the macOS appearance (Light/Dark)","システムに合わせる":"Match system","明るい":"Light","暗い":"Dark","投影モード":"Projection mode","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"Darkens secondary text and lines so faint text stays readable on projectors in bright rooms","▶で試聴 — 会話中も変えられます":"▶ to preview — can be changed mid-conversation","たたむ / ひらく":"Collapse / expand","この発言を処理できませんでした":"Couldn't process this utterance","マイクの音が届いていません(許可が無い可能性)":"No sound from the microphone (permission may be missing)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"Allow Sokutsu (or the Terminal/Python you are using) under System Settings > Privacy & Security > Microphone","マイクの音が届いていません":"No sound from the microphone","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"The microphone may have been unplugged or switched. Check the connection, then end the conversation and start again","マイクを開けません":"Can't open the microphone","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"check the microphone connection and the microphone permission in System Settings, then start the conversation again","マイクだけで続けます":"continuing with the mic only","この Mac の音を聞く部品が何度も止まりました":"The part that captures this Mac's sound stopped repeatedly","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"Check “Where to translate” on the start screen (for the remote server: scripts/remote_tunnel.sh; for this Mac: start the LM Studio server).","models/ggml-large-v3-turbo.bin を確認してください。":"Check models/ggml-large-v3-turbo.bin.","音声を読み出せませんでした":"Couldn't read the audio","ファイルが見つかりません":"File not found","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"Couldn't read audio from this file (a video without sound, or an unsupported format)","音声が短すぎます(0.5秒未満)":"The audio is too short (under 0.5 s)","議題":"Agenda","用語辞書":"Dictionary","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"Enter the agenda first: you can tick items during the meeting and the notes follow it",
+"会議の一覧":"Meeting list","字幕だけ(声なし) — V で声を出す":"Captions only (no voice) — press V for voice","声を出します":"Voice on","字幕だけにしました":"Captions only","自動: リモートGPU、無ければこの Mac":"Auto: the リモートGPU, otherwise this Mac","会議を検索":"Search meetings","マイク休止中":"Mic paused","目次":"Contents","選ぶ":"Select","メモ作成中":"Making notes","翻訳サーバー未接続":"Translation server not connected","準備できています":"Ready","設定を開く":"Open settings","取り込みの様子を見る":"Show import progress","会議メモを開く":"Open meeting notes","記録を探す":"Search meetings","操作":"Actions","探す":"Search","「{q}」を記録の中から探す":"Search meetings for “{q}”","新しい会話を始める":"Start a new conversation","音声ファイルを取り込む":"Import an audio file","コマンド":"Commands","会議・操作を探す…":"Search meetings and actions…","開く":"Open","すべてのコマンド":"All commands","サイドバーの幅":"Sidebar width","前回の設定のまま始めます。変えるときは下の項目を押します":"Starts with your last settings. Click an item below to change it","サイドバーを閉じる (⌘\\)":"Close sidebar (⌘\\)","サイドバーを閉じる":"Close sidebar","サイドバーを開く (⌘\\)":"Open sidebar (⌘\\)","サイドバーを開く":"Open sidebar","サイドバー":"Sidebar","新しい会話":"New conversation","設定":"Settings","画面":"Display","翻訳と声":"Translation & voice","画面の明るさ":"Appearance","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"“Match system” follows the macOS appearance (Light/Dark)","システムに合わせる":"Match system","明るい":"Light","暗い":"Dark","投影モード":"Projection mode","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"Darkens secondary text and lines so faint text stays readable on projectors in bright rooms","▶で試聴 — 会話中も変えられます":"▶ to preview — can be changed mid-conversation","たたむ / ひらく":"Collapse / expand","この発言を処理できませんでした":"Couldn't process this utterance","マイクの音が届いていません(許可が無い可能性)":"No sound from the microphone (permission may be missing)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"Allow Sokutsu (or the Terminal/Python you are using) under System Settings > Privacy & Security > Microphone","マイクの音が届いていません":"No sound from the microphone","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"The microphone may have been unplugged or switched. Check the connection, then end the conversation and start again","マイクを開けません":"Can't open the microphone","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"check the microphone connection and the microphone permission in System Settings, then start the conversation again","マイクだけで続けます":"continuing with the mic only","この Mac の音を聞く部品が何度も止まりました":"The part that captures this Mac's sound stopped repeatedly","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"Check “Where to translate” on the start screen (for the remote server: scripts/remote_tunnel.sh; for this Mac: start the LM Studio server).","models/ggml-large-v3-turbo.bin を確認してください。":"Check models/ggml-large-v3-turbo.bin.","音声を読み出せませんでした":"Couldn't read the audio","ファイルが見つかりません":"File not found","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"Couldn't read audio from this file (a video without sound, or an unsupported format)","音声が短すぎます(0.5秒未満)":"The audio is too short (under 0.5 s)","議題":"Agenda","用語辞書":"Dictionary","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"Enter the agenda first: you can tick items during the meeting and the notes follow it",
 "人名・専門用語を覚えておき、毎回の聞き取りと会議メモの綴りに使います":"Remembers names and terms for recognition and for spelling in the notes, every time",
 "1行に1つ — 例: 先週の振り返り":"One item per line — e.g. Review of last week","会議中は右の記録の上でチェックでき、会議メモは議題に沿ってまとまります":"During the meeting, tick items above the transcript on the right; the notes follow the agenda",
 "人名・社名・専門用語を覚えておくと、毎回の聞き取りの手がかりになり、会議メモの綴りも正しくなります。":"Names, companies and technical terms kept here guide speech recognition every time and keep their spelling right in the notes.",
@@ -2951,7 +2961,7 @@ Object.assign(I18N.en,{
 "会議の記録の行":"Lines in the meeting record","文を直す・話者を変える・印を付ける(⌘Z で元に戻す)":"Fix text, change speaker, mark (⌘Z to undo)"
 });
 Object.assign(I18N.zh,{
-"会議の一覧":"会议列表","字幕だけ(声なし) — V で声を出す":"仅字幕(无语音)— 按 V 朗读","声を出します":"开始朗读","字幕だけにしました":"已切换为仅字幕","自動: リモートサーバーの GPU、無ければこの Mac":"自动：远程服务器的 GPU,没有则用这台 Mac","会議を検索":"搜索会议","マイク休止中":"麦克风暂停","目次":"目录","選ぶ":"选择","メモ作成中":"正在生成纪要","翻訳サーバー未接続":"未连接翻译服务器","準備できています":"已就绪","設定を開く":"打开设置","取り込みの様子を見る":"查看导入进度","会議メモを開く":"打开会议纪要","記録を探す":"搜索记录","操作":"操作","探す":"搜索","「{q}」を記録の中から探す":"在记录中搜索“{q}”","新しい会話を始める":"开始新对话","音声ファイルを取り込む":"导入音频文件","コマンド":"命令","会議・操作を探す…":"搜索会议和操作…","開く":"打开","すべてのコマンド":"所有命令","サイドバーの幅":"侧边栏宽度","前回の設定のまま始めます。変えるときは下の項目を押します":"沿用上次的设置开始。要更改请点下面的项目","サイドバーを閉じる (⌘\\)":"关闭侧边栏 (⌘\\)","サイドバーを閉じる":"关闭侧边栏","サイドバーを開く (⌘\\)":"打开侧边栏 (⌘\\)","サイドバーを開く":"打开侧边栏","サイドバー":"侧边栏","新しい会話":"新对话","設定":"设置","画面":"界面","翻訳と声":"翻译与语音","画面の明るさ":"外观","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"“跟随系统”会按 macOS 的外观(浅色/深色)显示","システムに合わせる":"跟随系统","明るい":"浅色","暗い":"深色","投影モード":"投影模式","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"加深辅助文字和线条,在明亮会场的投影仪上浅色文字也清晰可见","▶で試聴 — 会話中も変えられます":"▶ 试听 — 对话中也可更改","たたむ / ひらく":"折叠 / 展开","この発言を処理できませんでした":"无法处理这句发言","マイクの音が届いていません(許可が無い可能性)":"麦克风没有声音(可能没有权限)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"请在 系统设置 > 隐私与安全性 > 麦克风 中允许 Sokutsu(或正在使用的终端/Python)","マイクの音が届いていません":"麦克风没有声音","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"麦克风可能已断开或被切换。请检查连接,结束对话后重新开始","マイクを開けません":"无法打开麦克风","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"请检查麦克风连接和系统设置中的麦克风权限,然后重新开始对话","マイクだけで続けます":"仅用麦克风继续","この Mac の音を聞く部品が何度も止まりました":"收听本机声音的组件多次停止","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"请检查开始画面的“翻译运行位置”(远程服务器请运行 scripts/remote_tunnel.sh,这台 Mac 请启动 LM Studio 服务器)。","models/ggml-large-v3-turbo.bin を確認してください。":"请检查 models/ggml-large-v3-turbo.bin。","音声を読み出せませんでした":"无法读取音频","ファイルが見つかりません":"找不到文件","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"无法从此文件读取音频(没有声音的视频,或不支持的格式)","音声が短すぎます(0.5秒未満)":"音频太短(不足 0.5 秒)","議題":"议程","用語辞書":"术语词典","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"先输入议程：会议中可以逐项勾选，会议纪要也会按议程整理",
+"会議の一覧":"会议列表","字幕だけ(声なし) — V で声を出す":"仅字幕(无语音)— 按 V 朗读","声を出します":"开始朗读","字幕だけにしました":"已切换为仅字幕","自動: リモートGPU、無ければこの Mac":"自动：リモートサーバー 的 GPU,没有则用这台 Mac","会議を検索":"搜索会议","マイク休止中":"麦克风暂停","目次":"目录","選ぶ":"选择","メモ作成中":"正在生成纪要","翻訳サーバー未接続":"未连接翻译服务器","準備できています":"已就绪","設定を開く":"打开设置","取り込みの様子を見る":"查看导入进度","会議メモを開く":"打开会议纪要","記録を探す":"搜索记录","操作":"操作","探す":"搜索","「{q}」を記録の中から探す":"在记录中搜索“{q}”","新しい会話を始める":"开始新对话","音声ファイルを取り込む":"导入音频文件","コマンド":"命令","会議・操作を探す…":"搜索会议和操作…","開く":"打开","すべてのコマンド":"所有命令","サイドバーの幅":"侧边栏宽度","前回の設定のまま始めます。変えるときは下の項目を押します":"沿用上次的设置开始。要更改请点下面的项目","サイドバーを閉じる (⌘\\)":"关闭侧边栏 (⌘\\)","サイドバーを閉じる":"关闭侧边栏","サイドバーを開く (⌘\\)":"打开侧边栏 (⌘\\)","サイドバーを開く":"打开侧边栏","サイドバー":"侧边栏","新しい会話":"新对话","設定":"设置","画面":"界面","翻訳と声":"翻译与语音","画面の明るさ":"外观","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"“跟随系统”会按 macOS 的外观(浅色/深色)显示","システムに合わせる":"跟随系统","明るい":"浅色","暗い":"深色","投影モード":"投影模式","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"加深辅助文字和线条,在明亮会场的投影仪上浅色文字也清晰可见","▶で試聴 — 会話中も変えられます":"▶ 试听 — 对话中也可更改","たたむ / ひらく":"折叠 / 展开","この発言を処理できませんでした":"无法处理这句发言","マイクの音が届いていません(許可が無い可能性)":"麦克风没有声音(可能没有权限)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"请在 系统设置 > 隐私与安全性 > 麦克风 中允许 Sokutsu(或正在使用的终端/Python)","マイクの音が届いていません":"麦克风没有声音","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"麦克风可能已断开或被切换。请检查连接,结束对话后重新开始","マイクを開けません":"无法打开麦克风","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"请检查麦克风连接和系统设置中的麦克风权限,然后重新开始对话","マイクだけで続けます":"仅用麦克风继续","この Mac の音を聞く部品が何度も止まりました":"收听本机声音的组件多次停止","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"请检查开始画面的“翻译运行位置”(远程服务器请运行 scripts/remote_tunnel.sh,这台 Mac 请启动 LM Studio 服务器)。","models/ggml-large-v3-turbo.bin を確認してください。":"请检查 models/ggml-large-v3-turbo.bin。","音声を読み出せませんでした":"无法读取音频","ファイルが見つかりません":"找不到文件","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"无法从此文件读取音频(没有声音的视频,或不支持的格式)","音声が短すぎます(0.5秒未満)":"音频太短(不足 0.5 秒)","議題":"议程","用語辞書":"术语词典","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"先输入议程：会议中可以逐项勾选，会议纪要也会按议程整理",
 "人名・専門用語を覚えておき、毎回の聞き取りと会議メモの綴りに使います":"记住人名和专业术语，每次用于语音识别和会议纪要中的写法",
 "1行に1つ — 例: 先週の振り返り":"每行一项 — 例：回顾上周","会議中は右の記録の上でチェックでき、会議メモは議題に沿ってまとまります":"会议中可在右侧记录上方勾选，会议纪要按议程整理",
 "人名・社名・専門用語を覚えておくと、毎回の聞き取りの手がかりになり、会議メモの綴りも正しくなります。":"在这里记下人名、公司名和专业术语，每次都会作为语音识别的提示，会议纪要中的写法也会正确。",
@@ -2974,7 +2984,7 @@ Object.assign(I18N.zh,{
 "会議の記録の行":"会议记录中的行","文を直す・話者を変える・印を付ける(⌘Z で元に戻す)":"修改文字、更改说话人、标记（⌘Z 撤销）"
 });
 Object.assign(I18N.ko,{
-"会議の一覧":"회의 목록","字幕だけ(声なし) — V で声を出す":"자막만(음성 없음) — V로 음성 켜기","声を出します":"음성을 냅니다","字幕だけにしました":"자막만으로 바꿨습니다","自動: リモートサーバーの GPU、無ければこの Mac":"자동: 원격 GPU, 없으면 이 Mac","会議を検索":"회의 검색","マイク休止中":"마이크 일시 정지","目次":"목차","選ぶ":"선택","メモ作成中":"메모 작성 중","翻訳サーバー未接続":"번역 서버 미연결","準備できています":"준비됨","設定を開く":"설정 열기","取り込みの様子を見る":"가져오기 진행 보기","会議メモを開く":"회의록 열기","記録を探す":"기록 검색","操作":"동작","探す":"검색","「{q}」を記録の中から探す":"기록에서 ‘{q}’ 검색","新しい会話を始める":"새 대화 시작","音声ファイルを取り込む":"오디오 파일 가져오기","コマンド":"명령","会議・操作を探す…":"회의·동작 검색…","開く":"열기","すべてのコマンド":"모든 명령","サイドバーの幅":"사이드바 너비","前回の設定のまま始めます。変えるときは下の項目を押します":"지난번 설정 그대로 시작합니다. 바꾸려면 아래 항목을 누르세요","サイドバーを閉じる (⌘\\)":"사이드바 닫기 (⌘\\)","サイドバーを閉じる":"사이드바 닫기","サイドバーを開く (⌘\\)":"사이드바 열기 (⌘\\)","サイドバーを開く":"사이드바 열기","サイドバー":"사이드바","新しい会話":"새 대화","設定":"설정","画面":"화면","翻訳と声":"번역과 음성","画面の明るさ":"화면 모드","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"‘시스템에 맞춤’은 macOS의 화면 모드(라이트/다크)를 따릅니다","システムに合わせる":"시스템에 맞춤","明るい":"라이트","暗い":"다크","投影モード":"프로젝션 모드","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"밝은 장소의 프로젝터에서도 흐린 글자가 보이도록 보조 글자와 선을 진하게 합니다","▶で試聴 — 会話中も変えられます":"▶로 미리 듣기 — 대화 중에도 바꿀 수 있습니다","たたむ / ひらく":"접기 / 펼치기","この発言を処理できませんでした":"이 발언을 처리하지 못했습니다","マイクの音が届いていません(許可が無い可能性)":"마이크 소리가 들어오지 않습니다(권한이 없을 수 있음)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"시스템 설정 > 개인정보 보호 및 보안 > 마이크에서 Sokutsu(또는 사용 중인 터미널/Python)를 허용해 주세요","マイクの音が届いていません":"마이크 소리가 들어오지 않습니다","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"마이크가 빠졌거나 바뀌었을 수 있습니다. 연결을 확인하고 대화를 끝낸 뒤 다시 시작해 주세요","マイクを開けません":"마이크를 열 수 없습니다","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"마이크 연결과 시스템 설정의 마이크 권한을 확인하고 대화를 다시 시작해 주세요","マイクだけで続けます":"마이크만으로 계속합니다","この Mac の音を聞く部品が何度も止まりました":"이 Mac의 소리를 듣는 부품이 여러 번 멈췄습니다","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"시작 화면의 ‘번역 처리 위치’를 확인해 주세요(원격 서버라면 scripts/remote_tunnel.sh, 이 Mac이라면 LM Studio 서버 시작).","models/ggml-large-v3-turbo.bin を確認してください。":"models/ggml-large-v3-turbo.bin을 확인해 주세요.","音声を読み出せませんでした":"오디오를 읽지 못했습니다","ファイルが見つかりません":"파일을 찾을 수 없습니다","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"이 파일에서 오디오를 읽지 못했습니다(소리가 없는 동영상이거나 지원하지 않는 형식입니다)","音声が短すぎます(0.5秒未満)":"오디오가 너무 짧습니다(0.5초 미만)","議題":"안건","用語辞書":"용어 사전","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"안건을 먼저 넣어 두면 회의 중에 체크할 수 있고, 회의록도 안건에 맞춰 정리됩니다",
+"会議の一覧":"회의 목록","字幕だけ(声なし) — V で声を出す":"자막만(음성 없음) — V로 음성 켜기","声を出します":"음성을 냅니다","字幕だけにしました":"자막만으로 바꿨습니다","自動: リモートGPU、無ければこの Mac":"자동: リモートGPU, 없으면 이 Mac","会議を検索":"회의 검색","マイク休止中":"마이크 일시 정지","目次":"목차","選ぶ":"선택","メモ作成中":"메모 작성 중","翻訳サーバー未接続":"번역 서버 미연결","準備できています":"준비됨","設定を開く":"설정 열기","取り込みの様子を見る":"가져오기 진행 보기","会議メモを開く":"회의록 열기","記録を探す":"기록 검색","操作":"동작","探す":"검색","「{q}」を記録の中から探す":"기록에서 ‘{q}’ 검색","新しい会話を始める":"새 대화 시작","音声ファイルを取り込む":"오디오 파일 가져오기","コマンド":"명령","会議・操作を探す…":"회의·동작 검색…","開く":"열기","すべてのコマンド":"모든 명령","サイドバーの幅":"사이드바 너비","前回の設定のまま始めます。変えるときは下の項目を押します":"지난번 설정 그대로 시작합니다. 바꾸려면 아래 항목을 누르세요","サイドバーを閉じる (⌘\\)":"사이드바 닫기 (⌘\\)","サイドバーを閉じる":"사이드바 닫기","サイドバーを開く (⌘\\)":"사이드바 열기 (⌘\\)","サイドバーを開く":"사이드바 열기","サイドバー":"사이드바","新しい会話":"새 대화","設定":"설정","画面":"화면","翻訳と声":"번역과 음성","画面の明るさ":"화면 모드","システムに合わせると、macOS の外観(ライト/ダーク)に従います":"‘시스템에 맞춤’은 macOS의 화면 모드(라이트/다크)를 따릅니다","システムに合わせる":"시스템에 맞춤","明るい":"라이트","暗い":"다크","投影モード":"프로젝션 모드","明るい会場のプロジェクタでも淡い文字が消えないよう、補助の文字と線を濃くします":"밝은 장소의 프로젝터에서도 흐린 글자가 보이도록 보조 글자와 선을 진하게 합니다","▶で試聴 — 会話中も変えられます":"▶로 미리 듣기 — 대화 중에도 바꿀 수 있습니다","たたむ / ひらく":"접기 / 펼치기","この発言を処理できませんでした":"이 발언을 처리하지 못했습니다","マイクの音が届いていません(許可が無い可能性)":"마이크 소리가 들어오지 않습니다(권한이 없을 수 있음)","システム設定 > プライバシーとセキュリティ > マイク で Sokutsu(または使っているターミナル/Python)を許可してください":"시스템 설정 > 개인정보 보호 및 보안 > 마이크에서 Sokutsu(또는 사용 중인 터미널/Python)를 허용해 주세요","マイクの音が届いていません":"마이크 소리가 들어오지 않습니다","マイクが外れた・切り替わった可能性があります。接続を確かめ、会話を終えてから始め直してください":"마이크가 빠졌거나 바뀌었을 수 있습니다. 연결을 확인하고 대화를 끝낸 뒤 다시 시작해 주세요","マイクを開けません":"마이크를 열 수 없습니다","マイクの接続とシステム設定のマイクの許可を確かめ、会話を始め直してください":"마이크 연결과 시스템 설정의 마이크 권한을 확인하고 대화를 다시 시작해 주세요","マイクだけで続けます":"마이크만으로 계속합니다","この Mac の音を聞く部品が何度も止まりました":"이 Mac의 소리를 듣는 부품이 여러 번 멈췄습니다","起動画面の『翻訳の処理場所』を見直してください(リモートサーバーなら scripts/remote_tunnel.sh、このMacなら LM Studio のサーバー起動)。":"시작 화면의 ‘번역 처리 위치’를 확인해 주세요(원격 서버라면 scripts/remote_tunnel.sh, 이 Mac이라면 LM Studio 서버 시작).","models/ggml-large-v3-turbo.bin を確認してください。":"models/ggml-large-v3-turbo.bin을 확인해 주세요.","音声を読み出せませんでした":"오디오를 읽지 못했습니다","ファイルが見つかりません":"파일을 찾을 수 없습니다","このファイルから音声を読み出せませんでした(音声の無い動画か、対応していない形式です)":"이 파일에서 오디오를 읽지 못했습니다(소리가 없는 동영상이거나 지원하지 않는 형식입니다)","音声が短すぎます(0.5秒未満)":"오디오가 너무 짧습니다(0.5초 미만)","議題":"안건","用語辞書":"용어 사전","会議の議題を先に入れておくと、会議中にチェックでき、会議メモが議題に沿ってまとまります":"안건을 먼저 넣어 두면 회의 중에 체크할 수 있고, 회의록도 안건에 맞춰 정리됩니다",
 "人名・専門用語を覚えておき、毎回の聞き取りと会議メモの綴りに使います":"사람 이름과 전문 용어를 기억해 두고, 매번 음성 인식과 회의록 표기에 사용합니다",
 "1行に1つ — 例: 先週の振り返り":"한 줄에 하나 — 예: 지난주 돌아보기","会議中は右の記録の上でチェックでき、会議メモは議題に沿ってまとまります":"회의 중에는 오른쪽 기록 위에서 체크할 수 있고, 회의록은 안건에 맞춰 정리됩니다",
 "人名・社名・専門用語を覚えておくと、毎回の聞き取りの手がかりになり、会議メモの綴りも正しくなります。":"사람 이름·회사 이름·전문 용어를 여기에 두면 매번 음성 인식의 단서가 되고, 회의록의 표기도 정확해집니다.",
@@ -3041,7 +3051,7 @@ const TSUYAKU={
     if(!this.$("#meet").hidden&&this._doc)this.renderDoc();
     this.buildVoiceRows("#voiceRows");this.buildVoiceRows("#voiceRows2");
     if(this._eng)this.engineShow(this._eng);
-    else{const h=this.$("#startHint");if(h)h.textContent=this.L("自動: リモートサーバーの GPU、無ければこの Mac");}
+    else{const h=this.$("#startHint");if(h)h.textContent=this.L("自動: リモートGPU、無ければこの Mac");}
     if(!this.live&&this.$("#stage").classList.contains("empty"))this.$("#trans").textContent=this.L("話しかけてください。");
     this.$("#statusText").textContent=this.stText(this._stRaw||"待機中");
     if(this._lats.length)this.latNow();
@@ -3222,10 +3232,10 @@ const TSUYAKU={
   },
   // ---------- 処理場所・まわりの音 ----------
   _engWired:false,
-  ENG_NOTE:{auto:"リモートサーバーの GPU が見つかればそれで、無ければこの Mac で翻訳します",
-    remote:"リモートの GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります",
+  ENG_NOTE:{auto:"リモートGPU が見つかればそれで、無ければこの Mac で翻訳します",
+    remote:"研究室の GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります",
     mac:"この Mac だけで翻訳します。ネットワーク不要(長い文は少し遅くなることがあります)"},
-  NOISE_NOTE:{normal:"小さな声も拾います(静かな部屋・チーム向け)",
+  NOISE_NOTE:{normal:"小さな声も拾います(静かな部屋・研究室向け)",
     noisy:"周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください"},
   // 読み上げの説明は、読み上げ中も聞くかで変える(11/08。pace の後も「マイクを止める」とだけ書いていた)
   VOICE_NOTE:{on:"訳を声でも読みます。読み上げの間はマイクを止めるので、終わってから話してください",
@@ -3310,14 +3320,14 @@ const TSUYAKU={
       t=p["カスタム"]?this.L("カスタムの翻訳サーバーに接続できました — このまま会話を始められます")
         :this.L("カスタムの翻訳サーバーが応答しません — TSUYAKU_PORT/とんねるの設定を確かめてください");
     }else if(eng==="remote"){
-      t=ok("remote")?this.L("リモートサーバーの GPU に接続できました —{m}を裏で用意しています",m("remote"))
-        :this.L("リモートサーバーに届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください");
+      t=ok("remote")?this.L("リモートGPU に接続できました —{m}を裏で用意しています",m("remote"))
+        :this.L("remote に届きません — とんねる(scripts/remote_tunnel.sh)か リモートサーバーの起動を確かめてください");
     }else if(eng==="mac"){
       t=ok("mac")?this.L("この Mac の LM Studio に接続できました —{m}でこのまま会話を始められます",m("mac"))
         :this.L("この Mac の LM Studio が応答しません — LM Studio のサーバー起動が必要です");
     }else{
-      t=ok("remote")?this.L("リモートサーバーを見つけました —{m}を リモートサーバーの GPU で翻訳します",m("remote"))
-        :(ok("mac")?this.L("リモートサーバーが見つからないので、この Mac の{m}で翻訳します",m("mac"))
+      t=ok("remote")?this.L("remote を見つけました —{m}を リモートGPU で翻訳します",m("remote"))
+        :(ok("mac")?this.L("remote が見つからないので、この Mac の{m}で翻訳します",m("mac"))
           :this.L("翻訳サーバーが見つかりません — 処理場所を変えるか、remote/LM Studio を起動してください"));
     }
     h.textContent=t;
@@ -3331,7 +3341,7 @@ const TSUYAKU={
     if(on){
       const n=(d&&typeof d.net_s==="number")?d.net_s:null;
       this.$("#netSec").textContent=n!=null?this.L("+{n}秒",{n:n.toFixed(1)}):"";
-      t.title=this.L("リモートサーバーの耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます",{n:n!=null?n.toFixed(2):"—"});
+      t.title=this.L("remote の耳への往復が平均 {n} 秒余計にかかっています(上り回線の混雑など)。予想訳はこの Mac の耳で先に出し、確定と読み上げは リモートサーバーを待つので少し遅れます",{n:n!=null?n.toFixed(2):"—"});
     }
   },
   engineInfo(d){ // 会話中のステータスバーに、実際に使っている処理場所とモデルを出す
@@ -3400,7 +3410,7 @@ const TSUYAKU={
     if(was==="speak"&&state==="listen"&&this.live)this.yourTurn(litBefore);
     else if(state!=="listen")this.turnEnd();
     // 起動中(まだ1文もない)のとき、小さいステータスだけ見て待たせない。
-    // 大字幕の位置に進捗を出す(remote初載せは1〜2分かかるため)
+    // 大字幕の位置に進捗を出す(リモートサーバー初載せは1〜2分かかるため)
     if(this.live&&state==="work"&&this.$("#stage").classList.contains("empty")){
       const m={"起動中":"サーバーを起動しています… 初回はモデルの読み込みに1〜2分","接続中":"翻訳サーバーを繋いでいます…","モデル読み込み中":"モデルをGPUに載せています… このまま少しだけ待ってください"};
       let msg=this.L(m[text]||text);
@@ -4338,7 +4348,7 @@ Object.assign(I18N.en,{
   "完了":"Done",
   "選ぶ":"Select",
   "すべて忘れる":"Forget all","すべて消す":"Delete all","覚えた声をすべて消しました":"All known voices deleted","声を覚えました":"Voice learned","覚えた声を見る":"See known voices","わかった":"Got it","{n}人の覚えた声と、会議ごとの声の特徴をすべて消します。付けた名前は残ります。元に戻せません。":"This deletes the voices of {n} people and the voice signatures saved with each meeting. Names stay. This cannot be undone.","「{name}」の声の特徴を、この Mac の中だけに保存しました。音声そのものではなく、声の特徴を表す数字の列で、どこにも送りません。次の会議から、同じ声に自動で名前が付きます(「違う」で取り消せます)。":"{name}’s voice signature is now stored on this Mac only. It is a list of numbers describing the voice, not a recording, and it is never sent anywhere. From the next meeting, the same voice will be named automatically (you can undo it with “Wrong”).","覚えた声は、会議の記録の左下「覚えた声」から、いつでも1人ずつ、またはすべて消せます。":"You can delete one person or all known voices at any time from “Known voices” at the bottom left of Meetings.",
-  "印":"Mark","PDF・Word に全文の記録も入れる":"Include full transcript in PDF/Word","会議メモを印刷・共有できる形で(A4)":"Meeting notes for printing and sharing (A4)","Word で直せる形で(.docx)":"Editable in Word (.docx)","Markdown で書き出す":"Export as Markdown","新しい順":"Newest first","古い順":"Oldest first","長い順":"Longest first","題の順":"By title","押すと並べ替えを切り替えます":"Click to change the sort order","質問の印を付ける":"Mark as question","決定の印を付ける":"Mark as decision","テキストで書き出す":"Export as text","Markdown エディタ・メモ帳などに貼れる形で(.md)":"For Markdown editors, Notes and the like (.md)","飾りのない文字だけ(.txt)":"Plain text only (.txt)",
+  "印":"Mark","PDF・Word に全文の記録も入れる":"Include full transcript in PDF/Word","会議メモを印刷・共有できる形で(A4)":"Meeting notes for printing and sharing (A4)","Word で直せる形で(.docx)":"Editable in Word (.docx)","Markdown で書き出す":"Export as Markdown","種別:すべて":"All","種別:通訳":"Interpret","種別:会議メモ":"Meeting notes","種別:種別":"Filter by type","新しい順":"Newest first","古い順":"Oldest first","長い順":"Longest first","題の順":"By title","押すと並べ替えを切り替えます":"Click to change the sort order","質問の印を付ける":"Mark as question","決定の印を付ける":"Mark as decision","テキストで書き出す":"Export as text","Obsidian・メモ帳などに貼れる形で(.md)":"For Obsidian, Notes and the like (.md)","飾りのない文字だけ(.txt)":"Plain text only (.txt)",
   "お気に入りに入れる":"Star","お気に入りから外す":"Unstar",
   "約":"~","題":"Title","ゴミ箱へ移せませんでした":"Couldn't move to Trash",
   "題・名前・発言の中身で探す":"Search titles, names, transcripts","すべて":"All","お気に入り":"Starred",
@@ -4397,7 +4407,7 @@ Object.assign(I18N.zh,{
   "完了":"完成",
   "選ぶ":"选择",
   "すべて忘れる":"全部忘记","すべて消す":"全部删除","覚えた声をすべて消しました":"已删除所有声音","声を覚えました":"已记住声音","覚えた声を見る":"查看已记住的声音","わかった":"知道了","{n}人の覚えた声と、会議ごとの声の特徴をすべて消します。付けた名前は残ります。元に戻せません。":"将删除{n}人的声音以及各会议保存的声音特征。已标注的姓名会保留。无法恢复。","「{name}」の声の特徴を、この Mac の中だけに保存しました。音声そのものではなく、声の特徴を表す数字の列で、どこにも送りません。次の会議から、同じ声に自動で名前が付きます(「違う」で取り消せます)。":"{name}的声音特征已只保存在这台 Mac 上。这是一串表示声音特征的数字，不是录音，也不会发送到任何地方。从下次会议起，相同的声音会自动标注姓名（可点“不对”撤销）。","覚えた声は、会議の記録の左下「覚えた声」から、いつでも1人ずつ、またはすべて消せます。":"随时可以在会议记录左下角的“已记住的声音”中逐个或全部删除。",
-  "印":"标记","PDF・Word に全文の記録も入れる":"PDF/Word 中包含完整记录","会議メモを印刷・共有できる形で(A4)":"便于打印和分享的会议纪要(A4)","Word で直せる形で(.docx)":"可在 Word 中编辑(.docx)","Markdown で書き出す":"导出为 Markdown","新しい順":"最新优先","古い順":"最早优先","長い順":"最长优先","題の順":"按标题","押すと並べ替えを切り替えます":"点击切换排序","質問の印を付ける":"标记为问题","決定の印を付ける":"标记为决定","テキストで書き出す":"导出为文本","Markdown エディタ・メモ帳などに貼れる形で(.md)":"可粘贴到 Markdown 编辑器、记事本等(.md)","飾りのない文字だけ(.txt)":"仅纯文字(.txt)",
+  "印":"标记","PDF・Word に全文の記録も入れる":"PDF/Word 中包含完整记录","会議メモを印刷・共有できる形で(A4)":"便于打印和分享的会议纪要(A4)","Word で直せる形で(.docx)":"可在 Word 中编辑(.docx)","Markdown で書き出す":"导出为 Markdown","種別:すべて":"全部","種別:通訳":"翻译","種別:会議メモ":"会议纪要","種別:種別":"按类型筛选","新しい順":"最新优先","古い順":"最早优先","長い順":"最长优先","題の順":"按标题","押すと並べ替えを切り替えます":"点击切换排序","質問の印を付ける":"标记为问题","決定の印を付ける":"标记为决定","テキストで書き出す":"导出为文本","Obsidian・メモ帳などに貼れる形で(.md)":"可粘贴到 Obsidian、记事本等(.md)","飾りのない文字だけ(.txt)":"仅纯文字(.txt)",
   "お気に入りに入れる":"收藏","お気に入りから外す":"取消收藏",
   "約":"约","題":"标题","ゴミ箱へ移せませんでした":"无法移到废纸篓",
   "題・名前・発言の中身で探す":"搜索标题、姓名和发言内容","すべて":"全部","お気に入り":"收藏",
@@ -4456,7 +4466,7 @@ Object.assign(I18N.ko,{
   "完了":"완료",
   "選ぶ":"선택",
   "すべて忘れる":"모두 잊기","すべて消す":"모두 삭제","覚えた声をすべて消しました":"기억한 목소리를 모두 지웠습니다","声を覚えました":"목소리를 기억했습니다","覚えた声を見る":"기억한 목소리 보기","わかった":"확인","{n}人の覚えた声と、会議ごとの声の特徴をすべて消します。付けた名前は残ります。元に戻せません。":"{n}명의 목소리와 회의마다 저장된 목소리 특징을 모두 지웁니다. 붙인 이름은 남습니다. 되돌릴 수 없습니다.","「{name}」の声の特徴を、この Mac の中だけに保存しました。音声そのものではなく、声の特徴を表す数字の列で、どこにも送りません。次の会議から、同じ声に自動で名前が付きます(「違う」で取り消せます)。":"{name}의 목소리 특징을 이 Mac에만 저장했습니다. 녹음이 아니라 목소리 특징을 나타내는 숫자 목록이며, 어디로도 보내지 않습니다. 다음 회의부터 같은 목소리에 자동으로 이름이 붙습니다(“아님”으로 취소 가능).","覚えた声は、会議の記録の左下「覚えた声」から、いつでも1人ずつ、またはすべて消せます。":"회의 기록 왼쪽 아래 “기억한 목소리”에서 언제든 한 명씩 또는 모두 지울 수 있습니다.",
-  "印":"표시","PDF・Word に全文の記録も入れる":"PDF·Word에 전체 기록 포함","会議メモを印刷・共有できる形で(A4)":"인쇄·공유용 회의록(A4)","Word で直せる形で(.docx)":"Word에서 편집 가능(.docx)","Markdown で書き出す":"Markdown으로 내보내기","新しい順":"최신순","古い順":"오래된 순","長い順":"긴 순","題の順":"제목순","押すと並べ替えを切り替えます":"눌러서 정렬 변경","質問の印を付ける":"질문으로 표시","決定の印を付ける":"결정으로 표시","テキストで書き出す":"텍스트로 내보내기","Markdown エディタ・メモ帳などに貼れる形で(.md)":"Markdown 편집기·메모장 등에 붙여넣기(.md)","飾りのない文字だけ(.txt)":"서식 없는 글자만(.txt)",
+  "印":"표시","PDF・Word に全文の記録も入れる":"PDF·Word에 전체 기록 포함","会議メモを印刷・共有できる形で(A4)":"인쇄·공유용 회의록(A4)","Word で直せる形で(.docx)":"Word에서 편집 가능(.docx)","Markdown で書き出す":"Markdown으로 내보내기","種別:すべて":"전체","種別:通訳":"통역","種別:会議メモ":"회의록","種別:種別":"유형별 보기","新しい順":"최신순","古い順":"오래된 순","長い順":"긴 순","題の順":"제목순","押すと並べ替えを切り替えます":"눌러서 정렬 변경","質問の印を付ける":"질문으로 표시","決定の印を付ける":"결정으로 표시","テキストで書き出す":"텍스트로 내보내기","Obsidian・メモ帳などに貼れる形で(.md)":"Obsidian·메모장 등에 붙여넣기(.md)","飾りのない文字だけ(.txt)":"서식 없는 글자만(.txt)",
   "お気に入りに入れる":"즐겨찾기에 추가","お気に入りから外す":"즐겨찾기에서 빼기",
   "約":"약","題":"제목","ゴミ箱へ移せませんでした":"휴지통으로 옮기지 못했습니다",
   "題・名前・発言の中身で探す":"제목·이름·발언 내용으로 검색","すべて":"전체","お気に入り":"즐겨찾기",
@@ -4519,11 +4529,26 @@ Object.assign(TSUYAKU,{
       if(Array.isArray(l)&&ms===this._mlSeq)this._mlist=l; if(f)this._w4f=f; if(Array.isArray(vb))this._w4vb=vb;
       this.renderList(); this.w4foot();});
   },
-  w4match(m){const s=this._w4scope||{k:"all"};
+  W4KINDS:[["all","すべて"],["interpret","通訳"],["notes","会議メモ"]],
+  w4kinds(m){return Array.isArray(m.kinds)?m.kinds:(m.mode==="notes"?["notes"]:m.mode==="both"?["interpret","notes"]:["interpret"]);},
+  w4kindOk(m){const k=this._w4kind||"all"; return k==="all"||this.w4kinds(m).includes(k);},
+  w4kindLabel(k,ja){return this.ui==="ja"?ja:((I18N[this.ui]&&I18N[this.ui]["種別:"+ja])||ja);},
+  w4kindSet(k){
+    if(!this.W4KINDS.some(x=>x[0]===k)) return;
+    this._w4kind=k; try{localStorage.setItem("tsuyaku.w4kind",k);}catch(e){}
+    this._w4trash=false; this.w4foot(); this.renderList();
+  },
+  w4kindHtml(){
+    const all=this._mlist||[], cur=this._w4kind||"all", E=x=>this.esc(String(x));
+    const n=k=>k==="all"?all.length:all.filter(m=>this.w4kinds(m).includes(k)).length;
+    return this.W4KINDS.map(([k,ja])=>'<button type="button" role="tab" data-w4kind="'+k+'" aria-selected="'+(k===cur)+'" class="'+(k===cur?"on":"")+'"><span>'
+      +E(this.w4kindLabel(k,ja))+"</span><small>"+n(k)+"</small></button>").join("");
+  },
+  w4match(m){const s=this._w4scope||{k:"all"}; if(!this.w4kindOk(m)) return false;
     return s.k==="star"?!!m.star:s.k==="folder"?m.folder===s.v:s.k==="tag"?(m.tags||[]).includes(s.v):true;},
   w4scopeHtml(){
     const f=this._w4f||{}, s=this._w4scope||{k:"all"}, I=this.ICON, E=x=>this.esc(String(x==null?"":x));
-    const all=this._mlist||[];
+    const all=(this._mlist||[]).filter(m=>this.w4kindOk(m));
     const chip=(k,v,label,n,icon)=>'<button type="button" data-w4scope="'+k+'" data-v="'+E(v||"")+'" class="'+(s.k===k&&(s.v||"")===(v||"")?"on":"")+'">'
       +(icon||"")+"<span>"+E(label)+"</span>"+(n!=null?"<small>"+n+"</small>":"")+"</button>";
     const items=[chip("all","",this.L("すべて"),all.length)];
@@ -4628,7 +4653,7 @@ Object.assign(TSUYAKU,{
   // ---------- ゴミ箱 ----------
   w4trashOpen(on){
     this._w4trash=on; this._w4trConfirm=false; this._w4sel=new Set(); this._w4selAnchor=null; this._w4delConfirm=false; this.w4foot();
-    const S=this.$("#w4scope"); if(S)S.hidden=on;
+    const S=this.$("#w4scope"); if(S)S.hidden=on; const KT=this.$("#w4kind"); if(KT)KT.hidden=on;
     if(!on){this.renderList();return;}
     const L=this.$("#mlist"); L.innerHTML='<div class="w4busy">'+this.esc(this.L("読み込み中…"))+"</div>";
     this.w4call("trash_list").then(t=>{this._w4trList=t||[];this.w4trashRender();});
@@ -4716,7 +4741,7 @@ Object.assign(TSUYAKU,{
     if(!this.W2_EXPORTS.some(x=>x.key==="w4pdf"))this.W2_EXPORTS.push(
       {key:"w4pdf",icon:"doc",label:"PDF で書き出す",sub:"会議メモを印刷・共有できる形で(A4)",sep:true,run:()=>this.w4export("pdf")},
       {key:"w4docx",icon:"doc",label:"Word で書き出す",sub:"Word で直せる形で(.docx)",run:()=>this.w4export("docx")},
-      {key:"w4md",icon:"doc",label:"Markdown で書き出す",sub:"Markdown エディタ・メモ帳などに貼れる形で(.md)",run:()=>this.w4export("md")},
+      {key:"w4md",icon:"doc",label:"Markdown で書き出す",sub:"Obsidian・メモ帳などに貼れる形で(.md)",run:()=>this.w4export("md")},
       {key:"w4txt",icon:"doc",label:"テキストで書き出す",sub:"飾りのない文字だけ(.txt)",run:()=>this.w4export("txt")});
     return true;
   },
@@ -5008,6 +5033,7 @@ Object.assign(TSUYAKU,{
     try{rl.call(this);}finally{this._mlist=all;this._flat=false;}
     if((all||[]).length&&!(all||[]).some(m=>this.w4match(m)))this.$("#mlist").innerHTML='<div class="mempty"><span>'+this.esc(this.L("見つかりません"))+"</span></div>";
     const S=this.$("#w4scope"); if(S){S.innerHTML=this.w4scopeHtml();S.hidden=!S.innerHTML;}
+    const KT=this.$("#w4kind"); if(KT){KT.hidden=false;KT.innerHTML=this.w4kindHtml();KT.setAttribute("aria-label",this.w4kindLabel("","種別"));}
     if(this._w4selOn&&this._w4sel){const vis=new Set([...this.$("#mlist").querySelectorAll(".mi[data-id]")].map(r=>r.dataset.id));
       [...this._w4sel].forEach(x=>{if(!vis.has(x))this._w4sel.delete(x);}); this.w4foot();}   // 絞り込み・検索で隠れた行は選びから外す(見えない記録を消さない)
     this.w4decorateList(); this.w4selDecorate();
@@ -5041,6 +5067,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   T.w4exportsReg();   // W2 の「書き出し」メニュー(後のスクリプトで作られる)に PDF・Word を足す
   // 組み立て(HTML 本体は変えず、ここで足す)
   const mq=$("#mq"); if(mq)mq.setAttribute("placeholder","題・名前・発言の中身で探す");
+  try{const kv=localStorage.getItem("tsuyaku.w4kind"); if(T.W4KINDS.some(x=>x[0]===kv))T._w4kind=kv;}catch(e){}
+  const ms0=$("#mside .msearch"); if(ms0){ms0.insertAdjacentHTML("beforebegin",'<div id="w4kind" class="w4kind" role="tablist"></div>');
+    $("#w4kind").addEventListener("click",e=>{const b=e.target.closest("[data-w4kind]"); if(b)T.w4kindSet(b.dataset.w4kind);});}
   const ms=$("#mside .msearch"); if(ms){ms.insertAdjacentHTML("afterend",'<div id="w4scope" class="w4scope" role="group"></div>');
     ms.insertAdjacentHTML("beforeend",'<button type="button" id="w4sortBtn" class="tb"></button><button type="button" id="w4selBtn" class="tb" aria-pressed="false"></button>');}
   try{const sv=localStorage.getItem("tsuyaku.w4sort"); if(T.W4SORTS.some(x=>x[0]===sv))T._w4sort=sv;}catch(e){}
@@ -5169,7 +5198,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 /*W4-END*/
 /*W1-JS-BEGIN*/
 // ---------- W1(11/07): 会議に質問・会議の種類・章と根拠の発言へ飛ぶ・ライブ要約・フォローアップの下書き ----------
-// 設計: 設計メモ(公開版には含めない)(担当 W1)。Python 側は meeting_ai.py。
+// 設計: docs/superpowers/specs/2026-11-07-meeting-features-parity.md(担当 W1)。Python 側は meeting_ai.py。
 const W1T=s=>s;   // 訳す文言の目印(表示は TSUYAKU.L で)
 Object.assign(TSUYAKU,{
   TPL:["free","regular","1on1","sales","interview","lecture","brainstorm","qa"],
@@ -5697,7 +5726,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 <script id="w3-js">
 /* ================= W3 会議中の道具(11/07「他の会議メモアプリの機能は全て」) =================
    印(ブックマーク)・自分のメモ・議題・書き起こしの修正・用語辞書。Python 側は inmeeting.py、
-   記録の行の形は 設計メモ(公開版には含めない)。
+   記録の行の形は docs/superpowers/specs/2026-11-07-meeting-features-parity.md。
    ほかの担当と差分がぶつからないよう、ここに Object.assign(TSUYAKU,…) でまとめ、
    既存の関数へは呼び出しを1行ずつ足すだけにした(renderDoc / txHtml / 開始ボタン)。 */
 const W3K={ja:{star:"重要",decision:"決定",todo:"やること",question:"質問"},
@@ -7193,10 +7222,10 @@ Object.assign(T,{
     else if(pr&&pr.stage&&!["done","error"].includes(pr.stage)){t=this.L("メモ作成中")+" "+pct(pr.pct)+"%";k="work";act="notes";}
     else if(e&&e.reachable){const p=e.reachable, L=e.labels||{}, eng=e.engine||"auto";
       const ok=eng==="auto"?Object.values(p).some(v=>v===true):p[L[eng]]===true;
-      if(!ok&&Object.keys(p).length){t=this.L("翻訳サーバー未接続");k="err";act="set";} else {t=this.L("準備できています");k="ok";}}
+      if(!ok&&Object.keys(p).length){t="";k="err";act="";/* 「翻訳サーバー未接続」は出さない(つながらないときは表示ごと隠す) */} else {t=this.L("準備できています");k="ok";}}
     else {t=this.L("待機中");k="idle";}
     document.querySelectorAll(".gstat").forEach(g=>{g.dataset.k=k;g.dataset.act=act;g.querySelector("span").textContent=t;
-      g.disabled=!act; g.title=act==="set"?this.L("設定を開く"):(act==="imp"?this.L("取り込みの様子を見る"):(act==="notes"?this.L("会議メモを開く"):""));});
+      g.hidden=!t; g.disabled=!act; g.title=act==="set"?this.L("設定を開く"):(act==="imp"?this.L("取り込みの様子を見る"):(act==="notes"?this.L("会議メモを開く"):""));});
   },
   // ---------- ⌘K コマンド ----------
   palOpen(){
@@ -8258,6 +8287,262 @@ function help(){
   if(T.applyUi) T.applyUi();
 }
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",help); else help();
+})();
+</script>
+<!-- ===== tabbar(11/10): 上のタブバー(通訳 + 開いた会議の記録 + 「＋」) ===== -->
+<style id="tabbar-css">
+/* 画面の上に Notion 風のタブバー。固定のレイヤーはすべてこの高さ(--tbh)だけ下げる。色は既存のトークンだけ(ライト/ダーク自動) */
+:root{--tbh:0px}
+body.tabs-on{--tbh:36px}
+body.tabs-on .pillar,body.tabs-on #start,body.tabs-on #app,body.tabs-on #meet,body.tabs-on #setp,body.tabs-on #appside{top:var(--tbh)}
+body.tabs-on .sbopen{top:calc(var(--tbh) + 10px)}
+#tabbar{display:none;position:fixed;left:0;right:0;top:0;height:36px;z-index:29;align-items:flex-end;gap:2px;padding:5px 8px 0;
+  background:var(--bg-side);border-bottom:1px solid var(--border);font-size:13px;line-height:1.2;user-select:none;-webkit-user-select:none}
+body.tabs-on #tabbar{display:flex}
+#tabbar .tbt{display:flex;align-items:center;gap:6px;height:31px;min-width:0;padding:0 5px 0 10px;flex:none;box-sizing:border-box;
+  border:1px solid transparent;border-bottom:none;border-radius:7px 7px 0 0;color:var(--text-2);cursor:default;background:none;font:inherit}
+#tabbar .tbt:hover{background:var(--bg-hover);color:var(--text)}
+#tabbar .tbt[aria-selected="true"]{background:var(--bg);color:var(--text);border-color:var(--border);margin-bottom:-1px;height:32px}
+#tabbar .tbt>svg{width:15px;height:15px;flex:none;color:var(--text-3)}
+#tabbar .tbt[aria-selected="true"]>svg{color:var(--text-2)}
+#tabbar .tbdoc{width:176px}
+#tabbar .tbpin{padding-right:12px;font-weight:500}
+#tabbar .tbl{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tabbar .tbdot{display:none;width:7px;height:7px;border-radius:50%;background:var(--err);flex:none}
+#tabbar .tbdot.on{display:block}
+#tabbar .tbx{width:20px;height:20px;display:grid;place-items:center;flex:none;padding:0;border:none;border-radius:5px;background:none;color:var(--text-3);opacity:0}
+#tabbar .tbx svg{width:12px;height:12px}
+#tabbar .tbt:hover .tbx,#tabbar .tbt[aria-selected="true"] .tbx,#tabbar .tbx:focus-visible{opacity:1}
+#tabbar .tbx:hover{background:var(--bg-sel);color:var(--text)}
+#tabbar .tbscroll{display:flex;align-items:flex-end;gap:2px;min-width:0;height:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+#tabbar .tbscroll::-webkit-scrollbar{display:none}
+#tabbar .tbt.tbover{box-shadow:inset 2px 0 0 var(--accent)}
+#tabbar .tbplus{width:26px;height:26px;margin:0 0 3px 2px;display:grid;place-items:center;flex:none;padding:0;border:none;border-radius:var(--r);background:none;color:var(--text-3)}
+#tabbar .tbplus:hover{background:var(--bg-hover);color:var(--text)}
+#tabbar .tbplus svg{width:14px;height:14px}
+#tabbar .tbpin:focus-visible,#tabbar .tbdoc:focus-visible,#tabbar .tbplus:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+@media (max-width:560px){#tabbar .tbpin .tbl{display:none}#tabbar .tbpin{padding-right:8px}#tabbar .tbdoc{width:132px}}
+#tbMenu{position:fixed;z-index:205;min-width:196px;padding:5px;background:var(--bg-pop);color:var(--text);border-radius:var(--r);box-shadow:var(--shadow);font-size:13.5px}
+#tbMenu[hidden]{display:none}
+#tbMenu button{display:block;width:100%;text-align:left;padding:6px 10px;border:none;border-radius:5px;background:none;color:var(--text);font:inherit}
+#tbMenu button:hover:not(:disabled){background:var(--bg-hover)}
+#tbMenu button:disabled{color:var(--text-3)}
+</style>
+<script id="tabbar-js">
+/* 上のタブバー。左の「通訳」は固定(ライブの会話 / 新しい会話の画面)、会議の記録を開くたびにタブが増える。
+   タブを切り替えても会話は止まらない: 会議の記録は会話の上に重なる画面で、通訳のタブへ戻ると元の字幕がそのまま出る。
+   ⌘T 新しい会話 / ⌘W タブを閉じる / ⌘1〜9 / ⌃Tab・⌃⇧Tab / 中ボタンで閉じる / 右クリック / ドラッグで並べ替え。再起動で復元(失敗しても動く)。 */
+/*TABS-MODEL-BEGIN*/
+function mkTabs(max){
+  const M={tabs:[],active:"live",seq:0,max:max||30};
+  const idx=k=>M.tabs.findIndex(t=>t.k===k);
+  const mk=(id,title)=>({k:"t"+(++M.seq),id:String(id),title:String(title||"")});
+  const cap=()=>{while(M.tabs.length>M.max){const i=M.tabs.findIndex(t=>t.k!==M.active); if(i<0)break; M.tabs.splice(i,1);}};
+  M.open=function(id,title){
+    id=String(id); const a=M.tabs[idx(M.active)];
+    if(a&&a.id===id){if(title)a.title=title; return a.k;}
+    const e=M.tabs.find(t=>t.id===id);
+    if(e){if(title)e.title=title; M.active=e.k; return e.k;}
+    const t=mk(id,title); M.tabs.splice(a?idx(a.k)+1:M.tabs.length,0,t); M.active=t.k; cap(); return t.k;
+  };
+  M.activate=function(k){if(k==="live"||idx(k)>=0)M.active=k; return M.active;};
+  M.close=function(k){
+    const i=idx(k); if(i<0) return M.active;
+    const was=M.active===k; M.tabs.splice(i,1);
+    if(was){const n=M.tabs[i]||M.tabs[i-1]; M.active=n?n.k:"live";}
+    return M.active;
+  };
+  M.closeOthers=function(k){
+    if(k==="live"){M.tabs=[]; M.active="live";}
+    else if(idx(k)>=0){M.tabs=M.tabs.filter(t=>t.k===k); M.active=k;}
+    return M.active;
+  };
+  M.closeRight=function(k){
+    const i=idx(k); if(i<0) return M.active;
+    M.tabs.splice(i+1); if(idx(M.active)<0)M.active=k; return M.active;
+  };
+  M.dup=function(k){
+    const i=idx(k); if(i<0) return null;
+    const t=mk(M.tabs[i].id,M.tabs[i].title); M.tabs.splice(i+1,0,t); M.active=t.k; cap(); return t.k;
+  };
+  M.move=function(k,to){
+    const i=idx(k); if(i<0) return; const t=M.tabs.splice(i,1)[0];
+    M.tabs.splice(Math.max(0,Math.min(M.tabs.length,to)),0,t);
+  };
+  M.order=function(){return ["live"].concat(M.tabs.map(t=>t.k));};
+  M.step=function(d){const o=M.order(), i=Math.max(0,o.indexOf(M.active)); M.active=o[(i+d+o.length)%o.length]; return M.active;};
+  M.nth=function(n){const o=M.order(); return (n===9?o[o.length-1]:o[n-1])||null;};
+  M.save=function(){return {v:1,tabs:M.tabs.filter(t=>t.id!=="live").map(t=>({id:t.id,title:t.title}))};};
+  M.restore=function(o){
+    if(!o||typeof o!=="object"||!Array.isArray(o.tabs)) return;
+    M.tabs=[]; M.active="live";
+    o.tabs.forEach(x=>{if(x&&typeof x.id==="string"&&x.id&&x.id!=="live"&&M.tabs.length<M.max)M.tabs.push(mk(x.id,typeof x.title==="string"?x.title:""));});
+  };
+  return M;
+}
+/*TABS-MODEL-END*/
+Object.assign(I18N.en,{"タブ":"Tabs","新しい会話 (⌘T)":"New conversation (⌘T)","閉じる (⌘W)":"Close (⌘W)","タブを閉じる":"Close tab","他のタブを閉じる":"Close other tabs","右のタブを閉じる":"Close tabs to the right","タブを複製":"Duplicate tab","会議のタブをすべて閉じる":"Close all meeting tabs","今の会話":"This conversation","無題の会話":"Untitled conversation","タブバー":"Tab bar","上に並ぶタブで会議の記録を切り替えます。会話は止まりません":"Switch meeting records with the tabs on top. The conversation keeps running","常に表示":"Always show","投影・全画面では隠す":"Hide in projection and full screen","隠す":"Hide","⌘T / ⌘W":"⌘T / ⌘W","新しい会話へ / 開いているタブを閉じる":"New conversation / close the current tab","⌘1〜9 / ⌃Tab":"⌘1–9 / ⌃Tab","タブを切り替える(通訳の会話は止まりません)":"Switch tabs (the live conversation keeps running)"});
+Object.assign(I18N.zh,{"タブ":"标签页","新しい会話 (⌘T)":"新对话 (⌘T)","閉じる (⌘W)":"关闭 (⌘W)","タブを閉じる":"关闭标签页","他のタブを閉じる":"关闭其他标签页","右のタブを閉じる":"关闭右侧标签页","タブを複製":"复制标签页","会議のタブをすべて閉じる":"关闭所有会议标签页","今の会話":"当前对话","無題の会話":"无题对话","タブバー":"标签栏","上に並ぶタブで会議の記録を切り替えます。会話は止まりません":"用上方的标签页切换会议记录。对话不会中断","常に表示":"始终显示","投影・全画面では隠す":"投影和全屏时隐藏","隠す":"隐藏","⌘T / ⌘W":"⌘T / ⌘W","新しい会話へ / 開いているタブを閉じる":"新对话 / 关闭当前标签页","⌘1〜9 / ⌃Tab":"⌘1–9 / ⌃Tab","タブを切り替える(通訳の会話は止まりません)":"切换标签页(口译对话不会中断)"});
+Object.assign(I18N.ko,{"タブ":"탭","新しい会話 (⌘T)":"새 대화 (⌘T)","閉じる (⌘W)":"닫기 (⌘W)","タブを閉じる":"탭 닫기","他のタブを閉じる":"다른 탭 닫기","右のタブを閉じる":"오른쪽 탭 닫기","タブを複製":"탭 복제","会議のタブをすべて閉じる":"회의 탭 모두 닫기","今の会話":"현재 대화","無題の会話":"제목 없는 대화","タブバー":"탭 바","上に並ぶタブで会議の記録を切り替えます。会話は止まりません":"위의 탭으로 회의 기록을 전환합니다. 대화는 멈추지 않습니다","常に表示":"항상 표시","投影・全画面では隠す":"투영·전체 화면에서는 숨김","隠す":"숨김","⌘T / ⌘W":"⌘T / ⌘W","新しい会話へ / 開いているタブを閉じる":"새 대화 / 현재 탭 닫기","⌘1〜9 / ⌃Tab":"⌘1–9 / ⌃Tab","タブを切り替える(通訳の会話は止まりません)":"탭 전환(통역 대화는 멈추지 않습니다)"});
+(function(){
+const T=TSUYAKU, $=s=>document.querySelector(s), L=(k,v)=>T.L(k,v);
+const store={get:k=>{try{return localStorage.getItem(k);}catch(e){return null;}},set:(k,v)=>{try{localStorage.setItem(k,v);}catch(e){}}};
+const SV=(d)=>'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+"</svg>";
+const ICO={chat:SV('<path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/>'),doc:SV('<rect x="3" y="1.8" width="10" height="12.4" rx="1.8"/><path d="M5.6 5.5h4.8M5.6 8h4.8M5.6 10.5h3"/>'),
+  x:SV('<path d="M4 4l8 8M12 4l-8 8"/>'),plus:SV('<path d="M8 3v10M3 8h10"/>')};
+const M=mkTabs(30), esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const KEY="tsuyaku.tabs", PREF="tsuyaku.tabbar";
+let bar=null, menu=null, dragK=null;
+function save(){try{store.set(KEY,JSON.stringify(M.save()));}catch(e){}}
+try{const s=store.get(KEY); if(s)M.restore(JSON.parse(s));}catch(e){}
+function titleOf(id){
+  if(id==="live") return L("今の会話");
+  const m=(T._mlist||[]).find(x=>x.id===id), c=(T._mcache||{})[id];
+  return (m&&(m.title||m.preview))||(c&&c.title)||"";
+}
+function render(){
+  if(!bar) return;
+  const act=M.active, pin=act==="live";
+  const keep=bar.querySelector(".tbscroll"), sl=keep?keep.scrollLeft:0;
+  bar.innerHTML='<button type="button" class="tbt tbpin" id="tbPin" role="tab" data-k="live" aria-selected="'+pin+'" title="'+esc(L("通訳"))+'">'+ICO.chat+'<span class="tbl">'+esc(L("通訳"))+'</span><i class="tbdot'+(T.live?" on":"")+'"></i></button>'
+    +'<div class="tbscroll" id="tbScroll">'+M.tabs.map(t=>{const ti=t.title||L("無題の会話");
+      return '<div class="tbt tbdoc" role="tab" tabindex="0" draggable="true" data-k="'+t.k+'" aria-selected="'+(t.k===act)+'" title="'+esc(ti)+'">'+ICO.doc
+        +'<span class="tbl">'+esc(ti)+'</span><button type="button" class="tbx" tabindex="-1" data-x="'+t.k+'" aria-label="'+esc(L("タブを閉じる"))+'">'+ICO.x+"</button></div>";}).join("")+"</div>"
+    +'<button type="button" class="tbplus" id="tbNew" title="'+esc(L("新しい会話 (⌘T)"))+'" aria-label="'+esc(L("新しい会話 (⌘T)"))+'">'+ICO.plus+"</button>";
+  bar.setAttribute("aria-label",L("タブ"));
+  const sc=bar.querySelector(".tbscroll"); if(sc){sc.scrollLeft=sl; const a=sc.querySelector('[aria-selected="true"]'); if(a&&a.scrollIntoView)try{a.scrollIntoView({block:"nearest",inline:"nearest"});}catch(e){}}
+}
+function goLive(){
+  T.setClose(); if(!$("#meet").hidden)T.meetClose();
+  M.activate("live"); render(); save();
+}
+function show(k){
+  if(k==="live"){goLive();return;}
+  const t=M.tabs.find(x=>x.k===k); if(!t) return;
+  M.activate(k);
+  if($("#meet").hidden){T.setClose(); T.meetShow(false);}
+  if(!(T._docId===t.id&&T._doc&&T._docFor===t.id))T.docOpen(t.id);
+  render(); save();
+}
+function closeTab(k){
+  const was=M.active===k; const n=M.close(k);
+  if(was){show(n);} else {render(); save();}
+}
+function newConv(){const b=$("#appside .sbi[data-sb=new]"); if(b)b.click(); else goLive(); M.activate("live"); render(); save();}
+// 会議の記録を開いた(一覧・検索・メモ・取り込みのどこからでも)→ タブにする
+const od=T.docOpen;
+if(typeof od==="function")T.docOpen=function(id){
+  const r=od.apply(this,arguments);
+  try{ if(id&&!$("#meet").hidden){M.open(id,titleOf(id)); render(); save();} }catch(e){}
+  return r;
+};
+const oc=T.meetClose;
+if(typeof oc==="function")T.meetClose=function(){const r=oc.apply(this,arguments); try{M.activate("live"); render(); save();}catch(e){} return r;};
+const rd=T.renderDoc;
+if(typeof rd==="function")T.renderDoc=function(){
+  const r=rd.apply(this,arguments);
+  try{const h=$("#mdoc .doc h1"), id=T._docId; const t=h?(h.firstChild&&h.firstChild.nodeType===3?h.firstChild.textContent:h.textContent).trim():"";
+    if(t&&id){let ch=false; M.tabs.forEach(x=>{if(x.id===id&&x.title!==t){x.title=t;ch=true;}}); if(ch){render(); save();}}}catch(e){}
+  return r;
+};
+const rl=T.renderList;
+if(typeof rl==="function")T.renderList=function(){
+  const r=rl.apply(this,arguments);
+  try{let ch=false; M.tabs.forEach(x=>{const t=titleOf(x.id); if(t&&x.title!==t){x.title=t;ch=true;}}); if(ch){render(); save();}}catch(e){}
+  return r;
+};
+const au=T.applyUi;
+if(typeof au==="function")T.applyUi=function(){const r=au.apply(this,arguments); try{render(); settingsPaint();}catch(e){} return r;};
+// ---------- 右クリックのメニュー ----------
+function menuClose(){if(menu)menu.hidden=true;}
+function menuOpen(k,x,y){
+  const isLive=k==="live", i=M.tabs.findIndex(t=>t.k===k);
+  const items=isLive?[["others",L("会議のタブをすべて閉じる"),M.tabs.length>0]]
+    :[["close",L("タブを閉じる"),true],["others",L("他のタブを閉じる"),M.tabs.length>1],["right",L("右のタブを閉じる"),i>=0&&i<M.tabs.length-1],["dup",L("タブを複製"),true]];
+  menu.innerHTML=items.map(([a,t,on])=>'<button type="button" role="menuitem" data-a="'+a+'" data-k="'+k+'"'+(on?"":" disabled")+">"+esc(t)+"</button>").join("");
+  menu.hidden=false;
+  const w=menu.offsetWidth, h=menu.offsetHeight;
+  menu.style.left=Math.max(4,Math.min(x,innerWidth-w-4))+"px"; menu.style.top=Math.max(4,Math.min(y,innerHeight-h-4))+"px";
+}
+function menuDo(a,k){
+  menuClose();
+  if(a==="close")closeTab(k);
+  else if(a==="others"){M.closeOthers(k); if(k==="live")goLive(); else show(k);}
+  else if(a==="right"){const keepAct=M.active; M.closeRight(k); if(keepAct!==M.active)show(M.active); else {render(); save();}}
+  else if(a==="dup"){const n=M.dup(k); if(n)show(n);}
+}
+// ---------- 見える・隠す(設定 / 投影モード / 全画面) ----------
+function pref(){const v=store.get(PREF); return v==="show"||v==="hide"?v:"auto";}
+function apply(){
+  const p=pref(), b=document.body;
+  const vis=p==="show"||(p==="auto"&&!b.classList.contains("proj")&&!document.fullscreenElement);
+  if(b.classList.contains("tabs-on")!==vis)b.classList.toggle("tabs-on",vis);
+  const live=!!T.live, d=bar&&bar.querySelector(".tbdot"); if(d)d.classList.toggle("on",live);
+}
+function settingsPaint(){
+  document.querySelectorAll("#tbPref .pair").forEach(x=>{const on=x.dataset.tbpref===pref(); x.classList.toggle("sel",on); x.setAttribute("aria-checked",on?"true":"false");});
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  bar=document.createElement("div"); bar.id="tabbar"; bar.setAttribute("role","tablist"); document.body.appendChild(bar);
+  menu=document.createElement("div"); menu.id="tbMenu"; menu.setAttribute("role","menu"); menu.hidden=true; document.body.appendChild(menu);
+  render(); apply();
+  new MutationObserver(apply).observe(document.body,{attributes:true,attributeFilter:["class"]});
+  document.addEventListener("fullscreenchange",apply);
+  const blur=()=>{const a=document.activeElement; if(a&&bar.contains(a)&&a.blur)a.blur();};  // フォーカスを残さない(会話中の Space / Esc / R などを邪魔しない)
+  bar.addEventListener("click",e=>{
+    const x=e.target.closest("[data-x]"); if(x){e.stopPropagation(); closeTab(x.dataset.x); blur(); return;}
+    if(e.target.closest("#tbNew")){newConv(); blur(); return;}
+    const t=e.target.closest(".tbt[data-k]"); if(t){show(t.dataset.k); blur();}
+  });
+  bar.addEventListener("mousedown",e=>{if(e.button===1)e.preventDefault();});
+  bar.addEventListener("auxclick",e=>{if(e.button!==1)return; const t=e.target.closest(".tbdoc[data-k]"); if(t){e.preventDefault(); closeTab(t.dataset.k);}});
+  bar.addEventListener("contextmenu",e=>{const t=e.target.closest(".tbt[data-k]"); if(!t)return; e.preventDefault(); e.stopPropagation(); menuOpen(t.dataset.k,e.clientX,e.clientY);});
+  bar.addEventListener("keydown",e=>{
+    const t=e.target.closest(".tbdoc[data-k]"); if(!t||e.metaKey||e.ctrlKey||e.altKey||e.isComposing)return;
+    if(e.key==="Enter"){e.preventDefault(); show(t.dataset.k);}
+    else if(e.key==="Delete"||e.key==="Backspace"){e.preventDefault(); closeTab(t.dataset.k);}
+  });
+  bar.addEventListener("wheel",e=>{const s=e.target.closest(".tbscroll"); if(s&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){s.scrollLeft+=e.deltaY;}},{passive:true});
+  // ドラッグで並べ替え
+  bar.addEventListener("dragstart",e=>{const t=e.target.closest&&e.target.closest(".tbdoc[data-k]"); if(!t)return; dragK=t.dataset.k; try{e.dataTransfer.setData("text/plain",dragK); e.dataTransfer.effectAllowed="move";}catch(x){}});
+  bar.addEventListener("dragover",e=>{if(!dragK)return; const t=e.target.closest(".tbdoc[data-k]"); if(!t)return; e.preventDefault();
+    bar.querySelectorAll(".tbover").forEach(x=>{if(x!==t)x.classList.remove("tbover");}); t.classList.add("tbover");});
+  bar.addEventListener("drop",e=>{if(!dragK)return; const t=e.target.closest(".tbdoc[data-k]"); e.preventDefault();
+    if(t&&t.dataset.k!==dragK){const to=M.tabs.findIndex(x=>x.k===t.dataset.k); M.move(dragK,to); save();} dragK=null; render();});
+  bar.addEventListener("dragend",()=>{dragK=null; render();});
+  menu.addEventListener("click",e=>{const b=e.target.closest("button[data-a]"); if(b&&!b.disabled)menuDo(b.dataset.a,b.dataset.k);});
+  document.addEventListener("mousedown",e=>{if(!menu.hidden&&!menu.contains(e.target))menuClose();},true);
+  window.addEventListener("blur",menuClose); window.addEventListener("resize",menuClose);
+  // キー: ⌘/⌃ つきだけ。会話中の素のキー(Space・Esc・R・,・. など)には触れない
+  document.addEventListener("keydown",e=>{
+    if(!menu.hidden&&e.key==="Escape"){e.preventDefault(); e.stopPropagation(); menuClose(); return;}   // メニューの Esc でアプリを終了させない
+    if(!(e.metaKey||e.ctrlKey)) return;
+    if(e.isComposing||e.altKey&&!e.metaKey) return;
+    const k=(e.key||"").toLowerCase();
+    if(e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&k==="t"){e.preventDefault(); e.stopPropagation(); newConv(); return;}
+    if(e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&k==="w"){e.preventDefault(); e.stopPropagation(); if(M.active!=="live")closeTab(M.active); return;}
+    if(e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&/^[1-9]$/.test(e.key)){const n=M.nth(+e.key); if(n){e.preventDefault(); e.stopPropagation(); show(n);} return;}
+    if(e.ctrlKey&&!e.metaKey&&!e.altKey&&e.key==="Tab"){e.preventDefault(); e.stopPropagation(); show(M.step(e.shiftKey?-1:1)); return;}
+    if(e.metaKey&&e.shiftKey&&!e.ctrlKey&&!e.altKey&&(e.code==="BracketLeft"||e.code==="BracketRight")){e.preventDefault(); e.stopPropagation(); show(M.step(e.code==="BracketLeft"?-1:1)); return;}
+  },true);
+  // 設定: タブバーの出し方(投影モードに連動)
+  const pj=$("#projStart"), row=pj&&pj.closest(".srow");
+  if(row){
+    row.insertAdjacentHTML("afterend",'<div class="srow" id="tbPrefRow"><div class="sk"><b data-t="">タブバー</b><small data-t="">上に並ぶタブで会議の記録を切り替えます。会話は止まりません</small></div><div class="sv">'
+      +'<div class="pairs seg" id="tbPref" role="radiogroup" aria-label="タブバー" data-t-aria="">'
+      +'<button type="button" class="pair" role="radio" aria-checked="false" data-tbpref="auto" data-t="">投影・全画面では隠す</button>'
+      +'<button type="button" class="pair" role="radio" aria-checked="false" data-tbpref="show" data-t="">常に表示</button>'
+      +'<button type="button" class="pair" role="radio" aria-checked="false" data-tbpref="hide" data-t="">隠す</button></div></div></div>');
+    $("#tbPref").addEventListener("click",e=>{const b=e.target.closest("[data-tbpref]"); if(!b)return; store.set(PREF,b.dataset.tbpref); apply(); settingsPaint();});
+    settingsPaint();
+  }
+  // 操作の早見にも
+  const dl=document.querySelector("#helpModal .hgrid dl");
+  if(dl&&!dl.dataset.tabs){dl.dataset.tabs="1";
+    dl.insertAdjacentHTML("beforeend",'<dt><kbd>⌘T</kbd> <kbd>⌘W</kbd></dt><dd data-t>新しい会話へ / 開いているタブを閉じる</dd><dt><kbd>⌘1〜9</kbd> <kbd>⌃Tab</kbd></dt><dd data-t>タブを切り替える(通訳の会話は止まりません)</dd>');}
+  try{T.applyUi&&T.applyUi();}catch(e){}
+});
+T._tabs=M;
 })();
 </script>
 <!-- ===== hear(11/08): 聞こえの見える化・入出力の切り替え ===== -->

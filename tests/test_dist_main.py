@@ -123,3 +123,14 @@ class LoopbackFqdnTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SetupLogTest(unittest.TestCase):
+    def test_setup_log_prints_to_run_log(self):
+        import contextlib
+        import io
+        h = Host(Path(tempfile.gettempdir()) / "m")
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            self.assertEqual(h.setup_log("boom"), "ok")
+        self.assertIn("[setup.js] boom", buf.getvalue())

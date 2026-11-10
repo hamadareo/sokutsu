@@ -165,8 +165,11 @@ class TestUsability(unittest.TestCase):
         self.assertIn('if(ae&&ae!==document.body) return;', UX)                     # 何も選んでいない Enter だけ
 
     def test_status_everywhere(self):
-        for k in ('"取り込み中"', '"メモ作成中"', '"翻訳サーバー未接続"', '"準備できています"', '"待機中"'):
+        for k in ('"取り込み中"', '"メモ作成中"', '"準備できています"', '"待機中"'):
             self.assertIn(k, UX)
+        # つながらないときは「翻訳サーバー未接続」を出さず、状態の表示ごと隠す
+        self.assertNotIn('this.L("翻訳サーバー未接続")', UX)
+        self.assertIn("g.hidden=!t;", UX)
         self.assertIn('["status","notes","impProg","impTick","engineShow","applyUi","reset","docOpen"].forEach(n=>wrap(n,function(){this.gstat();}));', UX)
 
     def test_command_palette(self):
@@ -194,8 +197,8 @@ class TestUsability(unittest.TestCase):
 
 
 class TestStartHintInDistBuild(unittest.TestCase):
-    """起動画面の一言(自動: リモートサーバーの GPU…)は開発用。配る版では sanitize が リモートサーバーを書き換え、dist.js が
-    「この Mac の翻訳エンジン…で翻訳します」に差し替える。書き換えた画面に自分のサーバー名が残らないこと。"""
+    """起動画面の一言(自動: リモートGPU…)は開発用。配る版では sanitize が リモートサーバーを書き換え、dist.js が
+    「この Mac の翻訳エンジン…で翻訳します」に差し替える。書き換えた画面に研究室のサーバー名が残らないこと。"""
 
     def test_rewritten_webui_has_no_lab_server(self):
         import importlib.util, io, shutil, tempfile

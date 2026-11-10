@@ -27,8 +27,37 @@ class SetupMixin:
 
     def _setup_init(self, models: Path, fetcher=None) -> None:
         self._models = Path(models)
-        self._fetch = fetcher or modelfetch.Fetcher(self._models)
+        self._fetch = fetcher or modelfetch.Fetcher(
+            self._models, search_dirs=lambda: modelfetch.default_search_dirs(self._models))
         self._on_ready = None
+        self.window = getattr(self, "window", None)
+
+    def setup_add_dir(self, path):
+        """「すでにモデルがあるフォルダ」を足して探し直す。新しく見つかった数を返す(0 なら画面が知らせる)。"""
+        modelfetch.save_extra_dir(self._models, str(path))
+        return self._fetch.rescan()
+
+    def setup_pick_folder(self):
+        """フォルダ選択ダイアログ(pywebview)。選ばなければ -1、選べば新しく見つかった数。"""
+        import webview
+        w = getattr(self, "window", None)
+        if w is None:
+            return -1
+        r = w.create_file_dialog(webview.FOLDER_DIALOG)
+        if not r:
+            return -1
+        return self.setup_add_dir(r[0])
+
+    def _verify_bg(self) -> None:
+        threading.Thread(target=self._verify_safe, daemon=True, name="verify-adopted").start()
+
+    def _verify_safe(self) -> None:
+        try:
+            dropped = self._fetch.verify_adopted()
+            if dropped:
+                print(f"[models] 内容が違うので取り込みを外しました: {dropped}", flush=True)
+        except Exception as e:  # noqa: BLE001
+            print(f"[models] 取り込んだモデルの確認に失敗: {type(e).__name__}: {e}", flush=True)
 
     def setup_state(self):
         d = self._fetch.state()
@@ -39,6 +68,11 @@ class SetupMixin:
         self._fetch.start()
         return "ok"
 
+    def setup_log(self, msg):
+        """画面(setup.html)の JS の失敗を run.log に残す。"""
+        print(f"[setup.js] {str(msg)[:500]}", flush=True)
+        return "ok"
+
     def setup_cancel(self):
         self._fetch.cancel()
         return "ok"
@@ -47,6 +81,7 @@ class SetupMixin:
         if modelfetch.missing(self._models):
             return "missing"
         config.resolve_dist_models(self.s, config.DATA)   # 取り終えたモデルの場所を設定へ
+        self._verify_bg()
         _warm_llm()
         if self._on_ready:
             self._on_ready()
@@ -156,6 +191,18 @@ def _snapshot_loop(window, d: Path) -> None:
         time.sleep(0.5)
 
 
+def _watch_api(window, wait: float = 15.0) -> None:
+    """準備の画面に JS の API が入ったかを見て、入っていなければ run.log に残す(11/11: 画面が動かない原因の調べ用)。"""
+    import time
+    time.sleep(wait)
+    try:
+        ok = window.evaluate_js("!!(window.pywebview&&window.pywebview.api&&window.pywebview.api.setup_state)")
+    except Exception as e:  # noqa: BLE001
+        ok = f"{type(e).__name__}: {e}"
+    if ok is not True:
+        print(f"[setup] {wait:.0f} 秒たっても準備の画面に API が入っていません ({ok})", flush=True)
+
+
 def _alert(title: str, message: str) -> None:
     """起動できなかった理由を窓で見せる(pywebview・AppKit が読めない時でも出るよう osascript)。"""
     import subprocess
@@ -230,8 +277,11 @@ def _main() -> int:
                              daemon=True).start()
         if not need:
             boot_main(win)
+            bridge._verify_bg()       # 取り込んだモデルの SHA256 を裏で確かめる(違えば外して次回取り直し)
             _warm_llm()
-        elif os.environ.get("SOKUTSU_AUTOSTART") == "1":
+        if need:
+            threading.Thread(target=_watch_api, args=(win,), daemon=True).start()
+        if need and os.environ.get("SOKUTSU_AUTOSTART") == "1":
             threading.Thread(target=_autostart, args=(bridge,), daemon=True).start()
 
     webview.start(started, window)

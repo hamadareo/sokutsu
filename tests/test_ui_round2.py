@@ -322,7 +322,7 @@ class TestFirstUseHelp(unittest.TestCase):
         self.assertIn("this.ENG_NOTE", body)
         self.assertIn("this.NOISE_NOTE", body)
         i, j = HTML.index("/*I18N-BEGIN*/"), HTML.index("/*I18N-END*/")
-        for k in ("リモートの GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります",
+        for k in ("研究室の GPU サーバーで翻訳します。速く正確ですが、ネットワークが要ります",
                   "周りの話し声や雑音を拾いにくくします。少し大きめに、はっきり話してください"):
             self.assertEqual(HTML[i:j].count('"' + k + '":'), 3, k)
 
@@ -397,7 +397,7 @@ class TestTranscriptCopy(unittest.TestCase):
 
 
 class TestMeetingNotesUI(unittest.TestCase):
-    """11/06 会議メモ(設計 設計メモ(公開版には含めない))の画面側。"""
+    """11/06 会議メモ(設計 docs/superpowers/specs/2026-11-06-meeting-notes-design.md)の画面側。"""
 
     def test_use_mode_selector(self):
         for m in ("interpret", "notes", "both"):

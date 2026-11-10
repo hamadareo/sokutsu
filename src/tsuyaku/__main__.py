@@ -292,7 +292,7 @@ def _warm_ear(stt) -> None:
 
 
 def _prewarm_engine(s, ear: bool = False) -> None:
-    """選んだ処理場所の先頭を裏で起こす(リモートサーバー側のモデル載せは1〜2分ある)。
+    """選んだ処理場所の先頭を裏で起こす(リモートサーバーゲートのモデル載せは1〜2分ある)。
     ear=True なら リモートサーバーの耳(30分使わないと自分で終わる)も起こす(起動画面から、11/08 speed)。"""
     try:
         lab, base, model = engine_candidates(s.engine, s.host, s.port, s.model,
@@ -483,7 +483,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
             pass
         return "none"
 
-    # ---------- 会議メモ(11/06 設計: 設計メモ(公開版には含めない)) ----------
+    # ---------- 会議メモ(11/06 設計: docs/superpowers/specs/2026-11-06-meeting-notes-design.md) ----------
 
     def _meeting_path(self, mid) -> "Path | None":
         """画面の id → 記録の jsonl。"live" は今の会話。ログのフォルダの外は開かない。"""
@@ -710,7 +710,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
         return str(out)
 
     # ---------- W1(11/07): 会議に質問・テンプレート・フォローアップの下書き・ライブ要約 ----------
-    # 設計: 設計メモ(公開版には含めない)(担当 W1)。中身は meeting_ai.py。
+    # 設計: docs/superpowers/specs/2026-11-07-meeting-features-parity.md(担当 W1)。中身は meeting_ai.py。
 
     def set_template(self, key):
         """起動画面で選んだ会議の種類。次の会話の記録の meta に入る(config にも残す)。"""
@@ -934,7 +934,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
         self._warm_until = 0.0
 
     def _maybe_prewarm(self, force: bool = False) -> None:
-        """選んでいる処理場所(remote なら耳も)を裏で起こす(11/08 speed): ゲートが止めた llama-server の載せ
+        """選んでいる処理場所(リモートサーバー なら耳も)を裏で起こす(11/08 speed): ゲートが止めた llama-server の載せ
         (1〜2分)と耳の起こし(約6秒)を「会話を始める」の前に済ませる。会話中・窓を隠した・最小化した間・
         起こしてよい15分を過ぎた後は起こさない。PREWARM_EVERY_S に1回まで(force = 処理場所を選び直した)。"""
         if self.running.is_set() or self._window_hidden():
@@ -1646,8 +1646,8 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
         self.engine_used = lab  # 実際に繋がった処理場所
         self.model_used = model.rsplit("/", 1)[-1]  # 接頭辞なしのモデル名で表示
         self.ui.put(("engine", {"engine": self.engine_used, "model": self.model_used}))
-        # 耳(音声認識): 翻訳を リモートサーバーでやるときは耳も リモートGPU へ(このMac 2.3秒 →
-        # remote 0.13〜0.26秒、11/05実測)。『このMac』は完全オフラインの約束なので
+        # 耳(音声認識): 翻訳を リモートサーバー でやるときは耳も リモートGPU へ(このMac 2.3秒 →
+        # リモートサーバー 0.13〜0.26秒、11/05実測)。『このMac』は完全オフラインの約束なので
         # リモートを使わない。ローカル whisper は落ちたときの受け皿として常に載せる。
         stt_url = None
         self._boot(1)
@@ -1754,7 +1754,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
         self._boot(3)
         # リモートサーバーの耳(1回0.1〜0.2秒)なら細かく区切って文末で繋ぎ直す。このMacの耳
         # (1回2秒強)で細かく区切ると認識が追いつかないので従来の区切り。
-        # このMacの耳も SenseVoice(1回0.15秒)なら リモートサーバーと同じく細かく区切れる(11/06)
+        # このMacの耳も SenseVoice(1回0.15秒)なら リモートサーバー と同じく細かく区切れる(11/06)
         self.fine_seg = stt_url is not None or local_fast
         cap = self.capture = SpeechCapture(s.silero_vad, seg_q, s.sample_rate,
                                            s.min_speech_s, s.max_speech_s, s.min_silence_s,
@@ -2257,7 +2257,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
             tts.prepare(trans, spoken, sp, guess=True)
 
     def _meta_extra(self) -> dict:
-        """記録の meta に足す項目(担当ごとに1行ずつ。設計メモ(公開版には含めない))。"""
+        """記録の meta に足す項目(担当ごとに1行ずつ。docs/superpowers/specs/2026-11-07-…)。"""
         extra: dict = dict(getattr(self, "_start_extra", None) or {})   # 議題・テンプレート・用語(W3/W1)
         extra["source"] = self.s.audio_source   # 聞いた音 "mic" | "mic+system"(オンライン会議)
         if self.get_template() != "free":   # 会議の種類(W1。画面から来なければ前回の選択。自由は書かない)
@@ -2593,7 +2593,7 @@ class Bridge(InMeetingMixin, AudioAPI, LibraryApi):
             # 原文をフォールバックで積むとオウム返しの汚染になる(11/05)。
             self.ui.put(("error", "翻訳が途中で切れました",
                          "もう一度話しかけてください。何度も出る場合は翻訳サーバー"
-                         "(リモートサーバー/LM Studio)のモデル設定を確認してください。"))
+                         "(リモートサーバーゲート/LM Studio)のモデル設定を確認してください。"))
             self.ui.put(("utterance", {
                 "lang": lang, "langName": LANG_NAMES.get(lang, lang),
                 "orig": text, "trans": "（翻訳できませんでした）",

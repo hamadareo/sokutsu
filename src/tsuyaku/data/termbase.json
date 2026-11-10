@@ -1369,7 +1369,6 @@
 {"d": "network", "ja": ["スターリンク", "Starlink"], "en": ["Starlink"], "zh": ["星链", "Starlink"], "ko": ["스타링크", "Starlink"], "c": {"zh": ["星链"]}},
 {"d": "network", "ja": ["衛星通信"], "en": ["satellite communication"], "zh": ["卫星通信"], "ko": ["위성 통신"]},
 {"d": "network", "ja": ["低軌道衛星", "LEO衛星"], "en": ["low Earth orbit satellite", "LEO satellite"], "zh": ["低轨卫星", "低地球轨道卫星"], "ko": ["저궤도 위성"]},
-{"d": "network", "ja": ["Tailscale", "テイルスケール"], "en": ["Tailscale"], "zh": ["Tailscale"], "ko": ["Tailscale", "테일스케일"], "keep": true},
 {"d": "network", "ja": ["パケット交換"], "en": ["packet switching"], "zh": ["分组交换", "包交换"], "ko": ["패킷 교환"]},
 {"d": "network", "ja": ["回線交換"], "en": ["circuit switching"], "zh": ["电路交换"], "ko": ["회선 교환"]},
 {"d": "network", "ja": ["ビット誤り率"], "en": ["bit error rate", "BER"], "zh": ["误码率"], "ko": ["비트 오류율"]},

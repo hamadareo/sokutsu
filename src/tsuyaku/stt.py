@@ -167,7 +167,7 @@ HEAD_S = 3.0
 CONT_S = 4.0
 # 歌の見分け(11/08): BGM と判定された窓の字の速さ(句読点を除く字の数 ÷ 最初の字から最後の字まで)。
 # VOICEVOX の歌(自作の旋律・歌詞、84/120 BPM、伴奏 0〜2 倍)は p10/p50/p90 = 1.0/1.4/2.0 字/秒、
-# BGM の上の独白(zh・ja)は 5.0/5.6/7.0 字/秒(scratchpad の rate_probe、リモートサーバー)。
+# BGM の上の独白(zh・ja)は 5.0/5.6/7.0 字/秒(scratchpad の rate_probe、remote)。
 BGM_MIN_RATE = 3.0
 _PUNCT_TOK = set("。．！？!?.，、,；;：: ")
 
@@ -214,7 +214,7 @@ def _is_timeout(e: Exception) -> bool:
 class RemoteSTT:
     """リモートGPU の耳(server/remote_stt_server.py)に投げ、ダメならこのMacの whisper。
 
-    11/05実測(同じ3.6〜4.0秒の発話): このMac 2.3秒 → remote 0.13〜0.26秒(往復込み)。
+    11/05実測(同じ3.6〜4.0秒の発話): このMac 2.3秒 → リモートサーバー 0.13〜0.26秒(往復込み)。
     話し終わり→字幕の待ちの最大要因だった。リモートが落ちたら即ローカルに落ち、
     cooldown 秒はリモートを試さない(毎発話でタイムアウトを待たないため)。
     言語は応答の lang ではなく文字種判定(detect_lang)で決める: アプリ全体で同じ
@@ -251,7 +251,7 @@ class RemoteSTT:
         self.last_where = ""
         self.langs: "tuple[str, ...]" = ()  # 今日の言語ペア: リモートサーバーの言語判定をこの中に絞る
         self.prompt = ""  # 前の文・テーマメモ(whisper の initial_prompt。短い断片の手がかり)
-        # 先送り(11/06, uplink.py): 話している間に声を リモートサーバーへ送っておき、聞くときは範囲だけ送る
+        # 先送り(11/06, uplink.py): 話している間に声を リモートサーバー へ送っておき、聞くときは範囲だけ送る
         self.uplink = None
         self.span_hits = 0      # 範囲だけで聞けた回数
         self.span_miss = 0      # 届いていなくて音声ごと送り直した回数
@@ -259,7 +259,7 @@ class RemoteSTT:
     def transcribe(self, samples: np.ndarray, ctx=None,
                    on_preview=None, span=None, prompt=None) -> tuple[str, str, float]:
         """ctx: 直前の音声(文脈として聞かせるだけ。リモートサーバーの耳でのみ使い、出力からは除く)。
-        on_preview(text, lang): リモートサーバーが preview_s 秒で返らないとき、このMacの耳の結果を
+        on_preview(text, lang): リモートサーバー が preview_s 秒で返らないとき、このMacの耳の結果を
         先に渡す(予想訳を出すため。確定には使わない)。
         span: samples がマイクの通算サンプル番号のどこか([(a, b) か ("z", 無音の長さ)])。
         先送り(uplink)があれば範囲だけ送る。
@@ -322,7 +322,7 @@ class RemoteSTT:
         if (on_preview is not None and 0 < self.preview_s < self.hedge_s
                 and not done.wait(self.preview_s)):
             self._note_net(self.preview_s)     # 少なくともこれだけ遅れている
-            # リモートサーバーが遅い: このMacの耳で先に聞いて予想訳を出す(確定は リモートサーバーの結果)
+            # リモートサーバー が遅い: このMacの耳で先に聞いて予想訳を出す(確定は リモートサーバーの結果)
             local = self.local.transcribe(samples)
             self.previewed += 1
             if local[0] and local[1]:

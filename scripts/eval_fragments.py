@@ -8,7 +8,7 @@
 
 指標: 抜け = must(訳に出るべき語)のどれかが無い項目の割合 / 足し = must_not(よくある足し)が出た項目の数 /
 長さの比(訳 ÷ 参照訳)/ chrF(参照訳と)/ 判定(judge)の足し・抜け。
-リモートサーバーと このMac の LLM は、ユーザーのアプリ(-m tsuyaku)が動いていたら使わない。
+リモートサーバー と このMac の LLM は、ユーザーのアプリ(-m tsuyaku)が動いていたら使わない。
 """
 from __future__ import annotations
 

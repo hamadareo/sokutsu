@@ -140,7 +140,6 @@ class TestConfig(unittest.TestCase):
         with patch.dict(os.environ, {"TSUYAKU_VOICEVOX_URL": "http://1.2.3.4:1"}):
             self.assertEqual(load_settings().voicevox_url, "http://1.2.3.4:1")
 
-    @unittest.skipUnless((ROOT / "config.json").exists(), "config.json は利用者ごとの設定(リポジトリには無い)")
     def test_saved_config_uses_voicevox_ja(self):
         data = json.loads((ROOT / "config.json").read_text())
         self.assertTrue(str(data.get("tts_voice", {}).get("ja", "")).startswith("voicevox:"))

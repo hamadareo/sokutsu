@@ -217,7 +217,7 @@ if __name__ == "__main__":
 
 class TestInterimKeepsPendingJob(unittest.TestCase):
     def test_interim_preview_does_not_cancel_remote_pending_translation(self):
-        """続き待ちの断片(リモートサーバー)の先読みは、途中字幕の予想で止めない。続きが来なければ確定になる
+        """続き待ちの断片(remote)の先読みは、途中字幕の予想で止めない。続きが来なければ確定になる
         (11/06 AMI 実時間評価: 途中字幕の予想が続き待ちの訳を止め、確定で訳し直していた)。"""
         llm = FakeLLM(delay=0.01)
         sp = make(llm, [])

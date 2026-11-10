@@ -23,11 +23,11 @@ class TestSttPrompt(unittest.TestCase):
 
 
 class TestEchoesPrompt(unittest.TestCase):
-    P = "YOLO、山田花子、Whisper、Qwen、RAG、ボクセル、ABCD、ProjectX。"
+    P = "YOLO、山田花子、Whisper、Qwen、RAG、ボクセル、DSLC、TrackID。"
 
     def test_noise_echo_is_dropped(self):
         # 雑音22区間で実際に出た復唱(p=0.18)
-        self.assertTrue(echoes_prompt("Qwen、RAG、Bス、ProjetX。", self.P))
+        self.assertTrue(echoes_prompt("Qwen、RAG、Bス、TLACKID。", self.P))
         self.assertTrue(echoes_prompt("YOLO、山田花子、Whisper。", self.P))
 
     def test_real_sentences_with_terms_are_kept(self):
@@ -36,7 +36,7 @@ class TestEchoesPrompt(unittest.TestCase):
             self.assertFalse(echoes_prompt(t, self.P), t)
 
     def test_no_prompt_never_drops(self):
-        self.assertFalse(echoes_prompt("Qwen、RAG、ProjectX。", ""))
+        self.assertFalse(echoes_prompt("Qwen、RAG、TrackID。", ""))
 
 
 class TestWiring(unittest.TestCase):

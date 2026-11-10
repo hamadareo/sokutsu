@@ -6,7 +6,7 @@
 節を足す。節の中身は文字列の並び(各項目の終わりに根拠の行番号 [#12])。
 
 議題(agenda)と会議中の自分のメモ(memos)もここで指示文にする(W3 が記録に書く。データの約束:
-設計メモ(公開版には含めない))。
+docs/superpowers/specs/2026-11-07-meeting-features-parity.md)。
 """
 from __future__ import annotations
 

@@ -170,7 +170,7 @@ def main():
     print(f"[setup] TTSエンジン: {sorted(tts.engine)} + macOS say")
     mem(sampler, "+whisper+TTS常駐")
 
-    # 翻訳サーバーは会場の既定(remoteトンネル 12345)を優先し、無ければ設定の1234へ
+    # 翻訳サーバーは会場の既定(リモートサーバートンネル 12345)を優先し、無ければ設定の1234へ
     base, model = None, None
     for port in (12345, s.port):
         b = f"http://{s.host}:{port}"

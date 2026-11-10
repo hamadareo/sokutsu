@@ -23,7 +23,11 @@ if [[ ! -d models/kokoro-multi-lang-v1_0 ]]; then
     "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2"
   tar -xjf models/kokoro.tar.bz2 -C models && rm models/kokoro.tar.bz2
 fi
-# 韓国語の声は macOS の say を使う(KSS 由来の VITS モデルは非商用の可能性があるため取得しない)
+if [[ ! -d models/vits-mimic3-ko_KO-kss_low ]]; then
+  dl models/kss.tar.bz2 \
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-ko_KO-kss_low.tar.bz2"
+  tar -xjf models/kss.tar.bz2 -C models && rm models/kss.tar.bz2
+fi
 # このMacの速い耳(11/06): SenseVoice-Small(ja/en/zh/ko/yue, 1回0.15秒)
 if [[ ! -d models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17 ]]; then
   dl models/sv.tar.bz2 \

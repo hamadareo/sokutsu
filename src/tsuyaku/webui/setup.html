@@ -44,6 +44,13 @@ h1 small{display:block;font-size:14px;color:var(--text-2);font-weight:400;margin
 #items li.down .st{color:var(--a)}
 #err{display:none;border-left:3px solid var(--err);background:color-mix(in srgb,var(--err) 9%,var(--bg));border-radius:6px;padding:12px 14px;font-size:14px;line-height:1.6;margin-bottom:18px}
 #err.on{display:block}
+h2{font-size:13px;font-weight:600;color:var(--text-2);margin:22px 0 0;letter-spacing:0}
+#found{list-style:none;margin:8px 0 0;border-top:1px solid var(--border)}
+#found li{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px}
+#found li .st{font-size:13px;color:var(--b);text-align:right}
+#found li .loc{grid-column:1/-1;font-size:12px;color:var(--text-3);font-family:ui-monospace,Menlo,monospace;word-break:break-all}
+#note{display:none;font-size:13px;color:var(--text-2);margin:0 0 14px}
+#note.on{display:block}
 .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 button.main{background:var(--accent-fill);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:600;padding:9px 20px;cursor:pointer;font-family:inherit}
 button.main:hover{filter:brightness(1.08)}
@@ -58,7 +65,8 @@ footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--border);font-
 footer a{color:var(--text-2)}
 code{font-family:ui-monospace,Menlo,monospace;font-size:12px}
 </style>
-<script>try{var t=localStorage.getItem("tsuyaku.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script>/* 関数の中に閉じる: ここで var t を作ると、下の本体の const t と衝突して本体が丸ごと動かなくなる(11/11) */
+(function(){try{var th=localStorage.getItem("tsuyaku.theme");if(th==="light"||th==="dark")document.documentElement.dataset.theme=th;}catch(e){}})();</script>
 </head>
 <body>
 <div class="pil"></div>
@@ -72,11 +80,16 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:12px}
   <p class="sub" data-t="sub">話した声や記録が外へ送られることはありません。取得の途中で閉じても、次に開いたときに続きから取得します。</p>
   <div class="total"><div id="pct">0%</div><div id="sum"></div></div>
   <div class="bar"><i id="totalBar"></i></div>
+  <h2 id="foundH" data-t="foundH" hidden>見つかったモデル</h2>
+  <ul id="found" hidden></ul>
+  <h2 id="needH" data-t="needH" hidden>取得が必要なもの</h2>
   <ul id="items"></ul>
+  <p id="note"></p>
   <div id="err" role="alert"></div>
   <div class="acts">
     <button class="main" id="go" data-t="start">取得を始める</button>
     <button class="ghost" id="pause" hidden data-t="pause">一時停止</button>
+    <button class="ghost" id="pick" data-t="pick">すでにモデルがあるフォルダを選ぶ…</button>
   </div>
   <p class="agree"><span data-t="agree">「取得を始める」を押すと、翻訳モデル Gemma の利用規約と禁止用途ポリシーに同意したことになります。</span>
     <a href="https://ai.google.dev/gemma/terms" target="_blank" rel="noopener">Gemma Terms of Use</a> ·
@@ -91,35 +104,35 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:12px}
 <div class="pil b"></div>
 <script>
 const S={
-  ja:{agree:"「取得を始める」を押すと、翻訳モデル Gemma の利用規約と禁止用途ポリシーに同意したことになります。",prep:"はじめての準備",lead:"聞き取り・翻訳・読み上げを、この Mac の中だけで行うためのモデルを取得します。1回だけです。",
+  ja:{foundH:"見つかったモデル",needH:"取得が必要なもの",pick:"すでにモデルがあるフォルダを選ぶ…",nothing:"取得するものはありません",verifying:"見つかったモデルの内容を確かめています",foundNone:"このフォルダには使えるモデルが見つかりませんでした(名前・大きさが合うものだけ使います)",foundN:"件のモデルを見つけました",linked:"リンクで利用(コピーなし)",here:"保存先にあります",agree:"「取得を始める」を押すと、翻訳モデル Gemma の利用規約と禁止用途ポリシーに同意したことになります。",prep:"はじめての準備",lead:"聞き取り・翻訳・読み上げを、この Mac の中だけで行うためのモデルを取得します。1回だけです。",
       sub:"話した声や記録が外へ送られることはありません。取得の途中で閉じても、次に開いたときに続きから取得します。",
       start:"取得を始める",resume:"続きから取得する",retry:"もう一度",pause:"一時停止",open:"Sokutsu を始める",
       where:"保存先",gemma:"翻訳モデル Gemma は Google の Gemma 利用規約に従って提供されます",
       notices:"モデルと部品のライセンス: Sokutsu.app/Contents/Resources/THIRD_PARTY_NOTICES.txt",
       wait:"待機",down:"取得中",verify:"確かめています",extract:"展開しています",done:"済み",
       left:"残り",min:"分",sec:"秒",paused:"一時停止しました",ready:"準備ができました",of:"/",
-      prepping:"準備しています…"},
-  en:{agree:"By pressing “Start download” you agree to the Gemma Terms of Use and Prohibited Use Policy for the Gemma translation model.",prep:"First-time setup",lead:"Sokutsu downloads the models it needs to listen, translate and speak entirely on this Mac. This happens only once.",
+      prepping:"準備しています…",noapi:"内部の準備ができていません。Sokutsu を終了して、もう一度開いてください。",jserr:"画面でエラーが起きました"},
+  en:{foundH:"Models found",needH:"To download",pick:"Choose a folder that already has models…",nothing:"Nothing to download",verifying:"Verifying the models that were found",foundNone:"No usable models in that folder (only files with the expected name and size are used)",foundN:" model(s) found",linked:"Used in place (not copied)",here:"Already in the save folder",agree:"By pressing “Start download” you agree to the Gemma Terms of Use and Prohibited Use Policy for the Gemma translation model.",prep:"First-time setup",lead:"Sokutsu downloads the models it needs to listen, translate and speak entirely on this Mac. This happens only once.",
       sub:"Your voice and transcripts never leave this Mac. If you close the window midway, the download resumes next time.",
       start:"Start download",resume:"Resume download",retry:"Try again",pause:"Pause",open:"Open Sokutsu",
       where:"Saved to",gemma:"The Gemma translation model is provided under and subject to the Gemma Terms of Use",
       notices:"Licenses for models and components: Sokutsu.app/Contents/Resources/THIRD_PARTY_NOTICES.txt",
       wait:"Waiting",down:"Downloading",verify:"Verifying",extract:"Unpacking",done:"Done",
-      left:"left",min:"min",sec:"s",paused:"Paused",ready:"Ready",of:"/",prepping:"Getting ready…"},
-  zh:{agree:"点击“开始下载”即表示您同意翻译模型 Gemma 的使用条款和禁止用途政策。",prep:"首次准备",lead:"下载在这台 Mac 上完成识别、翻译和朗读所需的模型。只需一次。",
+      left:"left",min:"min",sec:"s",paused:"Paused",ready:"Ready",of:"/",prepping:"Getting ready…",noapi:"Sokutsu is not ready internally. Please quit and reopen Sokutsu.",jserr:"An error occurred"},
+  zh:{foundH:"已找到的模型",needH:"需要下载的",pick:"选择已有模型的文件夹…",nothing:"没有需要下载的内容",verifying:"正在校验已找到的模型",foundNone:"该文件夹中没有可用的模型(仅使用名称和大小相符的文件)",foundN:" 个模型已找到",linked:"原位使用(不复制)",here:"已在保存位置",agree:"点击“开始下载”即表示您同意翻译模型 Gemma 的使用条款和禁止用途政策。",prep:"首次准备",lead:"下载在这台 Mac 上完成识别、翻译和朗读所需的模型。只需一次。",
       sub:"您的语音和记录不会离开这台 Mac。中途关闭窗口，下次打开时会从中断处继续。",
       start:"开始下载",resume:"继续下载",retry:"重试",pause:"暂停",open:"打开 Sokutsu",
       where:"保存位置",gemma:"翻译模型 Gemma 依据 Google 的 Gemma 使用条款提供",
       notices:"模型与组件的许可: Sokutsu.app/Contents/Resources/THIRD_PARTY_NOTICES.txt",
       wait:"等待",down:"下载中",verify:"校验中",extract:"解压中",done:"完成",
-      left:"剩余",min:"分钟",sec:"秒",paused:"已暂停",ready:"准备完成",of:"/",prepping:"正在准备…"},
-  ko:{agree:"‘받기 시작’을 누르면 번역 모델 Gemma의 이용 약관과 금지된 사용 정책에 동의하는 것입니다.",prep:"처음 준비",lead:"이 Mac 안에서만 인식·번역·읽기를 하기 위한 모델을 받습니다. 한 번만 하면 됩니다.",
+      left:"剩余",min:"分钟",sec:"秒",paused:"已暂停",ready:"准备完成",of:"/",prepping:"正在准备…",noapi:"内部尚未准备好。请退出 Sokutsu 后重新打开。",jserr:"发生错误"},
+  ko:{foundH:"찾은 모델",needH:"받아야 할 것",pick:"이미 모델이 있는 폴더 고르기…",nothing:"받을 것이 없습니다",verifying:"찾은 모델의 내용을 확인하는 중",foundNone:"이 폴더에서 쓸 수 있는 모델을 찾지 못했습니다(이름·크기가 맞는 것만 사용합니다)",foundN:"개의 모델을 찾았습니다",linked:"그대로 사용(복사 없음)",here:"저장 위치에 있습니다",agree:"‘받기 시작’을 누르면 번역 모델 Gemma의 이용 약관과 금지된 사용 정책에 동의하는 것입니다.",prep:"처음 준비",lead:"이 Mac 안에서만 인식·번역·읽기를 하기 위한 모델을 받습니다. 한 번만 하면 됩니다.",
       sub:"말한 음성과 기록은 밖으로 보내지지 않습니다. 도중에 창을 닫아도 다음에 열 때 이어서 받습니다.",
       start:"받기 시작",resume:"이어서 받기",retry:"다시 시도",pause:"일시 정지",open:"Sokutsu 시작",
       where:"저장 위치",gemma:"번역 모델 Gemma는 Google의 Gemma 이용 약관에 따라 제공됩니다",
       notices:"모델과 구성 요소의 라이선스: Sokutsu.app/Contents/Resources/THIRD_PARTY_NOTICES.txt",
       wait:"대기",down:"받는 중",verify:"확인 중",extract:"푸는 중",done:"완료",
-      left:"남음",min:"분",sec:"초",paused:"일시 정지했습니다",ready:"준비되었습니다",of:"/",prepping:"준비 중…"}
+      left:"남음",min:"분",sec:"초",paused:"일시 정지했습니다",ready:"준비되었습니다",of:"/",prepping:"준비 중…",noapi:"내부 준비가 되지 않았습니다. Sokutsu를 종료하고 다시 열어 주세요.",jserr:"오류가 발생했습니다"}
 };
 let ui="ja", st=null, timer=null, finishing=false;
 const $=s=>document.querySelector(s);
@@ -137,14 +150,25 @@ function eta(s){if(s==null||!isFinite(s))return "";s=Math.round(s);
   return s>=60?t("left")+" "+Math.ceil(s/60)+" "+t("min"):t("left")+" "+s+" "+t("sec");}
 function render(d){
   st=d;
-  const pct=d.total?Math.floor(100*d.got/d.total):0;
+  const pct=d.total?Math.floor(100*d.got/d.total):(d.phase==="done"||(d.found&&d.found.length&&!d.items.length)?100:0);
   $("#pct").textContent=(d.phase==="done"?100:Math.min(pct,99))+"%";
   $("#totalBar").style.width=(d.phase==="done"?100:pct)+"%";
   let sum=mb(d.got)+" "+t("of")+" "+mb(d.total);
   if(d.phase==="running"&&d.speed>0)sum+=" · "+(d.speed/1048576).toFixed(1)+" MB/s · "+eta(d.eta);
   if(d.phase==="cancelled")sum+=" · "+t("paused");
   if(d.phase==="done")sum=t("ready");
+  if(!d.items.length&&d.phase!=="done"&&d.found&&d.found.length)sum=t("nothing");
+  if(d.verifyTotal>0)sum=t("verifying")+" · "+mb(d.verifyGot)+" "+t("of")+" "+mb(d.verifyTotal);
   $("#sum").textContent=sum;
+  const fd=$("#found"); fd.innerHTML=""; const fl=d.found||[];
+  fl.forEach(it=>{
+    const li=document.createElement("li");
+    const nm=document.createElement("span"); nm.textContent=ui==="ja"?it.label:it.labelEn;
+    const s2=document.createElement("span"); s2.className="st"; s2.textContent=mb(it.size)+" · "+(it.linked?t("linked"):t("here"));
+    const loc=document.createElement("span"); loc.className="loc"; loc.textContent=it.path;
+    li.append(nm,s2,loc); fd.appendChild(li);
+  });
+  fd.hidden=!fl.length; $("#foundH").hidden=!fl.length; $("#needH").hidden=!d.items.length||!fl.length;
   const ul=$("#items"); ul.innerHTML="";
   d.items.forEach(it=>{
     const li=document.createElement("li"); li.className=it.status;
@@ -160,25 +184,57 @@ function render(d){
   if(d.phase==="error"){e.textContent=ui==="ja"?d.error:d.errorEn;e.classList.add("on");}else e.classList.remove("on");
   const go=$("#go"), pause=$("#pause");
   pause.hidden=d.phase!=="running";
+  $("#pick").hidden=d.phase==="running"||d.phase==="done";
   go.disabled=d.phase==="running"||finishing;
   go.dataset.t=d.phase==="done"?"open":(d.phase==="error"?"retry":(d.got>0?"resume":"start"));
   go.textContent=finishing?t("prepping"):(d.phase==="running"?t("down")+"…":t(go.dataset.t));
   if(d.phase==="running"){if(!timer)timer=setInterval(poll,400);}else if(timer){clearInterval(timer);timer=null;}
 }
 function api(){return window.pywebview&&window.pywebview.api;}
-function poll(){const a=api(); if(a)a.setup_state().then(render).catch(()=>{});}
+function logErr(m){try{console.error("[setup] "+m);}catch(e){}
+  try{const a=api(); if(a&&a.setup_log)a.setup_log(String(m).slice(0,500)).catch(()=>{});}catch(e){}}
+function showErr(m){const e=$("#err"); if(!e)return; e.textContent=m; e.classList.add("on");}
+function poll(){const a=api(); if(!a||!a.setup_state)return;
+  a.setup_state().then(render).catch(e=>{logErr("setup_state: "+e);showErr(t("jserr")+": "+e);});}
 $("#go").addEventListener("click",()=>{
-  const a=api(); if(!a||!st)return;
-  if(st.phase==="done"){finishing=true;render(st);a.setup_finish().then(r=>{if(r!=="ok"){finishing=false;poll();}}).catch(()=>{finishing=false;});return;}
-  a.setup_start().then(()=>{setTimeout(poll,150);if(!timer)timer=setInterval(poll,400);});
+  try{
+    const a=api();
+    if(!a||!a.setup_start){showErr(t("noapi"));logErr("api なしでクリックされた");return;}
+    if(st&&st.phase==="done"){finishing=true;render(st);a.setup_finish().then(r=>{if(r!=="ok"){finishing=false;poll();}}).catch(()=>{finishing=false;});return;}
+    // st が無くても取得は始められる(状態はあとから poll で来る)
+    a.setup_start().then(()=>{setTimeout(poll,150);if(!timer)timer=setInterval(poll,400);})
+      .catch(e=>{logErr("setup_start: "+e);showErr(t("jserr")+": "+e);});
+  }catch(e){logErr("click: "+e);showErr(t("jserr")+": "+e);}
+});
+$("#pick").addEventListener("click",()=>{
+  try{
+    const a=api(); if(!a||!a.setup_pick_folder){showErr(t("noapi"));return;}
+    a.setup_pick_folder().then(n=>{
+      const nt=$("#note");
+      if(n>0){nt.textContent=n+t("foundN");nt.classList.add("on");}
+      else if(n===0){nt.textContent=t("foundNone");nt.classList.add("on");}
+      poll();
+    }).catch(e=>{logErr("setup_pick_folder: "+e);showErr(t("jserr")+": "+e);});
+  }catch(e){logErr("pick: "+e);showErr(t("jserr")+": "+e);}
 });
 $("#pause").addEventListener("click",()=>{const a=api(); if(a)a.setup_cancel().then(()=>setTimeout(poll,300));});
 document.querySelectorAll("#ui button").forEach(b=>b.addEventListener("click",()=>setUi(b.dataset.ui,true)));
+window.addEventListener("error",ev=>{const m=(ev.message||"")+(ev.lineno?" @"+ev.lineno:"");logErr(m);showErr(t("jserr")+": "+m);});
+window.addEventListener("unhandledrejection",ev=>{const m=String(ev.reason);logErr(m);showErr(t("jserr")+": "+m);});
 let _ui=null; try{_ui=localStorage.getItem("tsuyaku.ui");}catch(e){}
 if(!_ui){const nl=(navigator.language||"en").toLowerCase();_ui=nl.startsWith("ja")?"ja":nl.startsWith("zh")?"zh":nl.startsWith("ko")?"ko":"en";}
 setUi(_ui,false);
-window.addEventListener("pywebviewready",poll);
-if(api())poll();
+/* api が入るのを待つ: pywebviewready を取り逃しても、0.5 秒ごとに見に行く。10 秒たっても無ければ画面に出す */
+let apiWait=0, apiTimer=null;
+function waitApi(){
+  const a=api();
+  if(a&&a.setup_state){clearInterval(apiTimer);apiTimer=null;poll();return;}
+  apiWait+=500;
+  if(apiWait===10000){showErr(t("noapi"));logErr("10 秒たっても window.pywebview.api が来ない");}
+}
+window.addEventListener("pywebviewready",()=>{poll();});
+apiTimer=setInterval(waitApi,500);
+waitApi();
 </script>
 </body>
 </html>

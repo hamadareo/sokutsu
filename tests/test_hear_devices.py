@@ -26,7 +26,6 @@ from tsuyaku.config import Settings, save_config
 
 ROOT = Path(__file__).resolve().parents[1]
 VAD = str(ROOT / "models" / "silero_vad.onnx")
-NEED_VAD = __import__("unittest").skipUnless(Path(VAD).exists(), "models/silero_vad.onnx が無い(scripts/get_models.sh で取得)")
 
 INS = [{"name": "MacBook Air のマイク", "uid": "BuiltInMic", "isDefault": True},
        {"name": "USB マイク", "uid": "USBMIC", "isDefault": False}]
@@ -124,7 +123,6 @@ class TestPersistByName(unittest.TestCase):
         self.assertEqual(r["input"], "古いマイク")
 
 
-@NEED_VAD
 class TestFallbackWhenMissing(unittest.TestCase):
     def test_resolve(self):
         with mock.patch.object(devices, "list_devices", fake_list()):
@@ -161,7 +159,6 @@ class TestFallbackWhenMissing(unittest.TestCase):
         self.assertIn(("missing", "AirPods のマイク", "MacBook Air のマイク"), notes)
 
 
-@NEED_VAD
 class TestSwitchDuringConversation(unittest.TestCase):
     def test_switch_restarts_only_the_stream(self):
         sd = FakeSD(["MacBook Air のマイク", "USB マイク"])
@@ -210,7 +207,6 @@ class TestSwitchDuringConversation(unittest.TestCase):
         self.assertEqual(ev[-1][1]["applied"], "next")
 
 
-@NEED_VAD
 class TestLostDevice(unittest.TestCase):
     def test_stall_with_device_gone_falls_back_and_keeps_running(self):
         sd = FakeSD(["MacBook Air のマイク", "USB マイク"])
@@ -274,7 +270,6 @@ class TestLevelPushes(unittest.TestCase):
         self.assertEqual(obj["mic"], "USB マイク")
 
 
-@NEED_VAD
 class TestStates(unittest.TestCase):
     def _cap(self, **kw):
         d = dict(paused=threading.Event(), health="ok", speech=False)
@@ -468,7 +463,6 @@ class TestMisc(unittest.TestCase):
                       run.call_args[0][0])
 
 
-@NEED_VAD
 class TestSystemAudioWithChosenMic(unittest.TestCase):
     def test_mix_in_still_applied_on_non_default_mic(self):
         """「マイク+この Mac の音」: 選んだマイク(既定でない)でも、この Mac の音が足される。"""
@@ -488,7 +482,6 @@ class TestSystemAudioWithChosenMic(unittest.TestCase):
         self.assertAlmostEqual(seen[0], 0.26, places=5)
 
 
-@NEED_VAD
 class TestSeamsForPace(unittest.TestCase):
     """engloop(pace: 読み上げ中も聞く・ヘッドホンの判定・エコー消しの入力)との継ぎ目。"""
 

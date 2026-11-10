@@ -48,7 +48,7 @@ class TestUx2(unittest.TestCase):
         self.assertIn("操作の早見に追記", script("ux2-js"))
 
     def test_no_private_info(self):
-        self.assertNotRegex(script("ux2-js"), r"\d+\.\d+\.\d+\.\d+|remote")
+        self.assertNotRegex(script("ux2-js"), r"\d+\.\d+\.\d+\.\d+|s1" + "09|shu" + "zo")   # 配布ビルドの写しで書き換わらないよう分ける
 
 
 if __name__ == "__main__":

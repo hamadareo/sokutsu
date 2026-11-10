@@ -34,7 +34,7 @@ def main():
     wav = sys.argv[1]
     pair = "ja-en"
     topic = ""
-    engine = ""  # remote / mac(アプリと同じ組み合わせ: remote なら耳も リモートサーバー)。空=従来どおり
+    engine = ""  # リモートサーバー / mac(アプリと同じ組み合わせ: リモートサーバー なら耳も remote)。空=従来どおり
     args = sys.argv[2:]
     for i, a in enumerate(args):
         if a == "--pair":

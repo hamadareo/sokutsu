@@ -132,7 +132,7 @@ class TestIdleTickKeepsGuess(unittest.TestCase):
         b.running.set()
 
         def slow_llm(msgs, od):
-            time.sleep(0.4)            # ふつうの回線の リモートサーバーの初字(0.1秒の tick を何回もまたぐ)
+            time.sleep(0.4)            # 家の回線の リモートサーバーの初字(0.1秒の tick を何回もまたぐ)
             od("調子")
             return "調子はどう？"
         b.spec = Speculator(run=slow_llm, make_msgs=lambda t, l: t,
@@ -231,7 +231,7 @@ class TestSpeakerJoinWiring(unittest.TestCase):
 
 
 class TestStockRescueTooShort(unittest.TestCase):
-    """11/07 擬似会議 v2 ja_booth: 1.3秒の区間を リモートサーバーが「ご視聴ありがとうございました」と聞き、
+    """11/07 擬似会議 v2 ja_booth: 1.3秒の区間を リモートサーバー が「ご視聴ありがとうございました」と聞き、
     このMacの耳の雑な「一たや。」が記録に入った。救う文字が短すぎれば入れない。"""
 
     def test_short_rescue_is_not_used(self):

@@ -53,7 +53,20 @@ Supported languages: Japanese, English, Chinese, Korean (you pick any two of the
 
 ## Getting started (for first-timers)
 
-There is no prebuilt app (one you can just double-click) yet. Below is how to start it by pasting commands into Terminal.
+### Easiest: download the app (recommended)
+
+1. Download `Sokutsu-1.1.3.dmg` from the [Releases page](https://github.com/hamadareo/sokutsu/releases/latest).
+2. Open the DMG and drag `Sokutsu.app` into Applications.
+3. **First launch only:** right-click `Sokutsu.app`, choose "Open", then click "Open" again in the dialog (see the note below).
+4. On the first screen, the app downloads the translation and speech models (about 3.4 GB) with a progress bar, and can resume if interrupted. If you already have the models, choose "Choose folder" and it will skip the download.
+
+> **"Cannot verify the developer" is not a malfunction.** The app is not Apple-notarized (that needs a paid developer account). All source code is public on this page and you can build the same DMG yourself with `scripts/build_dist.sh`. Use right-click > Open if you decide to trust it.
+
+You need: an Apple-silicon Mac (M1 or later), macOS 13.3+, about 5 GB free disk, and internet for the first model download. No Python or LM Studio required.
+
+To run from source instead, read on.
+
+### Running from source
 
 ### 1. What you need
 
@@ -191,7 +204,7 @@ The rest is detail on how it works, evaluation, and development.
 
 ### Getting started (details)
 
-There is no prebuilt app yet. Run from source or build your own DMG.
+A prebuilt app (DMG, ad-hoc signed, not notarized) is on the [Releases page](https://github.com/hamadareo/sokutsu/releases/latest). You can also run from source or build your own DMG.
 
 ```sh
 git clone https://github.com/hamadareo/sokutsu.git
@@ -255,4 +268,4 @@ MIT ([LICENSE](LICENSE), "Sokutsu contributors"). Models and third-party softwar
 
 ### Roadmap
 
-Prebuilt signed app; stronger handling of overlapping speech and far-field mics; a mode that plays each person's translation on earphones; more engine choices configurable from the UI; more languages; broader evaluation sets.
+Notarized prebuilt app (a DMG is already published since v1.1.3); stronger handling of overlapping speech and far-field mics; a mode that plays each person's translation on earphones; more engine choices configurable from the UI; more languages; broader evaluation sets.

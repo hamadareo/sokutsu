@@ -436,7 +436,7 @@ def main() -> None:
         m.add_argument("--hist", action="store_true", default=True)
         m.add_argument("--no-hist", dest="hist", action="store_false")
         m.add_argument("--dirs", default="")
-        m.add_argument("--model", default=None, help="LLM のモデル名(既定: remote qwen3.8-flash-next / mac gemma-3-4b)")
+        m.add_argument("--model", default=None, help="LLM のモデル名(既定: リモートサーバー qwen3.8-flash-next / mac gemma-3-4b)")
         m.add_argument("--base", default=None, help="LLM の URL(例 http://127.0.0.1:9961。自分で立てた llama-server)")
         m.add_argument("--patch", nargs="*", default=None, help="mod:ATTR=値(例 tsuyaku.translate:SIMILAR_HIST=drop)")
         if name == "mt":

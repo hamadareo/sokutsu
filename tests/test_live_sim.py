@@ -22,7 +22,6 @@ from tsuyaku.langdetect import is_echo
 
 ROOT = Path(__file__).resolve().parents[1]
 VAD = str(ROOT / "models" / "silero_vad.onnx")
-NEED_VAD = __import__("unittest").skipUnless(Path(VAD).exists(), "models/silero_vad.onnx が無い(scripts/get_models.sh で取得)")
 
 
 class _VadRec:
@@ -59,7 +58,6 @@ class _FakeStream:
         return False
 
 
-@NEED_VAD
 class TestGate(unittest.TestCase):
     def setUp(self):
         self._orig_sd = audio_mod.sd

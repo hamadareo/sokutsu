@@ -1,7 +1,7 @@
 """音声認識を リモートGPU に逃がす(11/05「翻訳が遅くてまともに使えない」対策)。
 
 実測(同じ3.6〜4.0秒の発話): このMac(M3) whisper large-v3-turbo 2.3秒 →
-remote faster-whisper 0.13〜0.26秒(往復込み)。リモートサーバーに届かない/失敗したら
+リモートサーバー faster-whisper 0.13〜0.26秒(往復込み)。リモートサーバー に届かない/失敗したら
 その場でこのMacの whisper に落ちる(会話は止めない)。
 
 実行: PYTHONPATH=src .venv/bin/python -m unittest discover -s tests
@@ -114,7 +114,7 @@ class TestConfigAndWiring(unittest.TestCase):
         self.assertEqual(Settings().stt_url, "http://127.0.0.1:12346")
 
     def test_remote_stt_only_when_translation_runs_on_remote(self):
-        # 『このMac』は完全オフラインの約束。リモート耳は リモートサーバーで訳すときだけ。
+        # 『このMac』は完全オフラインの約束。リモート耳は リモートサーバー で訳すときだけ。
         src = (ROOT / "src/tsuyaku/__main__.py").read_text()
         i = src.index("def _conversation")
         seg = src[i:src.index("def _stt_worker")]

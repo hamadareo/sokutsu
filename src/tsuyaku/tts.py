@@ -2,7 +2,7 @@
 
 声の指定は "kokoro:3"(Kokoroのsid3) / "say:Kyoko"(macOS音声) / "voicevox:13"
 (VOICEVOXのstyleId13=青山龍星) の文字列。UIから実行中に変更でき、設定は config.json に保存される。
-VOICEVOX はこのMacのローカルエンジン (127.0.0.1:50021、~/voicevox)。
+VOICEVOX はこのMacのローカルエンジン (127.0.0.1:50021、VOICEVOX)。
 エンジンが無い/失敗しても音声は止まらず macOS say へフォールバックする。
 再生は macOS の afplay を使う(PortAudioと違いマイクやGPUの負荷でぷつぷつ切れない)。
 """

@@ -11,6 +11,8 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import os
 import shutil
 import tarfile
 import threading
@@ -32,6 +34,7 @@ class Item:
     dest: str             # models/ の下の最終の名前(ファイル、または tar の中の一番上のフォルダ)
     archive: bool = False
     label_en: str = ""
+    parts: tuple = ()     # tar の中身の見分け用: ((中の相対パス, 大きさ), ...)。すでにあるフォルダを採る時の検査
 
 
 _GH = "https://github.com/k2-fsa/sherpa-onnx/releases/download"
@@ -54,11 +57,13 @@ MANIFEST: "tuple[Item, ...]" = (
          f"{_GH}/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17.tar.bz2",
          "7d1efa2138a65b0b488df37f8b89e3d91a60676e416f515b952358d83dfd347e", 163002883,
          "sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17", archive=True,
-         label_en="Fast speech recognition (SenseVoice)"),
+         label_en="Fast speech recognition (SenseVoice)",
+         parts=(("model.int8.onnx", 239233841), ("tokens.txt", 315894))),
     Item("kokoro", "読み上げの声(Kokoro)",
          f"{_GH}/tts-models/kokoro-int8-multi-lang-v1_0.tar.bz2",
          "72c347230107ef8a31098ec4d468a605244beef5f1ed00db97efa13518800653", 132353410,
-         "kokoro-int8-multi-lang-v1_0", archive=True, label_en="Voices (Kokoro)"),
+         "kokoro-int8-multi-lang-v1_0", archive=True, label_en="Voices (Kokoro)",
+         parts=(("model.int8.onnx", 114202993), ("voices.bin", 28200960), ("tokens.txt", 687))),
     Item("speaker", "話者の見分け(CAM++)",
          f"{_GH}/speaker-recongition-models/3dspeaker_speech_campplus_sv_zh_en_16k-common_advanced.onnx",
          "aa3cfc16963a10586a9393f5035d6d6b57e98d358b347f80c2a30bf4f00ceba2", 28281164,
@@ -72,11 +77,123 @@ MANIFEST: "tuple[Item, ...]" = (
 
 
 def is_done(item: Item, models: Path) -> bool:
-    return (Path(models) / item.dest).exists()
+    """あるか。取り込んだもの(シンボリックリンク)は、リンク先が消えた・大きさが違うなら「無い」(再取得に戻る)。"""
+    p = Path(models) / item.dest
+    if not p.exists():                      # リンク切れも False
+        return False
+    if p.is_symlink():
+        return p.is_dir() if item.archive else (p.is_file() and p.stat().st_size == item.size)
+    return True
 
 
 def missing(models: Path, items=MANIFEST) -> list:
     return [i for i in items if not is_done(i, models)]
+
+
+# ---------- すでにあるモデルを探して使う(11/11) ----------
+
+LMSTUDIO_DIRS = (".lmstudio/models", ".cache/lm-studio/models")
+ADOPTED = ".adopted.json"        # models/ 直下: 取り込んだものの記録 {dest: {src, verified}}
+EXTRA_DIRS = ".extra_dirs.json"  # 画面で選んだ「すでにモデルがあるフォルダ」
+_WALK_DEPTH, _WALK_CAP = 5, 60000
+
+
+def _read_json(p: Path, default):
+    try:
+        return json.loads(Path(p).read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return default
+
+
+def _write_json(p: Path, obj) -> None:
+    tmp = Path(str(p) + ".tmp")
+    tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
+    tmp.replace(p)
+
+
+def load_extra_dirs(models: Path) -> list:
+    d = _read_json(Path(models) / EXTRA_DIRS, [])
+    return [str(x) for x in d] if isinstance(d, list) else []
+
+
+def save_extra_dir(models: Path, path: str) -> None:
+    models = Path(models)
+    models.mkdir(parents=True, exist_ok=True)
+    cur = load_extra_dirs(models)
+    if str(path) not in cur:
+        _write_json(models / EXTRA_DIRS, cur + [str(path)])
+
+
+def default_search_dirs(models: "Path | None" = None) -> list:
+    """探す場所: 環境変数 SOKUTSU_MODEL_DIRS(: 区切り)、画面で選んだフォルダ、LM Studio の既定の場所。"""
+    out = [Path(p).expanduser() for p in os.environ.get("SOKUTSU_MODEL_DIRS", "").split(":") if p.strip()]
+    if models is not None:
+        out += [Path(p) for p in load_extra_dirs(models)]
+    home = Path.home()
+    out += [home / sub for sub in LMSTUDIO_DIRS]
+    return out
+
+
+def _dir_ok(path: Path, item: Item) -> bool:
+    if not item.parts or not Path(path).is_dir():
+        return False
+    try:
+        return all((Path(path) / rel).is_file() and (Path(path) / rel).stat().st_size == sz
+                   for rel, sz in item.parts)
+    except OSError:
+        return False
+
+
+def scan(items, dirs, skip: "Path | None" = None) -> dict:
+    """dirs を一度だけ歩いて {key: 見つけたパス}。ファイルは大きさが一致するもの(名前が同じならそれを優先、
+    拡張子が同じなら名前違いも候補 = LM Studio の Gemma)。フォルダは中身の大きさが一致するもの。
+    SHA256 は採用の後の verify_adopted で確かめる。"""
+    items = list(items)
+    found: dict = {}
+    skip_r = Path(skip).resolve() if skip else None
+    for d in dirs:
+        d = Path(d)
+        if not d.is_dir():
+            continue
+        n = 0
+        base_depth = len(d.parts)
+        for root, dirnames, files in os.walk(d):
+            rp = Path(root)
+            if skip_r is not None and rp.resolve() == skip_r:
+                dirnames[:] = []
+                continue
+            n += len(files) + len(dirnames)
+            if n > _WALK_CAP:
+                break
+            depth = len(rp.parts) - base_depth
+            dirnames[:] = [x for x in dirnames if not x.startswith(".")] if depth < _WALK_DEPTH else []
+            for it in items:
+                if it.key in found and (not it.archive and found[it.key][1]):
+                    continue
+                if it.archive:
+                    if it.key not in found and rp.name == it.dest and _dir_ok(rp, it):
+                        found[it.key] = (rp, True)
+                    continue
+                for fn in files:
+                    suffix_ok = Path(fn).suffix == Path(it.dest).suffix
+                    if fn != it.dest and not suffix_ok:
+                        continue
+                    fp = rp / fn
+                    try:
+                        if fp.stat().st_size != it.size:
+                            continue
+                    except OSError:
+                        continue
+                    exact = fn == it.dest
+                    if it.key not in found or (exact and not found[it.key][1]):
+                        found[it.key] = (fp, exact)
+    return {k: v[0] for k, v in found.items()}
+
+
+def display_path(p: Path) -> str:
+    s = str(p)
+    h = str(Path.home())
+    return "~" + s[len(h):] if s == h or s.startswith(h + os.sep) else s
 
 
 def part_path(item: Item, models: Path) -> Path:
@@ -146,7 +263,8 @@ class Fetcher:
 
     def __init__(self, models_dir: Path, items=MANIFEST, opener: "Callable | None" = None,
                  retries: int = 3, sleep=time.sleep,
-                 free_bytes: "Callable[[Path], int] | None" = None, clock=time.monotonic):
+                 free_bytes: "Callable[[Path], int] | None" = None, clock=time.monotonic,
+                 search_dirs: "Callable[[], list] | list | None" = None):
         self.dir = Path(models_dir)
         self.items = list(items)
         self.opener = opener or http_open
@@ -162,20 +280,113 @@ class Fetcher:
         self._status = {i.key: "wait" for i in self.items}
         self._got = {i.key: 0 for i in self.items}
         self._marks: list = []          # (時刻, 合計バイト) 速さの計算用
-        for i in self.items:
-            if is_done(i, self.dir):
-                self._status[i.key], self._got[i.key] = "done", i.size
+        self.search_dirs = search_dirs
+        self._found: set = set()        # すでにあった(または取り込んだ)もの。取得の合計に入れない
+        self._vgot = 0                  # 取り込んだものの SHA256 確認の進み
+        self._vtotal = 0
+        self._scan_lock = threading.Lock()
+        self.rescan()
+
+    # ---------- すでにあるモデル ----------
+
+    def _dirs(self) -> list:
+        sd = self.search_dirs
+        return list(sd() if callable(sd) else (sd or []))
+
+    def rescan(self) -> int:
+        """あるものを見直し、無いものはすでにあるモデルを探して取り込む(シンボリックリンク。コピーしない)。
+        新しく見つかった数を返す。取得の最中は何もしない。"""
+        with self._scan_lock:
+            if self._phase == "running":
+                return 0
+            for i in self.items:                       # リンク切れは消して再取得に戻す
+                p = self.dir / i.dest
+                if p.is_symlink() and not is_done(i, self.dir):
+                    p.unlink()
+                    self._drop_record(i.dest)
+            new = 0
+            lack = [i for i in self.items if not is_done(i, self.dir)]
+            hits = scan(lack, self._dirs(), skip=self.dir) if lack and self._dirs() else {}
+            rec = _read_json(self.dir / ADOPTED, {})
+            for i in lack:
+                src = hits.get(i.key)
+                if src is None:
+                    continue
+                try:
+                    self.dir.mkdir(parents=True, exist_ok=True)
+                    os.symlink(src, self.dir / i.dest)
+                except OSError:
+                    continue
+                rec[i.dest] = {"src": str(src), "verified": bool(i.archive)}   # フォルダは大きさだけ
+                new += 1
+            if new:
+                _write_json(self.dir / ADOPTED, rec)
+            with self._lock:
+                self._found = {i.key for i in self.items if is_done(i, self.dir)}
+                for i in self.items:
+                    if i.key in self._found:
+                        self._status[i.key], self._got[i.key] = "done", i.size
+                    elif self._status[i.key] == "done":
+                        self._status[i.key], self._got[i.key] = "wait", 0
+                    p = part_path(i, self.dir)
+                    if i.key not in self._found and p.exists():
+                        self._got[i.key] = min(p.stat().st_size, i.size)
+                if self.items and len(self._found) == len(self.items):
+                    self._phase = "done"
+                elif self._phase == "done":
+                    self._phase = "idle"
+            return new
+
+    def _drop_record(self, dest: str) -> None:
+        rec = _read_json(self.dir / ADOPTED, {})
+        if dest in rec:
+            del rec[dest]
+            _write_json(self.dir / ADOPTED, rec)
+
+    def verify_adopted(self) -> list:
+        """取り込んだファイルの SHA256 を確かめる(裏で。大きいので進みを出す)。合わなければリンクを外して
+        取得に戻す。外したものの key を返す。確認済みは再起動後も記録で飛ばす。"""
+        rec = _read_json(self.dir / ADOPTED, {})
+        todo = [i for i in self.items if not i.archive and i.key in self._found
+                and (self.dir / i.dest).is_symlink() and not rec.get(i.dest, {}).get("verified")]
+        with self._lock:
+            self._vgot, self._vtotal = 0, sum(i.size for i in todo)
+        dropped = []
+        for i in todo:
+            h = hashlib.sha256()
+            with open(self.dir / i.dest, "rb") as f:
+                while True:
+                    if self._cancel.is_set():
+                        raise Cancelled()
+                    b = f.read(4 << 20)
+                    if not b:
+                        break
+                    h.update(b)
+                    with self._lock:
+                        self._vgot += len(b)
+            if h.hexdigest() == i.sha256:
+                rec[i.dest]["verified"] = True
             else:
-                p = part_path(i, self.dir)
-                if p.exists():
-                    self._got[i.key] = min(p.stat().st_size, i.size)
+                (self.dir / i.dest).unlink(missing_ok=True)
+                rec.pop(i.dest, None)
+                dropped.append(i.key)
+                with self._lock:
+                    self._found.discard(i.key)
+                    self._status[i.key], self._got[i.key] = "wait", 0
+                    if self._phase == "done":
+                        self._phase = "idle"
+            _write_json(self.dir / ADOPTED, rec)
+        with self._lock:
+            self._vgot = self._vtotal = 0
+        return dropped
 
     # ---------- 画面向け ----------
 
     def state(self) -> dict:
         with self._lock:
-            got = sum(self._got.values())
-            total = sum(i.size for i in self.items)
+            fetch = [i for i in self.items if i.key not in self._found]
+            got = sum(self._got[i.key] for i in fetch)
+            total = sum(i.size for i in fetch)
             speed = 0.0
             if len(self._marks) >= 2:
                 (t0, b0), (t1, b1) = self._marks[0], self._marks[-1]
@@ -190,7 +401,12 @@ class Fetcher:
                 "errorKind": self._err.kind if self._err else "",
                 "items": [{"key": i.key, "label": i.label, "labelEn": i.label_en or i.label,
                            "size": i.size, "got": self._got[i.key],
-                           "status": self._status[i.key]} for i in self.items],
+                           "status": self._status[i.key]} for i in fetch],
+                "found": [{"key": i.key, "label": i.label, "labelEn": i.label_en or i.label,
+                           "size": i.size, "path": display_path(Path(os.path.realpath(self.dir / i.dest))),
+                           "linked": (self.dir / i.dest).is_symlink()}
+                          for i in self.items if i.key in self._found],
+                "verifyGot": self._vgot, "verifyTotal": self._vtotal,
             }
 
     def start(self) -> None:
@@ -226,6 +442,7 @@ class Fetcher:
         try:
             self.dir.mkdir(parents=True, exist_ok=True)
             lock = _take_lock(self.dir)
+            self.verify_adopted()       # 取り込んだものを確かめ、違えば取得の対象に戻す
             todo = [i for i in self.items if not is_done(i, self.dir)]
             need = sum(i.size - min(self._got[i.key], i.size) for i in todo)
             need += sum(i.size * 2 for i in todo if i.archive) + GB // 2   # 展開の分と余裕

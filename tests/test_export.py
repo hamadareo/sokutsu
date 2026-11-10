@@ -11,7 +11,7 @@ from xml.dom import minidom
 from tsuyaku import export as X
 
 NOTES = {
-    "lang": "ja", "title": "チームの定例 <A&B>", "start": "2026-11-06 10:00:00", "minutes": 32,
+    "lang": "ja", "title": "研究室の定例 <A&B>", "start": "2026-11-06 10:00:00", "minutes": 32,
     "languages": ["ja", "en"], "model": "qwen", "made": "2026-11-06 10:40:00",
     "participants": [{"id": "S1", "name": "山田", "role": "司会"}, {"id": "S2", "name": "", "lang": "en"}],
     "summary": ["予算を見直すことにした", "次回は 11/14"],
@@ -32,9 +32,9 @@ STATS = {"speakers": [{"id": "S1", "secs": 600.0, "share": 0.6, "turns": 10, "li
 
 class TestDocModel(unittest.TestCase):
     def test_doc_has_sections_names_and_optional_transcript(self):
-        d = X.build_doc(NOTES, MEETING, STATS, {"tags": ["定例"], "folder": "チーム"}, names={"S2": "Smith"})
+        d = X.build_doc(NOTES, MEETING, STATS, {"tags": ["定例"], "folder": "研究室"}, names={"S2": "Smith"})
         kinds = [b[0] for b in d["blocks"]]
-        self.assertEqual(d["title"], "チームの定例 <A&B>")
+        self.assertEqual(d["title"], "研究室の定例 <A&B>")
         for k in ("h1", "bullets", "points", "checks", "todos", "questions", "table"):
             self.assertIn(k, kinds)
         txt = json.dumps(d, ensure_ascii=False)
@@ -70,13 +70,13 @@ class TestDocx(unittest.TestCase):
                     self.assertIn(n, names)
                     minidom.parseString(z.read(n))          # 整形式の XML
                 doc = z.read("word/document.xml").decode()
-            self.assertIn("チームの定例 &lt;A&amp;B&gt;", doc)
+            self.assertIn("研究室の定例 &lt;A&amp;B&gt;", doc)
             self.assertIn('w:val="Heading1"', doc)
             self.assertIn("☑", doc)
             out = subprocess.run(["textutil", "-convert", "txt", "-stdout", str(p)],
                                  capture_output=True, text=True, timeout=30)
             self.assertEqual(out.returncode, 0, out.stderr)
-            for s in ("チームの定例 <A&B>", "見積もりを送る", "外注はしない", "Vendor A is cheaper", "60%"):
+            for s in ("研究室の定例 <A&B>", "見積もりを送る", "外注はしない", "Vendor A is cheaper", "60%"):
                 self.assertIn(s, out.stdout)
 
 
@@ -93,7 +93,7 @@ class TestPdf(unittest.TestCase):
             doc = Quartz.PDFDocument.alloc().initWithURL_(NSURL.fileURLWithPath_(str(p)))
             self.assertEqual(doc.pageCount(), n)
             text = doc.string()
-            for s in ("チームの定例", "見積もりを送る", "外注はしない", "Vendor A is cheaper", "1 / "):
+            for s in ("研究室の定例", "見積もりを送る", "外注はしない", "Vendor A is cheaper", "1 / "):
                 self.assertIn(s, text)
 
     def test_long_meeting_paginates(self):
