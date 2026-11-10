@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" role="img" aria-labelledby="t d" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Noto Sans JP,sans-serif">
+<title id="t">Sokutsuの流れ</title><desc id="d">話す、聞き取り、区切り、翻訳、字幕と声の順に処理される流れ図(架空の例)</desc>
+<rect width="960" height="250" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#57606a"/></marker></defs>
+<text x="480" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2328">話した言葉が、字幕と声になるまで(架空の例)</text>
+<g font-size="15" text-anchor="middle" fill="#1f2328">
+<rect x="20" y="70" width="152" height="90" rx="10" fill="#ddf4ff" stroke="#54aeff"/><text x="96" y="100" font-weight="700">1. 話す</text><text x="96" y="124" font-size="13">山田さん</text><text x="96" y="144" font-size="13">「ありがとうございます」</text>
+<rect x="196" y="70" width="152" height="90" rx="10" fill="#fff8c5" stroke="#d4a72c"/><text x="272" y="100" font-weight="700">2. 聞き取り</text><text x="272" y="124" font-size="13">声を文字にする</text><text x="272" y="144" font-size="13">(音声認識)</text>
+<rect x="372" y="70" width="152" height="90" rx="10" fill="#fbefff" stroke="#c297ff"/><text x="448" y="100" font-weight="700">3. 区切り</text><text x="448" y="124" font-size="13">話の切れ目を</text><text x="448" y="144" font-size="13">見つける</text>
+<rect x="548" y="70" width="152" height="90" rx="10" fill="#dafbe1" stroke="#4ac26b"/><text x="624" y="100" font-weight="700">4. 翻訳</text><text x="624" y="124" font-size="13">相手の言語へ</text><text x="624" y="144" font-size="13">(翻訳モデル)</text>
+<rect x="724" y="70" width="216" height="90" rx="10" fill="#ffeff7" stroke="#ff80c8"/><text x="832" y="100" font-weight="700">5. 字幕と声</text><text x="832" y="124" font-size="13">大きな字幕に出し、</text><text x="832" y="144" font-size="13">相手の言語で読み上げる</text>
+</g>
+<g stroke="#57606a" stroke-width="2" marker-end="url(#a)"><path d="M174 115H192"/><path d="M350 115H368"/><path d="M526 115H544"/><path d="M702 115H720"/></g>
+<text x="480" y="205" text-anchor="middle" font-size="14" fill="#57606a">「このMac」モードでは、この全部が手元の Mac の中で動きます。音声や文字はネットに出ません。</text>
+<text x="480" y="228" text-anchor="middle" font-size="14" fill="#57606a">会話の記録は、あとで会議メモ(要約・決定事項・やること)になります。</text>
+</svg>

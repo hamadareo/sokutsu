@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="t d" font-family="-apple-system,BlinkMacSystemFont,Hiragino Sans,Noto Sans JP,sans-serif">
+<title id="t">会話画面のイメージ</title><desc id="d">左右の柱が2人の言語、中央に大きな訳字幕と原文、右に会話の履歴が並ぶ画面のイメージ図(架空の会話)</desc>
+<rect width="960" height="520" rx="14" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="480" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2328">会話画面のイメージ(実際の画面ではなく、架空の会話で描いた図)</text>
+<rect x="30" y="50" width="900" height="440" rx="10" fill="#ffffff" stroke="#8c959f"/>
+<rect x="30" y="50" width="900" height="26" rx="10" fill="#e6ebf1"/><text x="480" y="68" text-anchor="middle" font-size="12" fill="#57606a">上の帯: 読み上げ中は色で満ちます(その間マイクは休止)</text>
+<rect x="46" y="92" width="64" height="380" rx="8" fill="#ddf4ff" stroke="#54aeff"/>
+<text x="78" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2328">日本語</text>
+<g fill="#0969da"><rect x="58" y="300" width="6" height="40"/><rect x="68" y="270" width="6" height="70"/><rect x="78" y="285" width="6" height="55"/><rect x="88" y="310" width="6" height="30"/></g>
+<text x="78" y="372" text-anchor="middle" font-size="11" fill="#57606a">話している人の</text><text x="78" y="388" text-anchor="middle" font-size="11" fill="#57606a">柱に縞が立つ</text>
+<rect x="500" y="92" width="64" height="380" rx="8" fill="#ffeff7" stroke="#ff80c8"/>
+<text x="532" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2328">English</text>
+<text x="280" y="190" text-anchor="middle" font-size="12" fill="#57606a">訳字幕(大きく表示)</text>
+<text x="282" y="238" text-anchor="middle" font-size="30" font-weight="700" fill="#1f2328">Thank you very much.</text>
+<line x1="150" y1="252" x2="415" y2="252" stroke="#8c959f" stroke-width="2" stroke-dasharray="2 4"/>
+<text x="282" y="276" text-anchor="middle" font-size="12" fill="#57606a">点線の下線 = 話の途中の「予想訳」(続きで変わることがあります)</text>
+<text x="282" y="340" text-anchor="middle" font-size="12" fill="#57606a">原文</text>
+<text x="282" y="366" text-anchor="middle" font-size="18" fill="#1f2328">ありがとうございます</text>
+<rect x="590" y="92" width="324" height="380" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="752" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2328">会話の履歴</text>
+<g font-size="13" fill="#1f2328">
+<text x="604" y="150" fill="#0969da" font-weight="700">山田</text><text x="604" y="170">はじめまして。</text><text x="604" y="188" fill="#57606a">Nice to meet you.</text>
+<text x="604" y="226" fill="#bf3989" font-weight="700">Alex</text><text x="604" y="246">Looking forward to your talk.</text><text x="604" y="264" fill="#57606a">発表を楽しみにしています。</text>
+<text x="604" y="302" fill="#0969da" font-weight="700">山田</text><text x="604" y="322">ありがとうございます</text><text x="604" y="340" fill="#57606a">Thank you very much.</text>
+</g>
+<text x="752" y="440" text-anchor="middle" font-size="11" fill="#57606a">行をクリックで大きな字幕に再表示</text>
+</svg>
