@@ -75,7 +75,6 @@ To run from source instead, read on.
 - An internet connection (**only the first time, to download models**; not needed for conversations afterwards)
 - Python 3.10 or later, and the translation app [LM Studio](https://lmstudio.ai)
 
-![Two ways to run. First-timers: "This Mac"](docs/images/modes.svg)
 
 ### 2. Install
 
