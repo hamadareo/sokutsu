@@ -5,6 +5,8 @@
 
 [日本語](README.md) | English
 
+By [@hamadareo](https://github.com/hamadareo). Bug reports, feedback and ideas are welcome in [Issues](../../issues) and [Discussions](../../discussions). If you like it, a ⭐ helps a lot.
+
 <img src="src/tsuyaku/webui/logo.svg" width="72" alt="Sokutsu">
 
 ## What is this?

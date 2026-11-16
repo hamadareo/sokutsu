@@ -1,0 +1,21 @@
+name: Bug report / 不具合
+description: 動かない・おかしい(個人の情報は書かないでください)
+labels: [bug]
+body:
+  - type: input
+    attributes: {label: Sokutsu の版 / Version, placeholder: "1.1.3"}
+    validations: {required: true}
+  - type: input
+    attributes: {label: Mac の機種と macOS の版 / Mac and macOS, placeholder: "MacBook Air M2, macOS 15.1"}
+    validations: {required: true}
+  - type: dropdown
+    attributes:
+      label: 使い方 / How you run it
+      options: [配布用アプリ(DMG), ソースから]
+  - type: textarea
+    attributes: {label: 何をしたら、何が起きましたか / What happened}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: 期待していたこと / Expected}
+  - type: markdown
+    attributes: {value: "会話の内容・名前・メールなどの個人の情報は貼らないでください。ログを貼るときも、確かめてから。"}

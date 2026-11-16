@@ -1,0 +1,9 @@
+name: Feature request / 要望
+description: こんな場面でこう使いたい
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes: {label: どんな場面で困っていますか / Your situation}
+    validations: {required: true}
+  - type: textarea
+    attributes: {label: こうなると嬉しい / What would help}
