@@ -253,7 +253,7 @@ In "This Mac" mode audio, text and translations stay on the Mac; the network is 
 
 ### Limitations
 
-Designed for face-to-face turn-taking; overlapping speech is weak. Quality depends on the chosen LLM (4B-class model is weaker than a larger remote model on terms and long sentences). Apple silicon macOS only. No prebuilt app yet; running from source needs Python and a separate LLM server. Korean speech output may fall back to macOS voices.
+Designed for face-to-face turn-taking; overlapping speech is weak. Quality depends on the chosen LLM (4B-class model is weaker than a larger remote model on terms and long sentences). Apple silicon macOS only. A prebuilt app (DMG) is on the Releases page; running from source needs Python and a separate LLM server. Korean speech output may fall back to macOS voices.
 
 ### Development
 
